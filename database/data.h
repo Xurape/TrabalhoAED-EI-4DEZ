@@ -1,10 +1,14 @@
 
-/**
- *
- * Estrutura dos dados
- *
- */
-
+/*
+|--------------------------------------------------------------------------
+| Estrutura de dados
+|--------------------------------------------------------------------------
+|
+| Este ficheiro define-nos a estrutura de
+| dados que será utilizada para guardar o
+| dados inseridos pelo utilizador.
+|
+*/
 typedef struct Equipamentos
 {
     time_t datadeaquisicao;
@@ -29,7 +33,6 @@ typedef struct Equipamentos
         char *ip;
         char *netmask; // Máscara de rede
         char *gateway; // Broadcast address
-
     };
 
 } Equipamento;
