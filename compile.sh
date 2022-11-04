@@ -1,1 +1,1 @@
-gcc index.c -o index -lncurses && ./index
+gcc main.c -o main -lncurses && ./main
