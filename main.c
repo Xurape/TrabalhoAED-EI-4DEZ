@@ -6,6 +6,10 @@
 // Database
 #include "./database/data.h"
 
-void main (int argc, char *argv[]) {
-    printf("Hello world!\n");
+// UI
+#include "./ui/main.h"
+
+void main(int argc, char *argv[])
+{
+    typedef struct Equipamentos Equipamento;
 }

@@ -1,24 +1,35 @@
 
 /**
- * 
- * Estrutura da base de dados
- * 
-*/
+ *
+ * Estrutura dos dados
+ *
+ */
 
-typedef struct Equipamentos {
+typedef struct Equipamentos
+{
     time_t datadeaquisicao;
     char *departamento;
     int garantia;
 
-    typedef struct CPUs {
+    struct CPUs
+    {
         char *cpu;
         int ghz;
-    } CPU;
+    };
 
-    typedef struct Discos {
+    struct Discos
+    {
         char *nome;
         char *tipo;
         int capacidade;
-    } Disco;
+    };
+
+    struct Rede
+    {
+        char *ip;
+        char *netmask; // Máscara de rede
+        char *gateway; // Broadcast address
+
+    };
 
 } Equipamento;
