@@ -10,12 +10,12 @@
 char* obterSO() 
 {
     #ifdef _WIN32
-        return "WIN";
+        return "Windows";
     #elif linux
-        return "LINUX";
+        return "Linux";
     #elif __APPLE__
-        return "MAC";
+        return "MacOS";
     #else
-        return "UNKNOWN";
+        return "Desconhecido";
     #endif
 }
