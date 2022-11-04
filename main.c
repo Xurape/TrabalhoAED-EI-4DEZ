@@ -1,15 +1,20 @@
 // Libraries principais
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
+#include <unistd.h>
+#include <locale.h>
 #include <time.h>
-#include <curses.h>
 
 // Database
 #include "./database/data.h"
 
 // Utilidades
 #include "./utils/main.h"
+
+// Error handler
+#include "./exceptions/handler.h"
 
 // UI
 #include "./ui/main.h"
@@ -36,15 +41,14 @@ void main(int argc, char *argv[])
         => Pesquisar
         => Listar
         => Detetar problemas
-        => Detetar se os computadores
-        estão na mesma rede.
+        => Detetar se os computadores estão na mesma rede.
     */
-    if (obterSO() == "LINUX")
-        system("clear");
-    else if (obterSO() == "WIN")
-        system("cls");
-    else if (obterSO() == "MAC")
-        system("clear");
-        
-    printf("Sistema operativo detetado: %s\n", obterSO());
+
+    configuracaoInicial();
+
+    menuInicial();
+
+    iniciarMenu(256);
+
+    finalizarMenu();
 }
