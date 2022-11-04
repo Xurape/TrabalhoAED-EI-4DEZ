@@ -4,6 +4,10 @@
         "math.h": "c",
         "time.h": "c",
         "stdlib.h": "c",
-        "main.h": "c"
-    }
+        "main.h": "c",
+        "signal.h": "c",
+        "data.h": "c",
+        "string.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
