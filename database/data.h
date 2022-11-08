@@ -11,6 +11,7 @@
 */
 typedef struct Equipamentos
 {
+    int id;
     time_t datadeaquisicao;
     char *departamento;
     int garantia;
