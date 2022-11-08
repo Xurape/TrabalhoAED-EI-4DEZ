@@ -13,9 +13,6 @@
 // Utilidades
 #include "./utils/main.h"
 
-// Error handler
-#include "./exceptions/handler.h"
-
 // UI
 #include "./ui/main.h"
 
@@ -46,9 +43,7 @@ void main(int argc, char *argv[])
 
     configuracaoInicial();
 
-    menuInicial();
-
-    iniciarMenu(256);
+    mainUI();
 
     finalizarMenu();
 }

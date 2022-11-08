@@ -1,5 +1,11 @@
 
 ---
+Enunciado
+
+---
+![imagem](./enunciado.png)
+
+---
 # Estrutura
 ```c
  typedef struct Equipamento

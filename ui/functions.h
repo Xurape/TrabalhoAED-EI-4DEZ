@@ -1,9 +1,6 @@
 // Incluir as cores
 #include "../utils/colors.h"
 
-// Incluir opções dos menus
-#include "./options.h"
-
 /*
 |--------------------------------------------------------------------------
 | Configurações iniciais do programa

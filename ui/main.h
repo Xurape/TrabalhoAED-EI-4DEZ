@@ -1,6 +1,10 @@
 // Funções
 #include "./functions.h"
 
-// Menus
-#include "./menus/main.h"
-#include "./menus/info.h"
+void mainUI()
+{
+    limparJanela();
+
+    printf("\n********************************\n");
+    printf("             GESTÃO")
+}
