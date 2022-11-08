@@ -73,21 +73,21 @@ void abrirMenu(int menu)
 {
     switch (menu)
     {
-    case 0:
-        exit(1);
-        break;
-    case 1:
-        menuEquipamentos();
-        break;
-    case 2:
-        menuAplicacoes();
-        break;
-    case 3:
-        menuPlacasRede();
-        break;
-    default:
-        exit(1);
-        break;
+        case 0:
+            exit(1);
+            break;
+        case 1:
+            menuEquipamentos();
+            break;
+        case 2:
+            menuAplicacoes();
+            break;
+        case 3:
+            menuPlacasRede();
+            break;
+        default:
+            exit(1);
+            break;
     }
 }
 
@@ -104,5 +104,3 @@ void finalizarMenu()
     printf("\n\n");
     exit(0);
 }
-
-// printf("Sistema operativo detetado: %s\n", obterSO());
