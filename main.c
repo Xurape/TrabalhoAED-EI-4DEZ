@@ -26,21 +26,8 @@
 | do programa pelo utilizador.
 |
 */
-void main(int argc, char *argv[])
+main()
 {
-    /*
-     -> TODO
-        => Fazer o sistema para inserir, alterar, eliminar equipamentos;
-        => Fazer o sistema para inserir, alterar, eliminar aplicações;
-        => Fazer o sistema para inserir, alterar, eliminar placas de rede;
-
-     -> OTHER
-        => Pesquisar
-        => Listar
-        => Detetar problemas
-        => Detetar se os computadores estão na mesma rede.
-    */
-
     configuracaoInicial();
 
     mainUI();

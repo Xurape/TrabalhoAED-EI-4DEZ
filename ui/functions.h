@@ -48,7 +48,41 @@ void quebrarLinhas(int linhas)
     for (size_t i = 1; i <= linhas; i++)
     {
         printf("\n");
-    }   
+    }
+}
+
+void enviarTitulo(char* titulo)
+{
+    printf(COR_Red);
+    printf(COR_Red);
+
+    printf(COR_Blue "\n***********************************\n\n"COR_Cyan);
+    printf(titulo);
+    printf(COR_Blue "\n***********************************\n\n");
+}
+
+/*
+|--------------------------------------------------------------------------
+| Abrir menus
+|--------------------------------------------------------------------------
+|
+| Esta função irá abrir um menu selecionado
+|
+*/
+void abrirMenu(int menu)
+{
+    switch (menu)
+    {
+    case 0:
+        exit(1);
+        break;
+    case 1:
+        menuEquipamentos();
+        break;
+    default:
+        exit(1);
+        break;
+    }
 }
 
 /*
