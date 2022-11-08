@@ -79,6 +79,12 @@ void abrirMenu(int menu)
     case 1:
         menuEquipamentos();
         break;
+    case 2:
+        menuAplicacoes();
+        break;
+    case 3:
+        menuPlacasRede();
+        break;
     default:
         exit(1);
         break;
