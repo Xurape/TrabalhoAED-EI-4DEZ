@@ -2,12 +2,15 @@
 #include "./functions.h"
 #include "./menus.h"
 
-int loading = 1;
+int loading = 0;
 
 void abrirTerminalLoading()
 {
     limparJanela();
-    printf(COR_Default "A iniciar sistema...\n\n");
+    printf(COR_Gray "A montar "COR_Default"/boot/iniciar...\n");
+    sleep(1);
+    printf("[  " COR_Green "OK" COR_Default"  ] /boot/iniciar montado com sucesso.\n");
+    printf("        "COR_Gray"A iniciar "COR_Default"/boot/iniciar...\n\n");
     sleep(1);
 
     printf("        "COR_Gray"A criar "COR_Default"estrutura da base de dados...\n");;
@@ -20,7 +23,7 @@ void abrirTerminalLoading()
 
     printf("        "COR_Gray"A tirar "COR_Default"nota 20 no trabalho...\n");
     sleep(3);
-    printf("[ " COR_Red "ERRO " COR_Default"] Nota 5 atribuida com sucesso.\n\n");
+    printf("[ " COR_Red "ERRO " COR_Default"] Nota %d atribuida com sucesso.\n\n", rand());
 
     printf("        "COR_Gray"A carregar "COR_Default"funções...\n");
     sleep(1);
