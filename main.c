@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <locale.h>
 #include <time.h>
+#include <math.h>
 
 // Database
 #include "./database/data.h"
