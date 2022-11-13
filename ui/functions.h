@@ -1,27 +1,33 @@
 // Incluir as cores
 #include "../utils/colors.h"
 
-/*
-|--------------------------------------------------------------------------
-| Configurações iniciais do programa
-|--------------------------------------------------------------------------
-|
-| Esta função irá correr a configuração inicial do programa
-|
+/**
+ * 
+ * @name configuracaoInicial
+ * @brief Esta função irá correr a configuração inicial do programa
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
 */
 void configuracaoInicial()
 {
     setlocale(LC_ALL, "Portuguese");
 }
 
-/*
-|--------------------------------------------------------------------------
-| Limpar a janela
-|--------------------------------------------------------------------------
-|
-| Esta função irá limpar a janela ao utilizador dependendo
-| do sistema operativo a ser usado
-|
+
+/**
+ * 
+ * @name limparJanela
+ * @brief Esta função irá limpar a janela ao utilizador dependendo do sistema operativo a ser usado
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
 */
 void limparJanela()
 {
@@ -35,13 +41,17 @@ void limparJanela()
         system("clear");
 }
 
-/*
-|--------------------------------------------------------------------------
-| Quebra a quantidade de linhas indicada
-|--------------------------------------------------------------------------
-|
-| Esta função irá mudar/quebrar as linhas indicadas
-|
+
+/**
+ * 
+ * @name quebrarLinhas
+ * @brief Esta função irá mudar/quebrar as linhas indicadas
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param int Número de linhas
+ * 
+ * @return Sem return
+ * 
 */
 void quebrarLinhas(int linhas)
 {
@@ -51,23 +61,37 @@ void quebrarLinhas(int linhas)
     }
 }
 
+/**
+ * 
+ * @name enviarTitulo
+ * @brief Esta função irá enviar print do título parameterizado
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param char Título a enviar
+ * 
+ * @return Sem return
+ * 
+*/
 void enviarTitulo(char* titulo)
 {
     printf(COR_Red);
     printf(COR_Red);
 
-    printf(COR_Blue "\n***********************************\n\n"COR_Cyan);
+    printf(COR_Blue "\n\t\t***********************************\n\n"COR_Cyan);
     printf(titulo);
-    printf(COR_Blue "\n***********************************\n\n");
+    printf(COR_Blue "\n\t\t***********************************\n\n");
 }
 
-/*
-|--------------------------------------------------------------------------
-| Abrir menus
-|--------------------------------------------------------------------------
-|
-| Esta função irá abrir um menu selecionado
-|
+/**
+ * 
+ * @name abrirMenu
+ * @brief Esta função irá abrir um menu selecionado
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param int Número do menu a abrir
+ * 
+ * @return Sem return
+ * 
 */
 void abrirMenu(int menu)
 {
@@ -91,13 +115,16 @@ void abrirMenu(int menu)
     }
 }
 
-/*
-|--------------------------------------------------------------------------
-| Finalizar menu
-|--------------------------------------------------------------------------
-|
-| Esta função irá finalizar os menus
-|
+/**
+ * 
+ * @name finalizarMenu
+ * @brief Esta função irá finalizar o programa
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
 */
 void finalizarMenu()
 {

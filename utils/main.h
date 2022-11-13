@@ -1,11 +1,13 @@
-/*
-|--------------------------------------------------------------------------
-| Obter sistema operativo
-|--------------------------------------------------------------------------
-|
-| Esta função detetará o sistema operativo
-| onde o utilizador está a correr o programa.
-|
+/**
+ * 
+ * @name obterSO
+ * @brief Esta função detetará o sistema operativo onde o utilizador está a correr o programa
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sistema operativo
+ * 
 */
 char* obterSO() 
 {

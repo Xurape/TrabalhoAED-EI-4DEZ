@@ -1,13 +1,7 @@
-
-/*
-|--------------------------------------------------------------------------
-| Estrutura de dados
-|--------------------------------------------------------------------------
-|
-| Este ficheiro define-nos a estrutura de
-| dados que será utilizada para guardar o
-| dados inseridos pelo utilizador.
-|
+/**
+ * 
+ * @brief Este ficheiro define-nos a estrutura de dados que será utilizada para guardar o dados inseridos pelo utilizador.
+ * 
 */
 typedef struct Equipamentos
 {

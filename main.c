@@ -16,17 +16,18 @@
 // UI
 #include "./ui/main.h"
 
-/*
-|--------------------------------------------------------------------------
-| Função principal
-|--------------------------------------------------------------------------
-|
-| Esta função será a primeira e única função
-| a ser executada de origem após a iniciação
-| do programa pelo utilizador.
-|
+/**
+ * 
+ * @name main
+ * @brief Esta função será a primeira e única função a ser executada de origem após a iniciação do programa pelo utilizador.
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
 */
-main()
+void main()
 {
     configuracaoInicial();
 
