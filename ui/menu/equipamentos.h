@@ -31,6 +31,53 @@ void equipamentosInserir()
     printf(COR_Cyan "\t\tData de aquisição " COR_Green "~> ");
     scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano);
 
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tDepartamento " COR_Green "~> ");
+    gets(equipamento[id].departamento);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tGarantia (em anos) " COR_Green "~> ");
+    scanf("%d", &equipamento[id].garantia);
+
+    quebrarLinhas(1);
+
+    // printf(COR_Cyan "\tCPU " COR_Green "~> ");
+    // gets(equipamento[id].cpus.cpu);
+
+    // quebrarLinhas(1);
+
+    // printf(COR_Cyan "\tFrequência de CPU (em GHz) " COR_Green "~> ");
+    // scanf("%f", &equipamento[id].cpus.ghz);
+
+    // quebrarLinhas(1);
+
+    // printf(COR_Cyan "\tTipo de disco (SSD/SAS/SSD) " COR_Green "~> ");
+    // gets(equipamento[id].discos.tipo);
+
+    // quebrarLinhas(1);
+
+    // printf(COR_Cyan "\tNome do disco (Ex.: Kingston <Modelo>) " COR_Green "~> ");
+    // gets(equipamento[id].discos.nome);
+
+    // quebrarLinhas(1);
+
+    // printf(COR_Cyan "\tCapacidade do disco (Ex.: 500GB) " COR_Green "~> ");
+    // scanf("%d", &equipamento[id].discos.capacidade);
+
+    // quebrarLinhas(1);
+
+    // printf(COR_Cyan "\tQuantidade de memória RAM (Ex.: 8GB) " COR_Green "~> ");
+    // scanf("%d", &equipamento[id].ram);
+
+    // quebrarLinhas(1);
+
+    // printf(COR_Cyan "\tSistema operativo (Ex.: Windows 11) " COR_Green "~> ");
+    // gets(equipamento[id].sistemaoperativo);
+
+    // quebrarLinhas(1);
+
     equipamentos_id++;
 
     printf(COR_Default); gerarProgressBar(2000);

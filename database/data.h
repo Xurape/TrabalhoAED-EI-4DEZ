@@ -14,8 +14,11 @@ int placasderede_id = 0;
 typedef struct Equipamentos
 {
     int tipo;
-    char *departamento;
     int garantia;
+    int ram;
+
+    char *departamento;
+    char *sistemaoperativo;
 
     struct Aquisicao 
     {
@@ -27,7 +30,7 @@ typedef struct Equipamentos
     struct CPUs
     {
         char *cpu;
-        int ghz;
+        float ghz;
     } cpus;
 
     struct Discos
