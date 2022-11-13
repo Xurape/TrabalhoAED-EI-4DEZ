@@ -36,6 +36,8 @@ void menuEquipamentos()
 
     if(opcao == 0)
         mainUI();
+    else   
+        abrirMenu(opcao + 30);
 }
 
 /**
@@ -76,6 +78,8 @@ void menuAplicacoes()
 
     if(opcao == 0)
         mainUI();
+    else   
+        abrirMenu(opcao + 40);
 }
 
 /**
@@ -116,4 +120,6 @@ void menuPlacasRede()
 
     if(opcao == 0)
         mainUI();
+    else   
+        abrirMenu(opcao + 50);
 }
