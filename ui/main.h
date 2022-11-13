@@ -4,12 +4,6 @@
 
 int loading = true;
 
-#define PROGRESSBAR_ESTILO1 "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
-#define PROGRESSBAR_ESTILO2 "############################################################"
-#define PROGRESSBAR_ESTILO3 "------------------------------------------------------------"
-#define PROGRESSBAR_ESTILO4 "============================================================"
-#define PROGRESSBAR_ESTILO5 "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-
 #define PROGRESSBAR_PROGRESSO0 "||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||"
 #define PROGRESSBAR_PROGRESSO1 "////////////////////////////////////////////////////////////"
 #define PROGRESSBAR_PROGRESSO2 "------------------------------------------------------------"
@@ -29,28 +23,18 @@ int loading = true;
  * @return Sem return
  * 
 */
-void progressBar(double percentagem, int estilo) 
+void progressBar(double percentagem, int progress) 
 {
     int valor = (int) (percentagem * 100);
     int tamanho = (int) (percentagem * PROGRESSBAR_TAMANHO);
     int progresso = PROGRESSBAR_TAMANHO - tamanho;
-    // if(estilo == 1)
-    //     printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_ESTILO1, progresso, "");
-    // else if(estilo == 2)
-    //     printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_ESTILO2, progresso, "");
-    // else if(estilo == 3)
-    //     printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_ESTILO3, progresso, "");
-    // else if(estilo == 4)
-    //     printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_ESTILO4, progresso, "");
-    // else
-    //     printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_ESTILO5, progresso, "");
-    if(estilo == 1)
+    if(progress == 1)
         printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_PROGRESSO0, progresso, "");
-    else if(estilo == 2)
+    else if(progress == 2)
         printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_PROGRESSO1, progresso, "");
-    else if(estilo == 3)
+    else if(progress == 3)
         printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_PROGRESSO2, progresso, "");
-    else if(estilo == 4)
+    else if(progress == 4)
         printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_PROGRESSO3, progresso, "");
     else
         printf("\r\t\t%3d%% [ %.*s%*s ]", valor, tamanho, PROGRESSBAR_PROGRESSO4, progresso, "");
