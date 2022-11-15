@@ -87,7 +87,7 @@ void enviarTitulo(char* titulo)
     printf(COR_Red);
 
     printf(COR_Blue "\n\t\t***********************************\n\n"COR_Cyan);
-    printf(titulo);
+    printf("%s", titulo);
     printf(COR_Blue "\n\t\t***********************************\n\n");
 }
 

@@ -21,3 +21,21 @@ char* obterSO()
         return "Desconhecido";
     #endif
 }
+
+/**
+ * 
+ * @name truncateString
+ * @brief Esta função irá verificar e encurtar a string
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param char String
+ * @param int Máximo de tamanho
+ * 
+ * @return Sistema operativo
+ * 
+*/
+
+char truncateString(char *str, int pos)
+{
+    return str - pos;
+}

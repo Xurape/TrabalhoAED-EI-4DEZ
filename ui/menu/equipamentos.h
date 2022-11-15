@@ -37,6 +37,10 @@ void equipamentosInserir()
 
     printf(COR_Cyan "\tDepartamento " COR_Green "~> ");
     scanf("%s", &equipamento[id].departamento);
+    if(strlen(equipamento[id].departamento) > 14) 
+    {
+        equipamento[id].departamento;
+    }
     printf("\n---\nDepart: %s\n----", equipamento[id].departamento);
 
     quebrarLinhas(1);
@@ -62,7 +66,7 @@ void equipamentosInserir()
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "\tTipo de disco (SSD/SAS/SSD) " COR_Green "~> ");
+    printf(COR_Cyan "\tTipo de disco (SSD/SAS/HDD) " COR_Green "~> ");
 
     // scanf("%s", &equipamento[id].discos.tipo);
     fflush(stdin);

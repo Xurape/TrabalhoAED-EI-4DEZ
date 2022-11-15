@@ -22,9 +22,9 @@ void gerarTabela(int tipo)
     {
         fflush(stdin);
         printf(COR_Yellow"\
-    +----+-------------+--------------+----------+-------------+------------+-------+-----+----------------+\n\
-    | ID | Adquirido   | Departamento | Garantia |     CPU     | Velocidade | Disco | RAM | Sistema Opera. |\n\
-    +----+-------------+--------------+----------+-------------+------------+-------+-----+----------------+\n");
+    +----+-------------+--------------+----------+---------------+------------+-------+-----+----------------+\n\
+    | ID | Adquirido   | Departamento | Garantia |      CPU      | Velocidade | Disco | RAM | Sistema Opera. |\n\
+    +----+-------------+--------------+----------+---------------+------------+-------+-----+----------------+\n");
 
     for (size_t i = 1; i <= equipamentos_id; i++)
     {
@@ -37,16 +37,15 @@ void gerarTabela(int tipo)
         // printf(" %d | %d | %s\n",equipamento[i].discos.capacidade, equipamento[i].ram, equipamento[i].sistemaoperativo);
 
         printf("\
-    | %2d | %d/%d/%-.4d   | %s | %d anos | %s | %.2f | %s %s %d | %d | %s\n", 
-        i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano,
-        equipamento[i].departamento, equipamento[i].garantia,
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d anos  | %s | %.2f | %s %s %d | %d | %s\n", 
+        i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, truncateString(equipamento[i].departamento, -14), equipamento[i].garantia,
         equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
         equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade,
         equipamento[i].ram, equipamento[i].sistemaoperativo);
     }
     
     printf("\
-    +----+-------------+--------------+----------+-------------+------------+-------+-----+----------------+");
+    +----+-------------+--------------+----------+---------------+------------+-------+-----+----------------+");
 
         quebrarLinhas(2);
     }

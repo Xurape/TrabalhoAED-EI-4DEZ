@@ -30,17 +30,20 @@
 */
 void main()
 {
-
-    // const char *myword = "grandetamanho";
+    char *myword = "grandetamanho";
      
     // printf (">%-20s<\n", myword);
     // printf (">%20s<\n", myword);
     // printf (">%-*s<\n", 20, myword);
-    // printf (">%-.2s<\n", myword);
+    // printf (">%-.13s<\n", myword);
 
-    configuracaoInicial();
+    limparJanela();
+    
+    printf("\n\n%s\n\n", truncateString(myword, 8));
+    
+    // configuracaoInicial();
 
-    mainUI();
+    // mainUI();
 
-    finalizarMenu();
+    // finalizarMenu();
 }
