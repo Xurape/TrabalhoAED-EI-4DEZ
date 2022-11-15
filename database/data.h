@@ -18,7 +18,7 @@ typedef struct Equipamentos
     int ram;
 
     char departamento[100];
-    char sistemaoperativo[100];
+    char sistemaoperativo[50];
 
     struct Aquisicao 
     {

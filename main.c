@@ -30,20 +30,11 @@
 */
 void main()
 {
-    char *myword = "grandetamanho";
-     
-    // printf (">%-20s<\n", myword);
-    // printf (">%20s<\n", myword);
-    // printf (">%-*s<\n", 20, myword);
-    // printf (">%-.13s<\n", myword);
-
     limparJanela();
-    
-    printf("\n\n%s\n\n", truncateString(myword, 8));
-    
-    // configuracaoInicial();
 
-    // mainUI();
+    configuracaoInicial();
 
-    // finalizarMenu();
+    mainUI();
+
+    finalizarMenu();
 }

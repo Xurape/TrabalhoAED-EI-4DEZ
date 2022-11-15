@@ -35,7 +35,9 @@ char* obterSO()
  * 
 */
 
-char truncateString(char *str, int pos)
-{
-    return str - pos;
-}
+// char truncateString(char string[])
+// {
+//     string[strlen(string) - 3]  = '\0';
+
+//     return string;
+// }
