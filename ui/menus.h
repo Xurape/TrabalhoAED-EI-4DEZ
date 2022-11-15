@@ -11,7 +11,7 @@
 */
 void menuEquipamentos()
 {
-    int opcao;
+    int opc = { "\0" };
     do
     {
         limparJanela();
@@ -31,13 +31,13 @@ void menuEquipamentos()
         printf("\n\n\t\t***********************************\n");
 
         printf("\n\t\tSelecione uma opção:\n\t\t > ");
-        scanf("%d", &opcao);
-    } while (opcao < 0 || opcao > 7);
+        scanf("%d", &opc);
+    } while (opc < 0 || opc > 7);
 
-    if(opcao == 0)
+    if(opc == 0)
         mainUI();
     else   
-        abrirMenu(opcao + 30);
+        abrirMenu(opc + 30);
 }
 
 /**

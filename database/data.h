@@ -17,8 +17,8 @@ typedef struct Equipamentos
     int garantia;
     int ram;
 
-    char *departamento;
-    char *sistemaoperativo;
+    char departamento[100];
+    char sistemaoperativo[100];
 
     struct Aquisicao 
     {
@@ -29,22 +29,22 @@ typedef struct Equipamentos
 
     struct CPUs
     {
-        char *cpu;
+        char cpu[50];
         float ghz;
     } cpus;
 
     struct Discos
     {
-        char *nome;
-        char *tipo;
+        char nome[50];
+        char tipo[10];
         int capacidade;
     } discos;
 
     struct Rede
     {
-        char *ip;
-        char *netmask; // Máscara de rede
-        char *gateway; // Broadcast address
+        char ip[50];
+        char netmask[50]; // Máscara de rede
+        char gateway[50]; // Broadcast address
     } rede;
 
 } Equipamento;
