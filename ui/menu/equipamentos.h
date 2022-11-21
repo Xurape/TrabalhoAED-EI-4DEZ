@@ -25,13 +25,13 @@ void equipamentosInserir()
 
     printf(COR_Cyan "\tCaso seja um computador [1] ou servidor [2] " COR_Green "~> ");
     scanf("%d", &equipamento[id].tipo);
-    printf("\n---\nTIpo: %d\n----", equipamento[id].tipo);
+    // printf("\n---\nTIpo: %d\n----", equipamento[id].tipo);
 
     quebrarLinhas(1);
 
     printf(COR_Cyan "\t\tData de aquisição " COR_Green "~> ");
     scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano);
-    printf("\n---\nAQuisiçõum: %d/%d/%d\n----", equipamento[id].aquisicao.dia, equipamento[id].aquisicao.mes, equipamento[id].aquisicao.ano);
+    // printf("\n---\nAQuisiçõum: %d/%d/%d\n----", equipamento[id].aquisicao.dia, equipamento[id].aquisicao.mes, equipamento[id].aquisicao.ano);
 
     quebrarLinhas(1);
 
@@ -41,13 +41,13 @@ void equipamentosInserir()
     {
         equipamento[id].departamento;
     }
-    printf("\n---\nDepart: %s\n----", equipamento[id].departamento);
+    // printf("\n---\nDepart: %s\n----", equipamento[id].departamento);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "\tGarantia (em anos) " COR_Green "~> ");
+    printf(COR_Cyan "\tGarantia (em meses) " COR_Green "~> ");
     scanf("%d", &equipamento[id].garantia);
-    printf("\n---\nGarantia: %d\n----", equipamento[id].garantia);
+    // printf("\n---\nGarantia: %d\n----", equipamento[id].garantia);
 
     quebrarLinhas(1);
     
@@ -56,13 +56,13 @@ void equipamentosInserir()
     fflush(stdin);
     scanf("%c", &temp);
     gets(&equipamento[id].cpus.cpu);
-    printf("\n---\nCPU: %s\n----", equipamento[id].cpus.cpu);
+    // printf("\n---\nCPU: %s\n----", equipamento[id].cpus.cpu);
 
     quebrarLinhas(1);
 
     printf(COR_Cyan "\tFrequência de CPU (em GHz) " COR_Green "~> ");
     scanf("%f", &equipamento[id].cpus.ghz);
-    printf("\n---\nVelocidade: %f\n----", equipamento[id].cpus.ghz);
+    // printf("\n---\nVelocidade: %f\n----", equipamento[id].cpus.ghz);
 
     quebrarLinhas(1);
 
@@ -72,7 +72,7 @@ void equipamentosInserir()
     fflush(stdin);
     scanf("%c", &temp);
     gets(&equipamento[id].discos.tipo);
-    printf("\n---\nDisco_tipo: %s\n----", equipamento[id].discos.tipo);
+    // printf("\n---\nDisco_tipo: %s\n----", equipamento[id].discos.tipo);
 
     quebrarLinhas(1);
 
@@ -80,21 +80,21 @@ void equipamentosInserir()
     
     fflush(stdin);
     gets(&equipamento[id].discos.nome);
-    printf("\n---\nDisco_nome: %s\n----", equipamento[id].discos.nome);
+    // printf("\n---\nDisco_nome: %s\n----", equipamento[id].discos.nome);
 
     quebrarLinhas(1);
 
     fflush(stdin);
 
-    printf(COR_Cyan "\tCapacidade do disco (Ex.: 500GB) " COR_Green "~> ");
+    printf(COR_Cyan "\tCapacidade do disco em GB (Ex.: 500) " COR_Green "~> ");
     scanf("%d", &equipamento[id].discos.capacidade);
-    printf("\n---\nDisco_capacidade: %d\n----", equipamento[id].discos.capacidade);
+    // printf("\n---\nDisco_capacidade: %d\n----", equipamento[id].discos.capacidade);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "\tQuantidade de memória RAM (Ex.: 8GB) " COR_Green "~> ");
+    printf(COR_Cyan "\tQuantidade de memória RAM em GB (Ex.: 8) " COR_Green "~> ");
     scanf("%d", &equipamento[id].ram);
-    printf("\n---\nRAM: %d\n----", equipamento[id].ram);
+    // printf("\n---\nRAM: %d\n----", equipamento[id].ram);
 
     quebrarLinhas(1);
     
@@ -130,7 +130,7 @@ void equipamentosMostrar()
 
     limparJanela();
 
-    enviarTitulo("\t\t\tLISTA DE EQUIPAMENTOS\n");
+    // enviarTitulo("\t\t\tLISTA DE EQUIPAMENTOS\n");
 
     gerarTabela(1);
 
@@ -141,3 +141,15 @@ void equipamentosMostrar()
 
     abrirMenu(1);
 }
+
+/**
+ *
+ * @name equipamentosFiltrar
+ * @brief Esta função irá gerar o menu para filtrar equipamentos
+ * @author João Ferreira & Gabriel Gavino
+ *
+ * @param null Sem parametros
+ *
+ * @return Sem return
+ *
+ */

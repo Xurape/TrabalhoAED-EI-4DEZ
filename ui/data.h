@@ -29,7 +29,7 @@ void gerarTabela(int tipo)
     for (size_t i = 1; i <= equipamentos_id; i++)
     {
         printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d anos  | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
         i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
         equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
         equipamento[i].ram, equipamento[i].sistemaoperativo,

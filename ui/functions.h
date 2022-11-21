@@ -142,7 +142,10 @@ void abrirMenu(int menu)
         case 34:
             equipamentosMostrar();
             break;
-        
+        case 35:
+            equipamentosMostrar();
+            break;
+
         /**
          * 
          * Aplicações

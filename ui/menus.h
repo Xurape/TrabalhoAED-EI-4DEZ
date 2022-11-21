@@ -18,11 +18,11 @@ void menuEquipamentos()
 
         enviarTitulo("\t\t\tMENU DE EQUIPAMENTOS\n");
 
-        // Opções
         printf(COR_Cyan "\t\t[1]" COR_Blue " Inserir equipamento\n");
         printf(COR_Cyan "\t\t[2]" COR_Blue " Alterar equipamento\n");
         printf(COR_Cyan "\t\t[3]" COR_Blue " Eliminar equipamento\n");
         printf(COR_Cyan "\t\t[4]" COR_Blue " Mostrar equipamentos\n");
+        printf(COR_Cyan "\t\t[5]" COR_Blue " Filtrar equipamentos\n");
 
         quebrarLinhas(2);
 
@@ -32,7 +32,7 @@ void menuEquipamentos()
 
         printf("\n\t\tSelecione uma opção:\n\t\t > ");
         scanf("%d", &opc);
-    } while (opc < 0 || opc > 7);
+    } while (opc < 0 || opc > 6);
 
     if(opc == 0)
         mainUI();
