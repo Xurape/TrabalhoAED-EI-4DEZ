@@ -143,7 +143,7 @@ void abrirMenu(int menu)
             equipamentosMostrar();
             break;
         case 35:
-            equipamentosMostrar();
+            equipamentosFiltrar();
             break;
 
         /**

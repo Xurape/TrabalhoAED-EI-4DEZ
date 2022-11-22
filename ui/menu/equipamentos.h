@@ -11,8 +11,9 @@
  */
 void equipamentosInserir()
 {
-    char *temp;
+    char temp[20];
     int id = equipamentos_id + 1;
+    int i;
 
     limparJanela();
 
@@ -36,11 +37,9 @@ void equipamentosInserir()
     quebrarLinhas(1);
 
     printf(COR_Cyan "\tDepartamento " COR_Green "~> ");
-    scanf("%s", &equipamento[id].departamento);
-    if(strlen(equipamento[id].departamento) > 14) 
-    {
-        equipamento[id].departamento;
-    }
+    fflush(stdin);
+    scanf("%c", &temp);
+    gets(&equipamento[id].departamento);
     // printf("\n---\nDepart: %s\n----", equipamento[id].departamento);
 
     quebrarLinhas(1);
@@ -105,7 +104,7 @@ void equipamentosInserir()
     fflush(stdin);
     scanf("%c", &temp);
     gets(&equipamento[id].sistemaoperativo);
-    printf("\n---\nSistema operativo: %s\n----", equipamento[id].sistemaoperativo);
+    // printf("\n---\nSistema operativo: %s\n----", equipamento[id].sistemaoperativo);
 
     quebrarLinhas(1);
 
@@ -132,7 +131,7 @@ void equipamentosMostrar()
 
     // enviarTitulo("\t\t\tLISTA DE EQUIPAMENTOS\n");
 
-    gerarTabela(1);
+    gerarTabela(1, 0, "\0");
 
     printf(COR_Cyan"\
     Insira qualquer número para voltar atrás.. ");
@@ -153,3 +152,51 @@ void equipamentosMostrar()
  * @return Sem return
  *
  */
+void equipamentosFiltrar()
+{
+    int filtro;
+
+    limparJanela();
+
+    enviarTitulo("\t\t\tMENU DE EQUIPAMENTOS\n");
+
+    printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Filtar equipamentos\n");
+    printf("\n\t\t***********************************\n");
+
+    printf("\n\t\t\tO que deseja filtrar?\n\n");
+
+    printf(COR_Cyan "\t\t[1] Equipamento por Sistema Operativo\n");
+    printf(COR_Cyan "\t\t[2] Equipamento por Rede\n");
+    printf(COR_Cyan "\t\t[3] Equipamento por Aplicação\n\n\n\t\t~> ");
+    scanf("%d", &filtro);
+}
+
+/**
+ *
+ * @name equipamentosPesquisar
+ * @brief Esta função irá gerar o menu para pesquisar equipamentos
+ * @author João Ferreira & Gabriel Gavino
+ *
+ * @param null Sem parametros
+ *
+ * @return Sem return
+ *
+ */
+void equipamentosPesquisar()
+{
+    char *pesquisa;
+
+    limparJanela();
+
+    enviarTitulo("\t\t\tMENU DE EQUIPAMENTOS\n");
+
+    printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Pesquisar equipamentos\n");
+    printf("\n\t\t***********************************\n");
+
+    printf("\n\t\t\tO que deseja pesquisar?\n\n");
+
+    printf(COR_Cyan "\t\t[1] Equipamento por Sistema Operativo\n");
+    printf(COR_Cyan "\t\t[2] Equipamento por Rede\n");
+    printf(COR_Cyan "\t\t[3] Equipamento por Aplicação\n\n\n\t\t~> ");
+    scanf("%s", &pesquisa);
+}
