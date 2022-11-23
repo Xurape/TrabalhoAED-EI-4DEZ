@@ -11,7 +11,7 @@
  * @return Sem return
  *
  */
-void gerarTabela(int tipo, int filter, char *data)
+void gerarTabela(int tipo, int filter, char data[])
 {
     /**
      * Tipos:
@@ -27,6 +27,11 @@ void gerarTabela(int tipo, int filter, char *data)
      *   3 - Aplicação
     */
 
+    /* 
+    
+        TIPO 1
+    
+    */
     if (tipo == 1)
     {
         fflush(stdin);
@@ -40,6 +45,7 @@ void gerarTabela(int tipo, int filter, char *data)
             case 0:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
+                    if(!equipamento[i].eliminado)
                     printf("\
     | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
@@ -47,35 +53,110 @@ void gerarTabela(int tipo, int filter, char *data)
                     equipamento[i].ram, equipamento[i].sistemaoperativo,
                     equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
                 }
-    
-                printf("\
-    +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+");
 
-                quebrarLinhas(2);
+                break;
+
+            /**
+             * 
+             * Sistema operativo
+             * 
+            */
             case 1:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
-                    printf("\
+                    if(strstr(equipamento[i].sistemaoperativo, data)) 
+                    {
+                        if(!equipamento[i].eliminado)
+                           printf("\
     | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
-                    i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-                    equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-                    equipamento[i].ram, equipamento[i].sistemaoperativo,
-                    equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                        i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                        equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                        equipamento[i].ram, equipamento[i].sistemaoperativo,
+                        equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                    }
                 }
-    
-                printf("\
-    +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+");
+                break;
 
-                quebrarLinhas(2);
-            break;
-            
-        default:
-            break;
+            /**
+             * 
+             * Rede
+             * 
+            */
+            case 2:
+                for (size_t i = 1; i <= equipamentos_id; i++)
+                {
+                    for (size_t ii = 0; i <= placasderede_id; i++) 
+                    {
+                        if(strstr(equipamento[i].rede[ii].ip, data) || strstr(equipamento[i].rede[ii].netmask, data) || strstr(equipamento[i].rede[ii].broadcast, data)) 
+                        {
+                            if(!equipamento[i].eliminado)
+                                printf("\
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
+                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                            equipamento[i].ram, equipamento[i].sistemaoperativo,
+                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                        }
+                        
+                    }
+                }
+                break;
+
+            /**
+             * 
+             * Aplicações
+             * 
+            */
+            case 3:
+                char *data_completa;
+                for (size_t i = 1; i <= equipamentos_id; i++)
+                {
+                    for (size_t ii = 0; i <= aplicacoes_id; i++)
+                    {
+                        strcpy(data_completa, equipamento[i].aplicacoes[ii].validade.dia);
+                        strcat(data_completa, "/");
+                        strcat(data_completa, equipamento[i].aplicacoes[ii].validade.mes);
+                        strcat(data_completa, "/");
+                        strcat(data_completa, equipamento[i].aplicacoes[ii].validade.ano);
+
+                        if(strstr(equipamento[i].aplicacoes[ii].designacao, data) || strstr(data_completa, data) || strstr(equipamento[i].aplicacoes[ii].versao, data)) 
+                        {
+                            if(!equipamento[i].eliminado)
+                                printf("\
+        | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
+                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                            equipamento[i].ram, equipamento[i].sistemaoperativo,
+                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                        }
+                    }
+                }
+                break;
         }
+        printf("\
+    +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+");
     }
+
+
+
+    /* 
+    
+        TIPO 2
+    
+    */
     else if (tipo == 2)
     {
     }
+
+
+
+
+
+    /* 
+    
+        TIPO 3
+    
+    */
     else
     {
     }

@@ -17,6 +17,8 @@ typedef struct Equipamentos
     int garantia;
     int ram;
 
+    bool eliminado;
+
     char departamento[100];
     char sistemaoperativo[50];
 
@@ -42,11 +44,26 @@ typedef struct Equipamentos
 
     struct Rede
     {
-        char ip[50];
-        char netmask[50]; // Máscara de rede
-        char gateway[50]; // Broadcast address
-    } rede;
+        char ip[255];
+        char netmask[255]; // Máscara de rede
+        char broadcast[255]; // Broadcast address
+    } *rede;
+
+    struct Aplicacoes
+    {
+        char designacao[50];
+
+        char versao[50];
+
+        struct Validade {
+            int dia;
+            int mes;
+            int ano;
+        } validade;
+
+    } *aplicacoes;
 
 } Equipamento;
+
 
 Equipamento equipamento[MAX_EQUIPAMENTOS] = { '\0' };
