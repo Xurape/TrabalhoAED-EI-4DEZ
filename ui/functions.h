@@ -136,16 +136,20 @@ void abrirMenu(int menu)
             menuEquipamentos();
             break;
         case 32:   
-            // alterar
+            equipamentosAlterar();
+            menuEquipamentos();
             break;
         case 33:
             equipamentosEliminar();
+            menuEquipamentos();
             break;
         case 34:
             equipamentosMostrar();
+            menuEquipamentos();
             break;
         case 35:
             equipamentosFiltrar();
+            menuEquipamentos();
             break;
 
         /**
@@ -174,13 +178,16 @@ void abrirMenu(int menu)
             menuPlacasRede();
             break;
         case 52:
-            // placasderede();
+            placasderedeAlterar();
+            menuPlacasRede();
             break;
         case 53:
-            placasderedeMostrar();
+            placasderedeEliminar();
+            menuPlacasRede();
             break;
         case 54:
-            placasderedeFiltrar();
+            placasderedeMostrar();
+            menuPlacasRede();
             break;
         
         /**

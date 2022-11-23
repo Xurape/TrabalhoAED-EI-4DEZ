@@ -46,7 +46,7 @@ void gerarTabela(int tipo, int filter, char data[])
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
                     if(!equipamento[i].eliminado)
-                    printf("\
+                        printf("\
     | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
@@ -108,7 +108,7 @@ void gerarTabela(int tipo, int filter, char data[])
              * 
             */
             case 3:
-                char *data_completa;
+                char data_completa[255];
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
                     for (size_t ii = 0; i <= aplicacoes_id; i++)
@@ -146,6 +146,11 @@ void gerarTabela(int tipo, int filter, char data[])
     */
     else if (tipo == 2)
     {
+
+
+
+
+    
     }
 
 

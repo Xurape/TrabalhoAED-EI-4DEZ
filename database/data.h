@@ -44,6 +44,7 @@ typedef struct Equipamentos
 
     struct Rede
     {
+        bool eliminado;
         char ip[255];
         char netmask[255]; // Máscara de rede
         char broadcast[255]; // Broadcast address

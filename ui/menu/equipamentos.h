@@ -119,14 +119,23 @@ void equipamentosMostrar()
 
     limparJanela();
 
+    if(equipamentos_id == 0) {
+        printf(COR_Cyan"\n\n\
+        Por favor, insira um equipamento primeiro.\n\n\
+        Insira qualquer número para voltar atrás.. ");
+
+        int opt;
+        scanf("%d", &opt);
+
+        menuEquipamentos();
+    }
+
     gerarTabela(1, 0, "\0");
 
     printf(COR_Cyan"\n\n\
     Insira qualquer número para voltar atrás.. ");
 
     scanf("%d", &opt);
-
-    abrirMenu(1);
 }
 
 /**
@@ -146,6 +155,17 @@ void equipamentosFiltrar()
     char filtro_data[50];
 
     limparJanela();
+
+    if(equipamentos_id == 0) {
+        printf(COR_Cyan"\n\n\
+        Por favor, insira um equipamento primeiro.\n\n\
+        Insira qualquer número para voltar atrás.. ");
+
+        int opt;
+        scanf("%d", &opt);
+
+        menuEquipamentos();
+    }
 
     enviarTitulo("\t\t\tMENU DE EQUIPAMENTOS\n");
 
@@ -172,8 +192,6 @@ void equipamentosFiltrar()
     Insira qualquer número para voltar atrás.. ");
 
     scanf("%d", &opt);
-
-    abrirMenu(1);
 }
 
 /**
@@ -194,71 +212,146 @@ void equipamentosEliminar()
 
     limparJanela();
 
+    if(equipamentos_id == 0) {
+        printf(COR_Cyan"\n\n\
+        Por favor, insira um equipamento primeiro.\n\n\
+        Insira qualquer número para voltar atrás.. ");
+
+        int opt;
+        scanf("%d", &opt);
+
+        menuEquipamentos();
+    }
+
     enviarTitulo("\t\t\tMENU DE EQUIPAMENTOS\n");
 
     printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Eliminar Equipamento\n");
     printf("\n\t\t***********************************");
+
 
     printf("\n\t\t\tPor favor, insira:\n\n");
     
     printf(COR_Cyan "\tID do equipamento a eliminar " COR_Green "~> ");
     scanf("%d", &idEliminar);
 
-    printf(COR_Red "\tDeseja confirmar a eliminação do equipamento?\n\n\t\
-        [1] Sim - [0] Não\n\n");
+    printf(COR_Red "\tDeseja confirmar a eliminação do equipamento?\n\n\t\t[1] Sim - [0] Não\n\n\t\t~> ");
 
     scanf("%d", &Confirmacao);
 
     if(Confirmacao == 1)
     {
         equipamento[idEliminar].eliminado = true;
-        
-        // Aquisição
-        // equipamento[idEliminar].aquisicao.dia = '\0';
-        // printf(COR_Green "Aquisição->Dia eliminado");
-        // equipamento[idEliminar].aquisicao.mes = '\0';
-        // printf(COR_Green "Aquisição->Mes eliminado");
-        // equipamento[idEliminar].aquisicao.ano = '\0';
-        // printf(COR_Green "Aquisição->Ano eliminado");
+    }
+}
 
-        // // Discos
-        // strcpy(equipamento[idEliminar].discos.capacidade, null);
-        // printf(COR_Green "Discos->Capacidade eliminado");
-        // strcpy(equipamento[idEliminar].discos.nome, null);
-        // printf(COR_Green "Discos->Nome eliminado");
-        // strcpy(equipamento[idEliminar].discos.tipo, null);
-        // printf(COR_Green "Discos->Tipo eliminado");
+/**
+ *
+ * @name equipamentosAlterar
+ * @brief Esta função irá gerar o menu para eliminar um equipamento
+ * @author João Ferreira & Gabriel Gavino
+ *
+ * @param null Sem parametros
+ *
+ * @return Sem return
+ *
+ */
+void equipamentosAlterar()
+{
+    char temp[20];
+    int i, id;
 
-        // // CPUs
-        // strcpy(equipamento[idEliminar].cpus.cpu, null);
-        // printf(COR_Green "CPUs->cpu eliminado");
-        // equipamento[idEliminar].cpus.ghz = '\0';
-        // printf(COR_Green "CPUs->ghz eliminado");
+    limparJanela();
 
-        // // Departamento
-        // strcpy(equipamento[idEliminar].departamento, null);
-        // printf(COR_Green "Departamento eliminado");
+    if(equipamentos_id == 0) {
+        printf(COR_Cyan"\n\n\
+        Por favor, insira um equipamento primeiro.\n\n\
+        Insira qualquer número para voltar atrás.. ");
 
-        // // OS
-        // strcpy(equipamento[idEliminar].sistemaoperativo, null);
-        // printf(COR_Green "Sistema operativo eliminado");
-        // // Outros
+        int opt;
+        scanf("%d", &opt);
 
-        // equipamento[idEliminar].garantia = null;
-        // printf(COR_Green "Garantia eliminado");
-        // equipamento[idEliminar].ram = null;
-        // printf(COR_Green "RAM eliminado");
-        // equipamento[idEliminar].tipo = null;
-        // printf(COR_Green "Tipo eliminado");
-        // equipamento[idEliminar].rede = null;
-        // printf(COR_Green "Rede eliminado");
-        // equipamento[idEliminar].aplicacoes = null;
-        // printf(COR_Green "Aplicações eliminado");
-
-        // printf("Equipamento eliminado com sucesso.");
+        menuEquipamentos();
     }
 
-    sleep(2);
+    enviarTitulo("\t\t\tMENU DE EQUIPAMENTOS\n");
 
-    mainUI();
+    printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Alterar equipamento\n");
+    printf("\n\t\t***********************************\n\n\t\tA editar equipamento com ID: ");
+    scanf("%d", &id);    
+
+    printf("\n\t\t\tPor favor, insira:\n\n");
+
+    printf(COR_Cyan "\tCaso seja um computador [1] ou servidor [2] " COR_Green "~> ");
+    scanf("%d", &equipamento[id].tipo);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\t\tData de aquisição " COR_Green "~> ");
+    scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tDepartamento " COR_Green "~> ");
+    fflush(stdin);
+    scanf("%c", &temp);
+    gets(&equipamento[id].departamento);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tGarantia (em meses) " COR_Green "~> ");
+    scanf("%d", &equipamento[id].garantia);
+
+    quebrarLinhas(1);
+    
+    printf(COR_Cyan "\tCPU " COR_Green "~> ");
+
+    fflush(stdin);
+    scanf("%c", &temp);
+    gets(&equipamento[id].cpus.cpu);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tFrequência de CPU (em GHz) " COR_Green "~> ");
+    scanf("%f", &equipamento[id].cpus.ghz);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tTipo de disco (SSD/SAS/HDD) " COR_Green "~> ");
+
+    fflush(stdin);
+    scanf("%c", &temp);
+    gets(&equipamento[id].discos.tipo);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tNome do disco (Ex.: Kingston <Modelo>) " COR_Green "~> ");
+    
+    fflush(stdin);
+    gets(&equipamento[id].discos.nome);
+
+    quebrarLinhas(1);
+
+    fflush(stdin);
+
+    printf(COR_Cyan "\tCapacidade do disco em GB (Ex.: 500) " COR_Green "~> ");
+    scanf("%d", &equipamento[id].discos.capacidade);
+
+    quebrarLinhas(1);
+
+    printf(COR_Cyan "\tQuantidade de memória RAM em GB (Ex.: 8) " COR_Green "~> ");
+    scanf("%d", &equipamento[id].ram);
+
+    quebrarLinhas(1);
+    
+    fflush(stdin);
+
+    printf(COR_Cyan "\tSistema operativo (Ex.: Windows 11) " COR_Green "~> ");
+
+    fflush(stdin);
+    scanf("%c", &temp);
+    gets(&equipamento[id].sistemaoperativo);
+
+    equipamento[id].eliminado = false;
+
+    quebrarLinhas(1);
 }
