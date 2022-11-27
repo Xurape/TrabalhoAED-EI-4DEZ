@@ -40,11 +40,11 @@ void configuracaoInicial()
 */
 void limparJanela()
 {
-    if (obterSO() == "Linux")
+    if (strcmp(obterSO(), "Linux"))
         system("clear");
-    else if (obterSO() == "Windows")
+    else if (strcmp(obterSO(), "Windows"))
         system("cls");
-    else if (obterSO() == "MacOS")
+    else if (strcmp(obterSO(), "MacOS"))
         system("clear");
     else
         system("clear");
@@ -255,12 +255,12 @@ void progressBar(double percentagem, int progress)
  * @brief Esta função irá inserir uma barra de carregamento do programa com texto segundo o tempo dado
  * @author João Ferreira & Gabriel Gavino
  * 
- * @param useconds_t Segundos
+ * @param long Segundos
  * 
  * @return Sem return
  * 
 */
-void gerarProgressBar(useconds_t segundos) {
+void gerarProgressBar(long segundos) {
     int i = 0;
     
     printf("\n\n\n\t\t\t\t\t\tA carregar...\n\n");

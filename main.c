@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <unistd.h>
+// #include <unistd.h>
 #include <locale.h>
 #include <time.h>
 #include <math.h>
@@ -13,9 +13,11 @@
 
 // Utilidades
 #include "./utils/main.h"
+#include "./utils/main.c"
 
 // UI
 #include "./ui/main.h"
+#include "./ui/main.c"
 
 /**
  * 
@@ -28,7 +30,8 @@
  * @return Sem return
  * 
 */
-void main()
+
+int main()
 {
     limparJanela();
 
@@ -37,4 +40,6 @@ void main()
     mainUI();
 
     finalizarMenu();
+
+    return 0;
 }
