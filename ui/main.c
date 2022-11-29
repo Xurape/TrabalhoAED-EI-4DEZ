@@ -18,11 +18,13 @@
 */
 void mainUI()
 {
-        int opcao;
+    int opcao;
 
+    do
+    {
         limparJanela();
 
-        enviarTitulo("GESTÃO DE REDE INFORMÁTICA\n");
+        enviarTitulo("GESTÃO DE REDE INFORMÁTICA", 0);
 
         // Opções
         printf(COR_Cyan "   [1]" COR_Default " Equipamentos\n");
@@ -32,20 +34,24 @@ void mainUI()
         quebrarLinhas(2);
 
         printf(COR_Cyan "   [0]" COR_Default " Sair");
+        
+        quebrarLinhas(1);
 
-    
-    do
-    {
-        printf(COR_Green "\n\n\n"TL LINE TR"\n");
-        printf("\n       Selecione uma opção: ");
-        saveCursor();
+        printf(COR_Green "\n"TL LINE TR"\n"VL"\t\t\t\t    "VL"\n");
+        printf(VL" %s", "Selecione uma opção: "); saveCursor();
+        printf("            "VL"\n");
+        printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
         
-        char temp;
-        scanf(" %c", &temp);
-        opcao = temp - '0';
-        
+        // printf("\r\e[2K");
+        // printf("\e[0J");
+
         restoreCursor();
-        printf("\e[0J");
+
+        scanf("%d", &opcao);
+        // char temp;
+        // scanf(" %c", &temp);
+        // opcao = temp - '0';
+        
     } while (opcao < 0 || opcao > 7);
 
     if(opcao == 0)

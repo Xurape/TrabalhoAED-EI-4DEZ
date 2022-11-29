@@ -71,18 +71,20 @@ void quebrarLinhas(int linhas) { for (size_t i = 1; i <= linhas; i++) { printf("
  * @return Sem return
  * 
 */
-void enviarTitulo(char* titulo)
+void enviarTitulo(char* titulo, bool right)
 {
     time_t now;
-    time(&now);    
+    time(&now);                             
     struct tm *tempo = localtime(&now);
 
     printf(COR_Default"\n  Bem-vindo!      Hora atual: "COR_Cyan"%d:%d\n"COR_Default, tempo->tm_hour, tempo->tm_min);
 
-    printf(COR_Green "\n"TL LINE TR"\n"VL"\n");
-    printf(VL"      %s", titulo);
-    printf(COR_Green VL"\n"BL LINE BR"\n\n");
-
+    printf(COR_Green "\n"TL LINE TR"\n"VL"\t\t\t\t    "VL"\n");
+    if(right) 
+        printf(VL" %-33s "VR"\n", titulo);
+    else
+        printf(VL" %-34s "VL"\n", titulo);
+    printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 }
 
 /**

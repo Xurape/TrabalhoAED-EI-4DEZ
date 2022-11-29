@@ -8,5 +8,6 @@
 #define BL    " └"
 #define BR    "┘"
 #define VL    " │"
+#define VR    "│ "
 #define LINE  "───────────────────────────────────"
 #define CLEARLINE "0K"

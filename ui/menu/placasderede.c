@@ -35,7 +35,7 @@ void placasderedeInserir()
         menuEquipamentos();
     }
 
-    enviarTitulo("\tMENU DE PLACAS DE REDE\n");
+    enviarTitulo("MENU DE PLACAS DE REDE", 1);
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Inserir Placa de Rede\n");
     printf(COR_Green"\n***********************************\n\nA inserir placa de rede com ID: [ %d ]", id);
@@ -172,7 +172,7 @@ void placasderedeAlterar()
         menuEquipamentos();
     }
 
-    enviarTitulo("\tMENU DE PLACAS DE REDE\n");
+    enviarTitulo("MENU DE PLACAS DE REDE", 1);
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Alterar Placa de Rede\n");
     printf("\n***********************************\n\nA alterar placa de rede com ID: ");
@@ -230,7 +230,7 @@ void placasderedeEliminar()
         menuEquipamentos();
     }
 
-    enviarTitulo("\tMENU DE PLACAS DE REDE\n");
+    enviarTitulo("MENU DE PLACAS DE REDE", 1);
 
     // printf(COR_Green "[SELECIONADO]" COR_Blue " Eliminar Placa de Rede\n");
     // printf("\n***********************************");

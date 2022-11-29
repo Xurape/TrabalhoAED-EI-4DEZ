@@ -17,7 +17,7 @@ void equipamentosInserir()
 
     limparJanela();
 
-    enviarTitulo("MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS INFORMÁTICOS", 1);
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Inserir equipamento\n");
     printf(COR_Green"\n***********************************\n\nA inserir equipamento com ID: [ %d ]", id);
@@ -57,11 +57,13 @@ void equipamentosMostrar()
 
     limparJanela();
 
+    enviarTitulo("MENU DE EQUIPAMENTOS", 1);
+
     if (equipamentos_id == 0)
     {
         printf(COR_Cyan "\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+ Por favor, insira um equipamento primeiro.\n\n\
+ Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -72,7 +74,7 @@ void equipamentosMostrar()
     gerarTabela(1, 0);
 
     printf(COR_Cyan "\n\n\
-    Insira qualquer número para voltar atrás.. ");
++ Insira qualquer número para voltar atrás.. ");
 
     scanf("%d", &opt);
 }
@@ -98,8 +100,8 @@ void equipamentosFiltrar()
     if (equipamentos_id == 0)
     {
         printf(COR_Cyan "\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+ Por favor, insira um equipamento primeiro.\n\n\
+ Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -107,7 +109,7 @@ void equipamentosFiltrar()
         menuEquipamentos();
     }
 
-    enviarTitulo("MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS", 1);
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Filtar equipamentos\n");
     printf("\n***********************************\n");
@@ -134,7 +136,7 @@ void equipamentosFiltrar()
     gerarTabela(1, filtro);
 
     printf(COR_Cyan "\n\n\
-    Insira qualquer número para voltar atrás.. ");
+ Insira qualquer número para voltar atrás.. ");
 
     scanf("%d", &opt);
 }
@@ -160,8 +162,8 @@ void equipamentosEliminar()
     if (equipamentos_id == 0)
     {
         printf(COR_Cyan "\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+ Por favor, insira um equipamento primeiro.\n\n\
+ Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -169,7 +171,7 @@ void equipamentosEliminar()
         menuEquipamentos();
     }
 
-    enviarTitulo("MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS", 1);
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Eliminar Equipamento\n");
     printf("\n***********************************");
@@ -215,8 +217,8 @@ void equipamentosAlterar()
     if (equipamentos_id == 0)
     {
         printf(COR_Cyan "\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+ Por favor, insira um equipamento primeiro.\n\n\
+ Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -224,7 +226,7 @@ void equipamentosAlterar()
         menuEquipamentos();
     }
 
-    enviarTitulo("MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS", 1);
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Alterar equipamento\n");
     printf("\n***********************************\n\nA editar equipamento com ID: ");
