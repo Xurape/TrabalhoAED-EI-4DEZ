@@ -29,10 +29,14 @@ void menuEquipamentos()
 
         printf(COR_Cyan "   [0]" COR_Default " Voltar");
 
-        printf(COR_Green"\n\n***********************************\n");
+        printf(COR_Green "\n\n"TL LINE TR"\n"VL"\t\t\t\t    "VL"\n");
+        printf(VL" %s", "Selecione uma opção: "); guardarCursor();
+        printf("            "VL"\n");
+        printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 
-        printf("\nSelecione uma opção:\n > ");
         scanf("%d", &opc);
+        
+        restaurarCursor();
     } while (opc < 0 || opc > 6);
 
     if(opc == 0)
@@ -71,10 +75,14 @@ void menuAplicacoes()
 
         printf(COR_Cyan "   [0]" COR_Default " Voltar");
 
-        printf(COR_Green"\n\n***********************************\n");
+        printf(COR_Green "\n\n"TL LINE TR"\n"VL"\t\t\t\t    "VL"\n");
+        printf(VL" %s", "Selecione uma opção: "); guardarCursor();
+        printf("            "VL"\n");
+        printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 
-        printf("\nSelecione uma opção:\n > ");
         scanf("%d", &opcao);
+        
+        restaurarCursor();
     } while (opcao < 0 || opcao > 7);
 
     if(opcao == 0)
@@ -113,10 +121,14 @@ void menuPlacasRede()
 
         printf(COR_Cyan "   [0]" COR_Default " Voltar");
 
-        printf(COR_Green"\n\n***********************************\n");
+        printf(COR_Green "\n\n"TL LINE TR"\n"VL"\t\t\t\t    "VL"\n");
+        printf(VL" %s", "Selecione uma opção: "); guardarCursor();
+        printf("            "VL"\n");
+        printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 
-        printf("\nSelecione uma opção:\n > ");
         scanf("%d", &opcao);
+        
+        restaurarCursor();
     } while (opcao < 0 || opcao > 7);
 
     if(opcao == 0)

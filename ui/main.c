@@ -38,19 +38,13 @@ void mainUI()
         quebrarLinhas(1);
 
         printf(COR_Green "\n"TL LINE TR"\n"VL"\t\t\t\t    "VL"\n");
-        printf(VL" %s", "Selecione uma opção: "); saveCursor();
+        printf(VL" %s", "Selecione uma opção: "); guardarCursor();
         printf("            "VL"\n");
         printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
-        
-        // printf("\r\e[2K");
-        // printf("\e[0J");
 
-        restoreCursor();
+        restaurarCursor();
 
         scanf("%d", &opcao);
-        // char temp;
-        // scanf(" %c", &temp);
-        // opcao = temp - '0';
         
     } while (opcao < 0 || opcao > 7);
 

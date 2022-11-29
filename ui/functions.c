@@ -14,7 +14,6 @@
 */
 void configuracaoInicial() { setlocale(LC_ALL, "Portuguese"); }
 
-
 /**
  * 
  * @name limparJanela
@@ -28,23 +27,123 @@ void configuracaoInicial() { setlocale(LC_ALL, "Portuguese"); }
 */
 void limparJanela() { printf("\e[1;1H\e[2J"); }
 
-void goHomeCursor() { printf("\e[H"); }
+/**
+ * 
+ * @name homeCursor
+ * @brief Esta função irá colocar o cursor na posição home
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
+*/
+void homeCursor() { printf("\e[H"); }
     
-void lineStartCursor() { printf("\e[0G"); }
+/**
+ * 
+ * @name linhaInicialCursor
+ * @brief Esta função irá colocar o cursor na posição inicial
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
+*/
+void linhaInicialCursor() { printf("\e[0G"); }
 
-void moveCursor(int line, int column) { printf("\e[%d;%dH", line, column); }
+/**
+ * 
+ * @name moverCursor
+ * @brief Esta função irá mover o cursor para a linha X e a coluna Y
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param int Linha
+ * @param int Coluna
+ * 
+ * @return Sem return
+ * 
+*/
+void moverCursor(int linha, int coluna) { printf("\e[%d;%dH", linha, coluna); }
 
-void upCursor(int lines) { printf("\e[%dA", lines); }
+/**
+ * 
+ * @name upCursor
+ * @brief Esta função irá mover o cursor X linhas para cima
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param int Linhas
+ * 
+ * @return Sem return
+ * 
+*/
+void upCursor(int linhas) { printf("\e[%dA", linhas); }
 
-void downCursor(int lines) { printf("\e[%dB", lines); }
+/**
+ * 
+ * @name downCursor
+ * @brief Esta função irá mover o cursor X linhas para baixo
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param int Linhas
+ * 
+ * @return Sem return
+ * 
+*/
+void downCursor(int linhas) { printf("\e[%dB", linhas); }
 
-void rightCursor(int columns) { printf("\e[%dC", columns); }
+/**
+ * 
+ * @name rightCursor
+ * @brief Esta função irá mover o cursor X colunas para a direita
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param int Colunas
+ * 
+ * @return Sem return
+ * 
+*/
+void rightCursor(int colunas) { printf("\e[%dC", colunas); }
 
-void leftCursor(int columns) { printf("\e[%dD", columns); }
+/**
+ * 
+ * @name leftCursor
+ * @brief Esta função irá mover o cursor X colunas para a esquerda
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param int Colunas
+ * 
+ * @return Sem return
+ * 
+*/
+void leftCursor(int colunas) { printf("\e[%dD", colunas); }
 
-void saveCursor() { printf("\e[s"); }
+/**
+ * 
+ * @name guardarCursor
+ * @brief Esta função irá guardar a posição atual do cursor
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
+*/
+void guardarCursor() { printf("\e[s"); }
 
-void restoreCursor() { printf("\e[u"); }
+/**
+ * 
+ * @name restaurarCursor
+ * @brief Esta função irá fazer com que o cursor volte para a posição definida no guardarCursor()
+ * @author João Ferreira & Gabriel Gavino
+ * 
+ * @param null Sem parametros
+ * 
+ * @return Sem return
+ * 
+*/
+void restaurarCursor() { printf("\e[u"); }
 
 
 /**
@@ -53,7 +152,7 @@ void restoreCursor() { printf("\e[u"); }
  * @brief Esta função irá mudar/quebrar as linhas indicadas
  * @author João Ferreira & Gabriel Gavino
  * 
- * @param int Número de linhas
+ * @param int Linhas
  * 
  * @return Sem return
  * 
