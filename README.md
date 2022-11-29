@@ -33,9 +33,9 @@ Enunciado
     - Endereço de broadcast
 
 + Aplicações Instaladas
-    -> Designação
-    -> Versão
-    -> Validade da licença
+    → Designação
+    → Versão
+    → Validade da licença
 ```
 ---
 ## TODO

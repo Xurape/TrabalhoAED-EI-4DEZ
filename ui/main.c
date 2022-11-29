@@ -24,7 +24,7 @@ void mainUI()
     {
         limparJanela();
 
-        enviarTitulo("GESTÃO DE REDE INFORMÁTICA", 0);
+        enviarTitulo("   GESTÃO DE REDE INFORMÁTICA", 0);
 
         // Opções
         printf(COR_Cyan "   [1]" COR_Default " Equipamentos\n");

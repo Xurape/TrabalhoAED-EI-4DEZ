@@ -17,17 +17,8 @@ void placasderedeInserir()
 
     limparJanela();
 
-    //! TODO 
-    /**
-     * 
-     * Colocar esta função ativa no fim.
-     * 
-    */
-
     if(equipamentos_id == 0) {
-        printf(COR_Cyan"\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+        printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -37,22 +28,23 @@ void placasderedeInserir()
 
     enviarTitulo("MENU DE PLACAS DE REDE", 1);
 
-    printf(COR_Green "[SELECIONADO]" COR_Blue " Inserir Placa de Rede\n");
-    printf(COR_Green"\n***********************************\n\nA inserir placa de rede com ID: [ %d ]", id);
+    printf(COR_Green "  [SELECIONADO]" COR_Cyan " Inserir placa de rede\n");
+
+    printf(COR_Green"\n  A inserir placa com ID: "COR_Cyan"[ %d ]\n\n"COR_Default, id);
 
     printf("\n  Por favor, insira:\n\n");
 
-    printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "~> "); scanf("%d", &rede[id].id);
+    printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "→ "); scanf("%d", &rede[id].id);
 
     while (rede[id].id < 0 || rede[id].id > equipamentos_id) {
         printf(COR_Red"\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
-        printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "~> ");
+        printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "→ ");
         scanf("%d", &rede[id].id);
     }
 
-    printf(COR_Cyan "> Endereço IP " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(rede[id].ip);
-    printf(COR_Cyan "> Máscara de Rede " COR_Green "~> "); gets(rede[id].netmask);
-    printf(COR_Cyan "> Endereço de broadcast " COR_Green "~> "); gets(rede[id].broadcast); quebrarLinhas(1);
+    printf(COR_Cyan "> Endereço IP " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(rede[id].ip);
+    printf(COR_Cyan "> Máscara de Rede " COR_Green "→ "); gets(rede[id].netmask);
+    printf(COR_Cyan "> Endereço de broadcast " COR_Green "→ "); gets(rede[id].broadcast); quebrarLinhas(1);
 
     placasderede_id++;
 }
@@ -76,9 +68,7 @@ void placasderedeMostrar()
     limparJanela();
 
     if(equipamentos_id == 0) {
-        printf(COR_Cyan"\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+        printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -90,8 +80,7 @@ void placasderedeMostrar()
 
     gerarTabela(3, 0);
 
-    printf(COR_Cyan"\n\n\
-    Insira qualquer número para voltar atrás.. ");
+    printf(COR_Cyan"\n\n Insira qualquer número para voltar atrás.. ");
 
     scanf("%d", &opt);
 }
@@ -125,10 +114,10 @@ void placasderedeMostrar()
 //     printf(COR_Cyan "[2] Placa por Máscara de Rede\n");
 //     printf(COR_Cyan "[3] Placa por Endereço de Broadcast\n\n");
 
-//     printf("\nFiltrar ~> ");
+//     printf("\nFiltrar → ");
 //     scanf("%d", &filtro);
 
-//     printf("\nProcurar por ~> ");
+//     printf("\nProcurar por → ");
 //     scanf("%s", filtro_data);
 
 //     quebrarLinhas(2);
@@ -162,9 +151,7 @@ void placasderedeAlterar()
     limparJanela();
 
     if(equipamentos_id == 0) {
-        printf(COR_Cyan"\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+        printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -180,20 +167,20 @@ void placasderedeAlterar()
 
     printf("\n\tPor favor, insira:\n\n");
     
-    printf(COR_Cyan "\tID do equipamento a associar a placa " COR_Green "~> ");
+    printf(COR_Cyan "\tID do equipamento a associar a placa " COR_Green "→ ");
     scanf("%d", &id_equipamento);
 
-    // printf(COR_Cyan "\tEndereço IP " COR_Green "~> ");
+    // printf(COR_Cyan "\tEndereço IP " COR_Green "→ ");
     // fflush(stdin);
     // scanf("%c", &temp);
     // gets(&equipamento[id_equipamento].rede[id].ip);
 
-    // printf(COR_Cyan "\tMáscara de Rede " COR_Green "~> ");
+    // printf(COR_Cyan "\tMáscara de Rede " COR_Green "→ ");
     // fflush(stdin);
     // scanf("%c", &temp);
     // gets(&equipamento[id_equipamento].rede[id].netmask);
 
-    // printf(COR_Cyan "\tEndereço de broadcast " COR_Green "~> ");
+    // printf(COR_Cyan "\tEndereço de broadcast " COR_Green "→ ");
     // fflush(stdin);
     // scanf("%c", &temp);
     // gets(&equipamento[id_equipamento].rede[id].broadcast);
@@ -220,9 +207,7 @@ void placasderedeEliminar()
     limparJanela();
 
     if(equipamentos_id == 0) {
-        printf(COR_Cyan"\n\n\
-        Por favor, insira um equipamento primeiro.\n\n\
-        Insira qualquer número para voltar atrás.. ");
+        printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
 
         int opt;
         scanf("%d", &opt);
@@ -237,15 +222,17 @@ void placasderedeEliminar()
 
     // printf("\n\tPor favor, insira:\n\n");
     
-    // printf(COR_Cyan "\tID do equipamento ao qual a placa vai ser eliminada " COR_Green "~> ");
+    // printf(COR_Cyan "\tID do equipamento ao qual a placa vai ser eliminada " COR_Green "→ ");
     // scanf("%d", &idEliminarEquip);
     
-    // printf(COR_Cyan "\tID da placa a ser eliminada " COR_Green "~> ");
+    // printf(COR_Cyan "\tID da placa a ser eliminada " COR_Green "→ ");
     // scanf("%d", &idEliminarPlaca);
 
-    // printf(COR_Red "\tDeseja confirmar a eliminação da placa de rede Nº %d?\n\n[1] Sim - [0] Não\n\n~> ", idEliminarPlaca);
-
-    // scanf("%d", &Confirmacao);
+    printf(COR_Cyan" "TL"────────────────────────────────────────────────────────────"TR"\n");
+    printf(COR_Red "\n       Deseja confirmar a eliminação da placa de rede?\n\n                 "COR_Cyan"[1]"COR_Green" Sim "COR_Red"-"COR_Cyan" [0] "COR_LightRed"Não"COR_Cyan"\n\n     → "); guardarCursor();
+    printf(COR_Cyan"\n\n "BL"────────────────────────────────────────────────────────────"BR);
+    restaurarCursor();
+    scanf("%d", &Confirmacao);
 
     printf(COR_Cyan);
 }

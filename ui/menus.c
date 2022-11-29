@@ -17,7 +17,7 @@ void menuEquipamentos()
     {
         limparJanela();
 
-        enviarTitulo("MENU DE EQUIPAMENTOS", 1);
+        enviarTitulo("       MENU DE EQUIPAMENTOS", 1);
 
         printf(COR_Cyan "   [1]" COR_Default " Inserir equipamento\n");
         printf(COR_Cyan "   [2]" COR_Default " Alterar equipamento\n");
@@ -34,9 +34,10 @@ void menuEquipamentos()
         printf("            "VL"\n");
         printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 
+        restaurarCursor();
+
         scanf("%d", &opc);
         
-        restaurarCursor();
     } while (opc < 0 || opc > 6);
 
     if(opc == 0)
@@ -80,9 +81,9 @@ void menuAplicacoes()
         printf("            "VL"\n");
         printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 
-        scanf("%d", &opcao);
-        
         restaurarCursor();
+        
+        scanf("%d", &opcao);
     } while (opcao < 0 || opcao > 7);
 
     if(opcao == 0)
@@ -109,7 +110,7 @@ void menuPlacasRede()
     {
         limparJanela();
 
-        enviarTitulo("MENU DE PLACAS DE REDE", 1);
+        enviarTitulo("     MENU DE PLACAS DE REDE", 1);
 
         // Opções
         printf(COR_Cyan "   [1]" COR_Default " Inserir placa de rede\n");
@@ -126,9 +127,9 @@ void menuPlacasRede()
         printf("            "VL"\n");
         printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 
-        scanf("%d", &opcao);
-        
         restaurarCursor();
+        
+        scanf("%d", &opcao);
     } while (opcao < 0 || opcao > 7);
 
     if(opcao == 0)

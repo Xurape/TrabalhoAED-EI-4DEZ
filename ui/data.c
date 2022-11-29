@@ -38,14 +38,14 @@ void gerarTabela(int tipo, int filter)
     if (tipo == 1)
     {
         if(filter != 0 && filter != 4) {
-            printf(COR_Cyan"> "COR_Default"Procurar por ~> "); fflush(stdin); scanf("%c", &temp);gets(filtroc); quebrarLinhas(2);
+            printf(COR_Cyan"■ "COR_Default"Procurar por → "); fflush(stdin); scanf("%c", &temp);gets(filtroc); quebrarLinhas(2);
         }
 
         fflush(stdin);
         printf(COR_Yellow "\
-    +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+\n\
-    | ID | Adquirido   | Departamento | Garantia |        CPU       | Velocidade (GHz) |    RAM (GB)   | Sistema Operativo |              Disco              | \n\
-    +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+\n");
+ ┌────┬─────────────┬──────────────┬──────────┬──────────────────┬──────────────────┬───────────────┬───────────────────┬─────────────────────────────────┐\n\
+ │ ID │ Adquirido   │ Departamento │ Garantia │        CPU       │ Velocidade (GHz) │    RAM (GB)   │ Sistema Operativo │              Disco              │ \n\
+ "MVL"────┼─────────────┼──────────────┼──────────┼──────────────────┼──────────────────┼───────────────┼───────────────────┼─────────────────────────────────"MVR"\n");
 
         switch (filter)
         {
@@ -53,7 +53,7 @@ void gerarTabela(int tipo, int filter)
             for (size_t i = 1; i <= equipamentos_id; i++)
             {
                 printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+ │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %d\n",
                        i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                        equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                        equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -73,7 +73,7 @@ void gerarTabela(int tipo, int filter)
                 if (strstr(equipamento[i].sistemaoperativo, filtroc))
                 {
                     printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+    │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %d\n",
                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                            equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -88,7 +88,7 @@ void gerarTabela(int tipo, int filter)
          *
          */
         case 2:
-            printf("\nProcurar por ~> ");
+            printf("\nProcurar por → ");
             for (size_t i = 1; i <= equipamentos_id; i++)
             {
                 for (size_t ii = 0; i <= placasderede_id; i++)
@@ -96,7 +96,7 @@ void gerarTabela(int tipo, int filter)
                     // if(strstr(equipamento[i].rede[ii].ip, filtroc) || strstr(equipamento[i].rede[ii].netmask, filtroc) || strstr(equipamento[i].rede[ii].broadcast, filtroc))
                     // {
                     printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+    │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %d\n",
                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                            equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -112,7 +112,6 @@ void gerarTabela(int tipo, int filter)
          *
          */
         case 3:
-            printf("\nProcurar por ~> ");
             // char* filtroc_completa;
             for (size_t i = 1; i <= equipamentos_id; i++)
             {
@@ -149,7 +148,7 @@ void gerarTabela(int tipo, int filter)
                     if ((temp1 - temp2) > equipamento[i].garantia)   
                     {
                     printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+    │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %d\n",
                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                            equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -163,7 +162,7 @@ void gerarTabela(int tipo, int filter)
             break;
         }
         printf("\
-    +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+");
+ └────┴─────────────┴──────────────┴──────────┴──────────────────┴──────────────────┴───────────────┴───────────────────┴─────────────────────────────────┘");
     }
 
     /*
@@ -182,9 +181,9 @@ void gerarTabela(int tipo, int filter)
     {
         fflush(stdin);
         printf(COR_Yellow "\
-    +----+-------------+----------+----------+----------+----------+------------+----------+\n\
-    | ID | Equipamento |    Endereço IP      |   Máscara de Rede   | Endereço de broadcast |\n\
-    +----+-------------+----------+----------+----------+----------+------------+----------+\n");
+ ┌────┬─────────────┬─────────────────────┬─────────────────────┬───────────────────────┐\n\
+ | ID | Equipamento |    Endereço IP      |   Máscara de Rede   | Endereço de broadcast |\n\
+ "MVL"────┼─────────────┼─────────────────────┼─────────────────────┼───────────────────────"MVR"\n");
 
         switch (filter)
         {
@@ -198,6 +197,6 @@ void gerarTabela(int tipo, int filter)
                 break;
         }
         printf("\
-    +----+-------------+----------+----------+----------+----------+------------+----------+");
+ └────┴─────────────┴─────────────────────┴─────────────────────┴───────────────────────┘");
     }
 }
