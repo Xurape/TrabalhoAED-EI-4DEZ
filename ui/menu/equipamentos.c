@@ -17,7 +17,7 @@ void equipamentosInserir()
 
     limparJanela();
 
-    enviarTitulo("  MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS\n");
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Inserir equipamento\n");
     printf(COR_Green"\n***********************************\n\nA inserir equipamento com ID: [ %d ]", id);
@@ -107,7 +107,7 @@ void equipamentosFiltrar()
         menuEquipamentos();
     }
 
-    enviarTitulo("  MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS\n");
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Filtar equipamentos\n");
     printf("\n***********************************\n");
@@ -169,7 +169,7 @@ void equipamentosEliminar()
         menuEquipamentos();
     }
 
-    enviarTitulo("  MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS\n");
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Eliminar Equipamento\n");
     printf("\n***********************************");
@@ -224,7 +224,7 @@ void equipamentosAlterar()
         menuEquipamentos();
     }
 
-    enviarTitulo("  MENU DE EQUIPAMENTOS\n");
+    enviarTitulo("MENU DE EQUIPAMENTOS\n");
 
     printf(COR_Green "[SELECIONADO]" COR_Blue " Alterar equipamento\n");
     printf("\n***********************************\n\nA editar equipamento com ID: ");

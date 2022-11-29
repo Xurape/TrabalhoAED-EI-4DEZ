@@ -11,12 +11,13 @@
 */
 void menuEquipamentos()
 {
-    int opc = { "\0" };
+    int opc;
+
     do
     {
         limparJanela();
 
-        enviarTitulo("  MENU DE EQUIPAMENTOS\n");
+        enviarTitulo("MENU DE EQUIPAMENTOS\n");
 
         printf(COR_Cyan "   [1]" COR_Default " Inserir equipamento\n");
         printf(COR_Cyan "   [2]" COR_Default " Alterar equipamento\n");
@@ -58,7 +59,7 @@ void menuAplicacoes()
     {
         limparJanela();
 
-        enviarTitulo("  MENU DE APLICAÇÕES\n");
+        enviarTitulo("MENU DE APLICAÇÕES\n");
 
         // Opções
         printf(COR_Cyan "   [1]" COR_Default " Inserir aplicações\n");
@@ -100,7 +101,7 @@ void menuPlacasRede()
     {
         limparJanela();
 
-        enviarTitulo("  MENU DE PLACAS DE REDE\n");
+        enviarTitulo("MENU DE PLACAS DE REDE\n");
 
         // Opções
         printf(COR_Cyan "   [1]" COR_Default " Inserir placa de rede\n");

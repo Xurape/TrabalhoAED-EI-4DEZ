@@ -1,1 +1,1 @@
-gcc main.c -o main && gcc main.c -o main.exe && ./main
+gcc main.c -o main -w && gcc main.c -o main.exe -w && ./main

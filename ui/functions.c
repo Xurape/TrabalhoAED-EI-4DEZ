@@ -1,4 +1,5 @@
 #include "../utils/colors.h"
+#include "../utils/characters.h"
 
 /**
  * 
@@ -11,10 +12,7 @@
  * @return Sem return
  * 
 */
-void configuracaoInicial()
-{
-    setlocale(LC_ALL, "Portuguese");
-}
+void configuracaoInicial() { setlocale(LC_ALL, "Portuguese"); }
 
 
 /**
@@ -28,10 +26,25 @@ void configuracaoInicial()
  * @return Sem return
  * 
 */
-void limparJanela()
-{
-    printf("\e[1;1H\e[2J");
-}
+void limparJanela() { printf("\e[1;1H\e[2J"); }
+
+void goHomeCursor() { printf("\e[H"); }
+    
+void lineStartCursor() { printf("\e[0G"); }
+
+void moveCursor(int line, int column) { printf("\e[%d;%dH", line, column); }
+
+void upCursor(int lines) { printf("\e[%dA", lines); }
+
+void downCursor(int lines) { printf("\e[%dB", lines); }
+
+void rightCursor(int columns) { printf("\e[%dC", columns); }
+
+void leftCursor(int columns) { printf("\e[%dD", columns); }
+
+void saveCursor() { printf("\e[s"); }
+
+void restoreCursor() { printf("\e[u"); }
 
 
 /**
@@ -45,13 +58,7 @@ void limparJanela()
  * @return Sem return
  * 
 */
-void quebrarLinhas(int linhas)
-{
-    for (size_t i = 1; i <= linhas; i++)
-    {
-        printf("\n");
-    }
-}
+void quebrarLinhas(int linhas) { for (size_t i = 1; i <= linhas; i++) { printf("\n"); } }
 
 /**
  * 
@@ -70,11 +77,12 @@ void enviarTitulo(char* titulo)
     time(&now);    
     struct tm *tempo = localtime(&now);
 
-    printf(COR_Default"\n  Bem-vindo, Hora atual: %d:%d\n", tempo->tm_hour, tempo->tm_min);
+    printf(COR_Default"\n  Bem-vindo!      Hora atual: "COR_Cyan"%d:%d\n"COR_Default, tempo->tm_hour, tempo->tm_min);
 
-    printf(COR_Green "\n***********************************\n\n");
-    printf("%s", titulo);
-    printf("\n***********************************\n\n");
+    printf(COR_Green "\n"TL LINE TR"\n\n");
+    printf("      %s", titulo);
+    printf(COR_Green "\n"BL LINE BR"\n\n");
+
 }
 
 /**
@@ -199,8 +207,4 @@ void abrirMenu(int menu)
  * @return Sem return
  * 
 */
-void finalizarMenu()
-{
-    printf("\n\n");
-    exit(0);
-}
+void finalizarMenu() { printf("\n\n"); exit(0); }
