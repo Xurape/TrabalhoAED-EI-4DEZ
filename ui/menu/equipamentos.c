@@ -112,15 +112,8 @@ void equipamentosFiltrar()
     printf(COR_Cyan "[3] "COR_Default"Equipamento por Aplicação\n\n");
     printf(COR_Cyan "[4] "COR_Default"Equipamento por Garantia Expirada\n\n");
 
-    printf("\n ■ Filtrar → ");
+    printf(COR_Cyan"\n■"COR_Default" Filtrar → ");
     scanf("%d", &filtro);
-
-    // if(filtro != 4) {
-    //     scanf("%s", filtro_data);
-    //     printf("\nProcurar por → ");
-    // } else {
-    //     strcpy(filtro_data, NULL);
-    // }
 
     quebrarLinhas(2);
 
@@ -235,13 +228,12 @@ void equipamentosAlterar()
 
     while (id < 0 || id > equipamentos_id) {
         printf(COR_Red"\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
-        printf(COR_Green"\n  A alterar equipamento com ID: "COR_Cyan"[  ");
-        guardarCursor();
-        printf("  ]\n\n"COR_Default, id);
+        // printf(COR_Green"\n  A alterar equipamento com ID: "COR_Cyan"[  ");
+        // guardarCursor();
+        // printf("  ]\n\n"COR_Default, id);
         restaurarCursor();
         scanf("%d", &id);
     }
-
 
     printf(COR_Cyan "■ Caso seja um computador [1] ou servidor [2] " COR_Green "→ "); scanf("%d", &equipamento[id].tipo); //quebrarLinhas(1);
     printf(COR_Cyan "■ Data de aquisição " COR_Green "→ "); scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano); //quebrarLinhas(1);
