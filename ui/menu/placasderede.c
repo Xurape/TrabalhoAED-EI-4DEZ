@@ -42,31 +42,17 @@ void placasderedeInserir()
 
     printf("\n  Por favor, insira:\n\n");
 
-    printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "~> ");
-    scanf("%d", &rede[placasderede_id].id);
+    printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "~> "); scanf("%d", &rede[id].id);
 
-    while (rede[placasderede_id].id < 0 || rede[placasderede_id].id > equipamentos_id) {
-        printf(COR_Cyan"\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+    while (rede[id].id < 0 || rede[id].id > equipamentos_id) {
+        printf(COR_Red"\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
         printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "~> ");
-        scanf("%d", &rede[placasderede_id].id);
+        scanf("%d", &rede[id].id);
     }
 
-    printf(COR_Cyan "> Endereço IP " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&rede[placasderede_id].ip);
-
-    printf(COR_Cyan "> Máscara de Rede " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&rede[placasderede_id].netmask);
-
-    printf(COR_Cyan "> Endereço de broadcast " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&rede[placasderede_id].broadcast);
-
-    quebrarLinhas(1);
+    printf(COR_Cyan "> Endereço IP " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(rede[id].ip);
+    printf(COR_Cyan "> Máscara de Rede " COR_Green "~> "); gets(rede[id].netmask);
+    printf(COR_Cyan "> Endereço de broadcast " COR_Green "~> "); gets(rede[id].broadcast); quebrarLinhas(1);
 
     placasderede_id++;
 }
@@ -102,7 +88,7 @@ void placasderedeMostrar()
 
     // enviarTitulo("\tLISTA DE EQUIPAMENTOS\n");
 
-    gerarTabela(3, 0, "\0");
+    gerarTabela(3, 0);
 
     printf(COR_Cyan"\n\n\
     Insira qualquer número para voltar atrás.. ");

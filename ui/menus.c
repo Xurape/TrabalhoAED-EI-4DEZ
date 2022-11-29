@@ -61,14 +61,14 @@ void menuAplicacoes()
         enviarTitulo("  MENU DE APLICAÇÕES\n");
 
         // Opções
-        printf(COR_Cyan "   [1]" COR_Blue " Inserir aplicações\n");
-        printf(COR_Cyan "   [2]" COR_Blue " Alterar aplicações\n");
-        printf(COR_Cyan "   [3]" COR_Blue " Eliminar aplicações\n");
-        printf(COR_Cyan "   [4]" COR_Blue " Mostrar aplicações\n");
+        printf(COR_Cyan "   [1]" COR_Default " Inserir aplicações\n");
+        printf(COR_Cyan "   [2]" COR_Default " Alterar aplicações\n");
+        printf(COR_Cyan "   [3]" COR_Default " Eliminar aplicações\n");
+        printf(COR_Cyan "   [4]" COR_Default " Mostrar aplicações\n");
 
         quebrarLinhas(2);
 
-        printf(COR_Cyan "   [0]" COR_Blue " Voltar");
+        printf(COR_Cyan "   [0]" COR_Default " Voltar");
 
         printf(COR_Green"\n\n***********************************\n");
 
@@ -103,14 +103,14 @@ void menuPlacasRede()
         enviarTitulo("  MENU DE PLACAS DE REDE\n");
 
         // Opções
-        printf(COR_Cyan "   [1]" COR_Blue " Inserir placa de rede\n");
-        printf(COR_Cyan "   [2]" COR_Blue " Alterar placa de rede\n");
-        printf(COR_Cyan "   [3]" COR_Blue " Eliminar placa de rede\n");
-        printf(COR_Cyan "   [4]" COR_Blue " Mostrar placas de rede\n");
+        printf(COR_Cyan "   [1]" COR_Default " Inserir placa de rede\n");
+        printf(COR_Cyan "   [2]" COR_Default " Alterar placa de rede\n");
+        printf(COR_Cyan "   [3]" COR_Default " Eliminar placa de rede\n");
+        printf(COR_Cyan "   [4]" COR_Default " Mostrar placas de rede\n");
 
         quebrarLinhas(2);
 
-        printf(COR_Cyan "   [0]" COR_Blue " Voltar");
+        printf(COR_Cyan "   [0]" COR_Default " Voltar");
 
         printf(COR_Green"\n\n***********************************\n");
 

@@ -24,77 +24,17 @@ void equipamentosInserir()
 
     printf("\n  Por favor, insira:\n\n");
 
-    printf(COR_Cyan "> Caso seja um computador [1] ou servidor [2] " COR_Green "~> ");
-    scanf("%d", &equipamento[id].tipo);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> Data de aquisição " COR_Green "~> ");
-    scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> Departamento " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id].departamento);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> Garantia (em meses) " COR_Green "~> ");
-    scanf("%d", &equipamento[id].garantia);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> CPU " COR_Green "~> ");
-
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id].cpus.cpu);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> Frequência de CPU (em GHz) " COR_Green "~> ");
-    scanf("%f", &equipamento[id].cpus.ghz);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> Tipo de disco (SSD/SAS/HDD) " COR_Green "~> ");
-
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id].discos.tipo);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> Nome do disco (Ex.: Kingston <Modelo>) " COR_Green "~> ");
-
-    fflush(stdin);
-    gets(&equipamento[id].discos.nome);
-
-    quebrarLinhas(1);
-
-    fflush(stdin);
-
-    printf(COR_Cyan "> Capacidade do disco em GB (Ex.: 500) " COR_Green "~> ");
-    scanf("%d", &equipamento[id].discos.capacidade);
-
-    quebrarLinhas(1);
-
-    printf(COR_Cyan "> Quantidade de memória RAM em GB (Ex.: 8) " COR_Green "~> ");
-    scanf("%d", &equipamento[id].ram);
-
-    quebrarLinhas(1);
-
-    fflush(stdin);
-
-    printf(COR_Cyan "> Sistema operativo (Ex.: Windows 11) " COR_Green "~> ");
-
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id].sistemaoperativo);
-
-    quebrarLinhas(1);
+    printf(COR_Cyan "> Caso seja um computador [1] ou servidor [2] " COR_Green "~> "); scanf("%d", &equipamento[id].tipo); quebrarLinhas(1);
+    printf(COR_Cyan "> Data de aquisição " COR_Green "~> "); scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano); quebrarLinhas(1);
+    printf(COR_Cyan "> Departamento " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].departamento); quebrarLinhas(1);
+    printf(COR_Cyan "> Garantia (em meses) " COR_Green "~> "); scanf("%d", &equipamento[id].garantia); quebrarLinhas(1);
+    printf(COR_Cyan "> CPU " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].cpus.cpu); quebrarLinhas(1);
+    printf(COR_Cyan "> Frequência de CPU (em GHz) " COR_Green "~> "); scanf("%f", &equipamento[id].cpus.ghz); quebrarLinhas(1);
+    printf(COR_Cyan "> Tipo de disco (SSD/SAS/HDD) " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].discos.tipo); quebrarLinhas(1);
+    printf(COR_Cyan "> Nome do disco (Ex.: Kingston <Modelo>) " COR_Green "~> "); fflush(stdin); gets(&equipamento[id].discos.nome); quebrarLinhas(1); fflush(stdin); 
+    printf(COR_Cyan "> Capacidade do disco em GB (Ex.: 500) " COR_Green "~> "); scanf("%d", &equipamento[id].discos.capacidade); quebrarLinhas(1);
+    printf(COR_Cyan "> Quantidade de memória RAM em GB (Ex.: 8) " COR_Green "~> "); scanf("%d", &equipamento[id].ram); quebrarLinhas(1); fflush(stdin);
+    printf(COR_Cyan "> Sistema operativo (Ex.: Windows 11) " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].sistemaoperativo); quebrarLinhas(1);
 
     equipamentos_id++;
 }
@@ -129,7 +69,7 @@ void equipamentosMostrar()
         menuEquipamentos();
     }
 
-    gerarTabela(1, 0, "\0");
+    gerarTabela(1, 0);
 
     printf(COR_Cyan "\n\n\
     Insira qualquer número para voltar atrás.. ");
@@ -174,19 +114,24 @@ void equipamentosFiltrar()
 
     printf("\n  O que deseja filtrar?\n\n");
 
-    printf(COR_Cyan "[1] Equipamento por Sistema Operativo\n");
-    printf(COR_Cyan "[2] Equipamento por Rede\n");
-    printf(COR_Cyan "[3] Equipamento por Aplicação\n\n");
+    printf(COR_Cyan "[1] "COR_Default"Equipamento por Sistema Operativo\n");
+    printf(COR_Cyan "[2] "COR_Default"Equipamento por Rede\n");
+    printf(COR_Cyan "[3] "COR_Default"Equipamento por Aplicação\n\n");
+    printf(COR_Cyan "[4] "COR_Default"Equipamento por Garantia Expirada\n\n");
 
     printf("\nFiltrar ~> ");
     scanf("%d", &filtro);
 
-    printf("\nProcurar por ~> ");
-    scanf("%s", filtro_data);
+    // if(filtro != 4) {
+    //     scanf("%s", filtro_data);
+    //     printf("\nProcurar por ~> ");
+    // } else {
+    //     strcpy(filtro_data, NULL);
+    // }
 
     quebrarLinhas(2);
 
-    gerarTabela(1, filtro, filtro_data);
+    gerarTabela(1, filtro);
 
     printf(COR_Cyan "\n\n\
     Insira qualquer número para voltar atrás.. ");
@@ -287,53 +232,35 @@ void equipamentosAlterar()
 
     printf("\n  Por favor, insira:\n\n");
 
-    printf(COR_Cyan "   Caso seja um computador [1] ou servidor [2] " COR_Green "~> ");
-    scanf("%d", &equipamento[id].tipo);
+    printf(COR_Cyan "   Caso seja um computador [1] ou servidor [2] " COR_Green "~> "); scanf("%d", &equipamento[id].tipo);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "Data de aquisição " COR_Green "~> ");
-    scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano);
+    printf(COR_Cyan "   Data de aquisição " COR_Green "~> "); scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "   Departamento " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id].departamento);
+    printf(COR_Cyan "   Departamento " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].departamento);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "   Garantia (em meses) " COR_Green "~> ");
-    scanf("%d", &equipamento[id].garantia);
+    printf(COR_Cyan "   Garantia (em meses) " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); scanf("%d", &equipamento[id].garantia);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "   CPU " COR_Green "~> ");
-
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id].cpus.cpu);
+    printf(COR_Cyan "   CPU " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].cpus.cpu);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "   Frequência de CPU (em GHz) " COR_Green "~> ");
-    scanf("%f", &equipamento[id].cpus.ghz);
+    printf(COR_Cyan "   Frequência de CPU (em GHz) " COR_Green "~> "); scanf("%f", &equipamento[id].cpus.ghz);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "   Tipo de disco (SSD/SAS/HDD) " COR_Green "~> ");
-
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id].discos.tipo);
+    printf(COR_Cyan "   Tipo de disco (SSD/SAS/HDD) " COR_Green "~> "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].discos.tipo);
 
     quebrarLinhas(1);
 
-    printf(COR_Cyan "   Nome do disco (Ex.: Kingston <Modelo>) " COR_Green "~> ");
-
-    fflush(stdin);
-    gets(&equipamento[id].discos.nome);
+    printf(COR_Cyan "   Nome do disco (Ex.: Kingston <Modelo>) " COR_Green "~> "); fflush(stdin); gets(&equipamento[id].discos.nome);
 
     quebrarLinhas(1);
 
