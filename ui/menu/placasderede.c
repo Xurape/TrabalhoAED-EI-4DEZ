@@ -13,7 +13,7 @@ void placasderedeInserir()
 {
     char temp[20];
     int id = placasderede_id + 1;
-    int i, id_equipamento, opt;
+    int i, opt;
 
     limparJanela();
 
@@ -24,41 +24,47 @@ void placasderedeInserir()
      * 
     */
 
-    // if(equipamentos_id == 0) {
-    //     printf(COR_Cyan"\n\n\
-    //     Por favor, insira um equipamento primeiro.\n\n\
-    //     Insira qualquer número para voltar atrás.. ");
+    if(equipamentos_id == 0) {
+        printf(COR_Cyan"\n\n\
+        Por favor, insira um equipamento primeiro.\n\n\
+        Insira qualquer número para voltar atrás.. ");
 
-    //     int opt;
-    //     scanf("%d", &opt);
+        int opt;
+        scanf("%d", &opt);
 
-    //     menuEquipamentos();
-    // }
+        menuEquipamentos();
+    }
 
-    enviarTitulo("\t\t\tMENU DE PLACAS DE REDE\n");
+    enviarTitulo("\tMENU DE PLACAS DE REDE\n");
 
-    printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Inserir Placa de Rede\n");
-    printf("\n\t\t***********************************\n\n\t\tA inserir placa de rede com ID: [ %d ]", id);
+    printf(COR_Green "[SELECIONADO]" COR_Blue " Inserir Placa de Rede\n");
+    printf(COR_Green"\n***********************************\n\nA inserir placa de rede com ID: [ %d ]", id);
 
-    printf("\n\t\t\tPor favor, insira:\n\n");
-    
-    printf(COR_Cyan "\tID do equipamento a associar a placa " COR_Green "~> ");
-    scanf("%d", &id_equipamento);
+    printf("\n  Por favor, insira:\n\n");
 
-    printf(COR_Cyan "\tEndereço IP " COR_Green "~> ");
+    printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "~> ");
+    scanf("%d", &rede[placasderede_id].id);
+
+    while (rede[placasderede_id].id < 0 || rede[placasderede_id].id > equipamentos_id) {
+        printf(COR_Cyan"\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+        printf(COR_Cyan "> ID do equipamento a associar a placa " COR_Green "~> ");
+        scanf("%d", &rede[placasderede_id].id);
+    }
+
+    printf(COR_Cyan "> Endereço IP " COR_Green "~> ");
     fflush(stdin);
     scanf("%c", &temp);
-    gets(&equipamento[id_equipamento].rede[id].ip);
+    gets(&rede[placasderede_id].ip);
 
-    printf(COR_Cyan "\tMáscara de Rede " COR_Green "~> ");
+    printf(COR_Cyan "> Máscara de Rede " COR_Green "~> ");
     fflush(stdin);
     scanf("%c", &temp);
-    gets(&equipamento[id_equipamento].rede[id].netmask);
+    gets(&rede[placasderede_id].netmask);
 
-    printf(COR_Cyan "\tEndereço de broadcast " COR_Green "~> ");
+    printf(COR_Cyan "> Endereço de broadcast " COR_Green "~> ");
     fflush(stdin);
     scanf("%c", &temp);
-    gets(&equipamento[id_equipamento].rede[id].broadcast);
+    gets(&rede[placasderede_id].broadcast);
 
     quebrarLinhas(1);
 
@@ -94,9 +100,9 @@ void placasderedeMostrar()
         menuEquipamentos();
     }
 
-    // enviarTitulo("\t\t\tLISTA DE EQUIPAMENTOS\n");
+    // enviarTitulo("\tLISTA DE EQUIPAMENTOS\n");
 
-    gerarTabela(2, 0, "\0");
+    gerarTabela(3, 0, "\0");
 
     printf(COR_Cyan"\n\n\
     Insira qualquer número para voltar atrás.. ");
@@ -122,21 +128,21 @@ void placasderedeMostrar()
 
 //     limparJanela();
 
-//     enviarTitulo("\t\t\tMENU DE PLACAS DE REDE\n");
+//     enviarTitulo("\tMENU DE PLACAS DE REDE\n");
 
-//     printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Filtar placas de rede\n");
-//     printf("\n\t\t***********************************\n");
+//     printf(COR_Green "[SELECIONADO]" COR_Blue " Filtar placas de rede\n");
+//     printf("\n***********************************\n");
 
-//     printf("\n\t\t\tO que deseja filtrar?\n\n");
+//     printf("\n\tO que deseja filtrar?\n\n");
 
-//     printf(COR_Cyan "\t\t[1] Placa por Endereço IP\n");
-//     printf(COR_Cyan "\t\t[2] Placa por Máscara de Rede\n");
-//     printf(COR_Cyan "\t\t[3] Placa por Endereço de Broadcast\n\n");
+//     printf(COR_Cyan "[1] Placa por Endereço IP\n");
+//     printf(COR_Cyan "[2] Placa por Máscara de Rede\n");
+//     printf(COR_Cyan "[3] Placa por Endereço de Broadcast\n\n");
 
-//     printf("\n\t\tFiltrar ~> ");
+//     printf("\nFiltrar ~> ");
 //     scanf("%d", &filtro);
 
-//     printf("\n\t\tProcurar por ~> ");
+//     printf("\nProcurar por ~> ");
 //     scanf("%s", filtro_data);
 
 //     quebrarLinhas(2);
@@ -180,31 +186,31 @@ void placasderedeAlterar()
         menuEquipamentos();
     }
 
-    enviarTitulo("\t\t\tMENU DE PLACAS DE REDE\n");
+    enviarTitulo("\tMENU DE PLACAS DE REDE\n");
 
-    printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Alterar Placa de Rede\n");
-    printf("\n\t\t***********************************\n\n\t\tA alterar placa de rede com ID: ");
+    printf(COR_Green "[SELECIONADO]" COR_Blue " Alterar Placa de Rede\n");
+    printf("\n***********************************\n\nA alterar placa de rede com ID: ");
     scanf("%d", &id);
 
-    printf("\n\t\t\tPor favor, insira:\n\n");
+    printf("\n\tPor favor, insira:\n\n");
     
     printf(COR_Cyan "\tID do equipamento a associar a placa " COR_Green "~> ");
     scanf("%d", &id_equipamento);
 
-    printf(COR_Cyan "\tEndereço IP " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id_equipamento].rede[id].ip);
+    // printf(COR_Cyan "\tEndereço IP " COR_Green "~> ");
+    // fflush(stdin);
+    // scanf("%c", &temp);
+    // gets(&equipamento[id_equipamento].rede[id].ip);
 
-    printf(COR_Cyan "\tMáscara de Rede " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id_equipamento].rede[id].netmask);
+    // printf(COR_Cyan "\tMáscara de Rede " COR_Green "~> ");
+    // fflush(stdin);
+    // scanf("%c", &temp);
+    // gets(&equipamento[id_equipamento].rede[id].netmask);
 
-    printf(COR_Cyan "\tEndereço de broadcast " COR_Green "~> ");
-    fflush(stdin);
-    scanf("%c", &temp);
-    gets(&equipamento[id_equipamento].rede[id].broadcast);
+    // printf(COR_Cyan "\tEndereço de broadcast " COR_Green "~> ");
+    // fflush(stdin);
+    // scanf("%c", &temp);
+    // gets(&equipamento[id_equipamento].rede[id].broadcast);
 
     quebrarLinhas(1);
 }
@@ -238,27 +244,22 @@ void placasderedeEliminar()
         menuEquipamentos();
     }
 
-    enviarTitulo("\t\t\tMENU DE PLACAS DE REDE\n");
+    enviarTitulo("\tMENU DE PLACAS DE REDE\n");
 
-    printf(COR_Green "\t\t[SELECIONADO]" COR_Blue " Eliminar Placa de Rede\n");
-    printf("\n\t\t***********************************");
+    // printf(COR_Green "[SELECIONADO]" COR_Blue " Eliminar Placa de Rede\n");
+    // printf("\n***********************************");
 
-    printf("\n\t\t\tPor favor, insira:\n\n");
+    // printf("\n\tPor favor, insira:\n\n");
     
-    printf(COR_Cyan "\tID do equipamento ao qual a placa vai ser eliminada " COR_Green "~> ");
-    scanf("%d", &idEliminarEquip);
+    // printf(COR_Cyan "\tID do equipamento ao qual a placa vai ser eliminada " COR_Green "~> ");
+    // scanf("%d", &idEliminarEquip);
     
-    printf(COR_Cyan "\tID da placa a ser eliminada " COR_Green "~> ");
-    scanf("%d", &idEliminarPlaca);
+    // printf(COR_Cyan "\tID da placa a ser eliminada " COR_Green "~> ");
+    // scanf("%d", &idEliminarPlaca);
 
-    printf(COR_Red "\tDeseja confirmar a eliminação da placa de rede Nº %d?\n\n\t\t[1] Sim - [0] Não\n\n\t\t~> ", idEliminarPlaca);
+    // printf(COR_Red "\tDeseja confirmar a eliminação da placa de rede Nº %d?\n\n[1] Sim - [0] Não\n\n~> ", idEliminarPlaca);
 
-    scanf("%d", &Confirmacao);
-
-    if(Confirmacao == 1)
-    {
-        equipamento[idEliminarEquip].rede[idEliminarPlaca].eliminado = true;
-    }
+    // scanf("%d", &Confirmacao);
 
     printf(COR_Cyan);
 }

@@ -11,10 +11,6 @@
 // Database
 #include "./database/data.h"
 
-// Utilidades
-#include "./utils/main.h"
-#include "./utils/main.c"
-
 // UI
 #include "./ui/main.h"
 #include "./ui/main.c"
@@ -30,7 +26,6 @@
  * @return Sem return
  * 
 */
-
 int main()
 {
     limparJanela();

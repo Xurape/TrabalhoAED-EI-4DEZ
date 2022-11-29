@@ -16,21 +16,21 @@ void menuEquipamentos()
     {
         limparJanela();
 
-        enviarTitulo("\t\t\tMENU DE EQUIPAMENTOS\n");
+        enviarTitulo("  MENU DE EQUIPAMENTOS\n");
 
-        printf(COR_Cyan "\t\t[1]" COR_Blue " Inserir equipamento\n");
-        printf(COR_Cyan "\t\t[2]" COR_Blue " Alterar equipamento\n");
-        printf(COR_Cyan "\t\t[3]" COR_Blue " Eliminar equipamento\n");
-        printf(COR_Cyan "\t\t[4]" COR_Blue " Mostrar equipamentos\n");
-        printf(COR_Cyan "\t\t[5]" COR_Blue " Filtrar equipamentos\n");
+        printf(COR_Cyan "   [1]" COR_Default " Inserir equipamento\n");
+        printf(COR_Cyan "   [2]" COR_Default " Alterar equipamento\n");
+        printf(COR_Cyan "   [3]" COR_Default " Eliminar equipamento\n");
+        printf(COR_Cyan "   [4]" COR_Default " Mostrar equipamentos\n");
+        printf(COR_Cyan "   [5]" COR_Default " Filtrar equipamentos\n");
 
         quebrarLinhas(2);
 
-        printf(COR_Cyan "\t\t[0]" COR_Blue " Voltar");
+        printf(COR_Cyan "   [0]" COR_Default " Voltar");
 
-        printf("\n\n\t\t***********************************\n");
+        printf(COR_Green"\n\n***********************************\n");
 
-        printf("\n\t\tSelecione uma opção:\n\t\t > ");
+        printf("\nSelecione uma opção:\n > ");
         scanf("%d", &opc);
     } while (opc < 0 || opc > 6);
 
@@ -58,21 +58,21 @@ void menuAplicacoes()
     {
         limparJanela();
 
-        enviarTitulo("\t\t\tMENU DE APLICAÇÕES\n");
+        enviarTitulo("  MENU DE APLICAÇÕES\n");
 
         // Opções
-        printf(COR_Cyan "\t\t[1]" COR_Blue " Inserir aplicações\n");
-        printf(COR_Cyan "\t\t[2]" COR_Blue " Alterar aplicações\n");
-        printf(COR_Cyan "\t\t[3]" COR_Blue " Eliminar aplicações\n");
-        printf(COR_Cyan "\t\t[4]" COR_Blue " Mostrar aplicações\n");
+        printf(COR_Cyan "   [1]" COR_Blue " Inserir aplicações\n");
+        printf(COR_Cyan "   [2]" COR_Blue " Alterar aplicações\n");
+        printf(COR_Cyan "   [3]" COR_Blue " Eliminar aplicações\n");
+        printf(COR_Cyan "   [4]" COR_Blue " Mostrar aplicações\n");
 
         quebrarLinhas(2);
 
-        printf(COR_Cyan "\t\t[0]" COR_Blue " Voltar");
+        printf(COR_Cyan "   [0]" COR_Blue " Voltar");
 
-        printf("\n\n\t\t***********************************\n");
+        printf(COR_Green"\n\n***********************************\n");
 
-        printf("\n\t\tSelecione uma opção:\n\t\t > ");
+        printf("\nSelecione uma opção:\n > ");
         scanf("%d", &opcao);
     } while (opcao < 0 || opcao > 7);
 
@@ -100,21 +100,21 @@ void menuPlacasRede()
     {
         limparJanela();
 
-        enviarTitulo("\t\t\tMENU DE PLACAS DE REDE\n");
+        enviarTitulo("  MENU DE PLACAS DE REDE\n");
 
         // Opções
-        printf(COR_Cyan "\t\t[1]" COR_Blue " Inserir placa de rede\n");
-        printf(COR_Cyan "\t\t[2]" COR_Blue " Alterar placa de rede\n");
-        printf(COR_Cyan "\t\t[3]" COR_Blue " Eliminar placa de rede\n");
-        printf(COR_Cyan "\t\t[4]" COR_Blue " Mostrar placas de rede\n");
+        printf(COR_Cyan "   [1]" COR_Blue " Inserir placa de rede\n");
+        printf(COR_Cyan "   [2]" COR_Blue " Alterar placa de rede\n");
+        printf(COR_Cyan "   [3]" COR_Blue " Eliminar placa de rede\n");
+        printf(COR_Cyan "   [4]" COR_Blue " Mostrar placas de rede\n");
 
         quebrarLinhas(2);
 
-        printf(COR_Cyan "\t\t[0]" COR_Blue " Voltar");
+        printf(COR_Cyan "   [0]" COR_Blue " Voltar");
 
-        printf("\n\n\t\t***********************************\n");
+        printf(COR_Green"\n\n***********************************\n");
 
-        printf("\n\t\tSelecione uma opção:\n\t\t > ");
+        printf("\nSelecione uma opção:\n > ");
         scanf("%d", &opcao);
     } while (opcao < 0 || opcao > 7);
 

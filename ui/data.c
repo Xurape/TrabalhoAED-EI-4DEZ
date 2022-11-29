@@ -13,6 +13,7 @@
  */
 void gerarTabela(int tipo, int filter, char data[])
 {
+    int temp1, temp2;
     /**
      * Tipos:
      *   1 - Equipamentos
@@ -25,144 +26,245 @@ void gerarTabela(int tipo, int filter, char data[])
      *   1 - Sistema operativo
      *   2 - Rede
      *   3 - Aplicação
-    */
+     */
 
-    /* 
-    
+    /*
+
         TIPO 1
-    
+
     */
     if (tipo == 1)
     {
         fflush(stdin);
-        printf(COR_Yellow"\
+        printf(COR_Yellow "\
     +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+\n\
     | ID | Adquirido   | Departamento | Garantia |        CPU       | Velocidade (GHz) |    RAM (GB)   | Sistema Operativo |              Disco              | \n\
     +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+\n");
 
         switch (filter)
         {
-            case 0:
-                for (size_t i = 1; i <= equipamentos_id; i++)
+        case 0:
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                printf("\
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                       i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                       equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                       equipamento[i].ram, equipamento[i].sistemaoperativo,
+                       equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+            }
+
+            break;
+
+        /**
+         *
+         * Sistema operativo
+         *
+         */
+        case 1:
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                if (strstr(equipamento[i].sistemaoperativo, data))
                 {
-                    if(!equipamento[i].eliminado)
-                        printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
-                    i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-                    equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-                    equipamento[i].ram, equipamento[i].sistemaoperativo,
-                    equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                    printf("\
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                           i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                           equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                           equipamento[i].ram, equipamento[i].sistemaoperativo,
+                           equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
                 }
+            }
+            break;
 
-                break;
-
-            /**
-             * 
-             * Sistema operativo
-             * 
-            */
-            case 1:
-                for (size_t i = 1; i <= equipamentos_id; i++)
+        /**
+         *
+         * Rede
+         *
+         */
+        case 2:
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                for (size_t ii = 0; i <= placasderede_id; i++)
                 {
-                    if(strstr(equipamento[i].sistemaoperativo, data)) 
-                    {
-                        if(!equipamento[i].eliminado)
-                           printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
-                        i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-                        equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-                        equipamento[i].ram, equipamento[i].sistemaoperativo,
-                        equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
-                    }
+                    // if(strstr(equipamento[i].rede[ii].ip, data) || strstr(equipamento[i].rede[ii].netmask, data) || strstr(equipamento[i].rede[ii].broadcast, data))
+                    // {
+                    printf("\
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                           i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                           equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                           equipamento[i].ram, equipamento[i].sistemaoperativo,
+                           equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                    // }
                 }
-                break;
+            }
+            break;
 
-            /**
-             * 
-             * Rede
-             * 
-            */
-            case 2:
-                for (size_t i = 1; i <= equipamentos_id; i++)
+        /**
+         *
+         * Aplicações
+         *
+         */
+        case 3:
+            // char* data_completa;
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                for (size_t ii = 0; i <= aplicacoes_id; i++)
                 {
-                    for (size_t ii = 0; i <= placasderede_id; i++) 
-                    {
-                        if(strstr(equipamento[i].rede[ii].ip, data) || strstr(equipamento[i].rede[ii].netmask, data) || strstr(equipamento[i].rede[ii].broadcast, data)) 
-                        {
-                            if(!equipamento[i].eliminado)
-                                printf("\
-    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
-                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-                            equipamento[i].ram, equipamento[i].sistemaoperativo,
-                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
-                        }
-                        
-                    }
-                }
-                break;
+                    // strcpy(data_completa, equipamento[i].aplicacoes[ii].validade.dia);
+                    // strcat(data_completa, "/");
+                    // strcat(data_completa, equipamento[i].aplicacoes[ii].validade.mes);
+                    // strcat(data_completa, "/");
+                    // strcat(data_completa, equipamento[i].aplicacoes[ii].validade.ano);
 
-            /**
-             * 
-             * Aplicações
-             * 
-            */
-            case 3:
-                // char* data_completa;
-                for (size_t i = 1; i <= equipamentos_id; i++)
+                    //                 if(strstr(equipamento[i].aplicacoes[ii].designacao, data) || strstr(data_completa, data) || strstr(equipamento[i].aplicacoes[ii].versao, data))
+                    //                 {
+                    //                     if(!equipamento[i].eliminado)
+                    //                         printf("\
+        // | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                    //                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                    //                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                    //                     equipamento[i].ram, equipamento[i].sistemaoperativo,
+                    //                     equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                    //                 }
+                }
+            }
+            break;
+        case 4:
+            // equipamentos que já passou a data de validade
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                for (size_t ii = 0; i <= placasderede_id; i++)
                 {
-                    for (size_t ii = 0; i <= aplicacoes_id; i++)
-                    {
-                        // strcpy(data_completa, equipamento[i].aplicacoes[ii].validade.dia);
-                        // strcat(data_completa, "/");
-                        // strcat(data_completa, equipamento[i].aplicacoes[ii].validade.mes);
-                        // strcat(data_completa, "/");
-                        // strcat(data_completa, equipamento[i].aplicacoes[ii].validade.ano);
-
-        //                 if(strstr(equipamento[i].aplicacoes[ii].designacao, data) || strstr(data_completa, data) || strstr(equipamento[i].aplicacoes[ii].versao, data)) 
-        //                 {
-        //                     if(!equipamento[i].eliminado)
-        //                         printf("\
-        // | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n", 
-        //                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-        //                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-        //                     equipamento[i].ram, equipamento[i].sistemaoperativo,
-        //                     equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
-        //                 }
-                    }
+                    time_t now;
+                    time(&now);    
+                    struct tm *tempo = localtime(&now);
+                    if (equipamento[i].validade.ano < tempo->tm_year)   
+                    printf("\
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                           i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                           equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                           equipamento[i].ram, equipamento[i].sistemaoperativo,
+                           equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                    // }
                 }
-                break;
+            }
+            break;
+
+        case 5:
+            // total da memória dos equipamentos
+            break;
         }
         printf("\
     +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+");
     }
 
-
-
-    /* 
-    
+    /*
         TIPO 2
-    
+        - APLICAÇÕES -
     */
     else if (tipo == 2)
     {
-
-
-
-
-    
     }
 
-
-
-
-
-    /* 
-    
+    /*
         TIPO 3
-    
+        - PLACAS -
     */
     else
     {
+        fflush(stdin);
+        printf(COR_Yellow "\
+    +----+-------------+----------+----------+----------+----------+------------+----------\n\
+    | ID | Equipamento |    Endereço IP      |   Máscara de Rede   | Endereço de broadcast |\n\
+    +----+-------------+----------+----------+----------+----------+------------+----------\n");
+
+        switch (filter)
+        {
+        
+        case 0:
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                printf("\
+    | %-2d | %-11d | %-15s | %-19s | %-21s\n", i, rede[i].id, rede[i].ip, rede[i].netmask, rede[i].broadcast);
+            }
+
+            break;
+
+        /**
+         *
+         * Sistema operativo
+         *
+         */
+        case 1:
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                if (strstr(equipamento[i].sistemaoperativo, data))
+                {
+                    printf("\
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                           i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                           equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                           equipamento[i].ram, equipamento[i].sistemaoperativo,
+                           equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                }
+            }
+            break;
+
+        /**
+         *
+         * Rede
+         *
+         */
+        case 2:
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                for (size_t ii = 0; i <= placasderede_id; i++)
+                {
+                    // if(strstr(equipamento[i].rede[ii].ip, data) || strstr(equipamento[i].rede[ii].netmask, data) || strstr(equipamento[i].rede[ii].broadcast, data))
+                    // {
+                    printf("\
+    | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                           i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                           equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                           equipamento[i].ram, equipamento[i].sistemaoperativo,
+                           equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                    // }
+                }
+            }
+            break;
+
+        /**
+         *
+         * Aplicações
+         *
+         */
+        case 3:
+            // char* data_completa;
+            for (size_t i = 1; i <= equipamentos_id; i++)
+            {
+                for (size_t ii = 0; i <= aplicacoes_id; i++)
+                {
+                    // strcpy(data_completa, equipamento[i].aplicacoes[ii].validade.dia);
+                    // strcat(data_completa, "/");
+                    // strcat(data_completa, equipamento[i].aplicacoes[ii].validade.mes);
+                    // strcat(data_completa, "/");
+                    // strcat(data_completa, equipamento[i].aplicacoes[ii].validade.ano);
+
+                    //                 if(strstr(equipamento[i].aplicacoes[ii].designacao, data) || strstr(data_completa, data) || strstr(equipamento[i].aplicacoes[ii].versao, data))
+                    //                 {
+                    //                     if(!equipamento[i].eliminado)
+                    //                         printf("\
+        // | %-2d | %-.2d/%-.2d/%-.4d  | %-12s | %-.2d meses | %-16s | %-12.2f GHz | %-10.d GB | %-17s | %-3s %s %d\n",
+                    //                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                    //                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                    //                     equipamento[i].ram, equipamento[i].sistemaoperativo,
+                    //                     equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade);
+                    //                 }
+                }
+            }
+            break;
+        }
+        printf("\
+    +----+-------------+--------------+----------+------------------+------------------+---------------+-------------------+----------------+----------------+");
     }
 }

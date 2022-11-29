@@ -17,9 +17,6 @@ void quebrarLinhas(int);
 void enviarTitulo(char*);
 void abrirMenu(int);
 void finalizarMenu();
-void progressBar(double, int);
-void gerarProgressBar(long);
-void abrirTerminalLoading();
 void gerarTabela();
 
 // Equipamentos
