@@ -79,9 +79,9 @@ void enviarTitulo(char* titulo)
 
     printf(COR_Default"\n  Bem-vindo!      Hora atual: "COR_Cyan"%d:%d\n"COR_Default, tempo->tm_hour, tempo->tm_min);
 
-    printf(COR_Green "\n"TL LINE TR"\n\n");
-    printf("      %s", titulo);
-    printf(COR_Green "\n"BL LINE BR"\n\n");
+    printf(COR_Green "\n"TL LINE TR"\n"VL"\n");
+    printf(VL"      %s", titulo);
+    printf(COR_Green VL"\n"BL LINE BR"\n\n");
 
 }
 

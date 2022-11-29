@@ -7,5 +7,6 @@
 #define TR    "┐"
 #define BL    " └"
 #define BR    "┘"
+#define VL    " │"
 #define LINE  "───────────────────────────────────"
 #define CLEARLINE "0K"

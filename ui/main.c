@@ -18,7 +18,7 @@
 */
 void mainUI()
 {
-    int opcao;
+        int opcao;
 
         limparJanela();
 
@@ -34,18 +34,16 @@ void mainUI()
         printf(COR_Cyan "   [0]" COR_Default " Sair");
 
     
-    printf(COR_Green "\n\n\n"TL LINE TR"\n");
     do
     {
+        printf(COR_Green "\n\n\n"TL LINE TR"\n");
         printf("\n       Selecione uma opção: ");
         saveCursor();
-        printf(COR_Green "\n\n"BL LINE BR"\n");
-        restoreCursor();
-
+        
         char temp;
-        scanf("%c", &temp);
+        scanf(" %c", &temp);
         opcao = temp - '0';
-
+        
         restoreCursor();
         printf("\e[0J");
     } while (opcao < 0 || opcao > 7);
