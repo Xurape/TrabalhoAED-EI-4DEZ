@@ -198,11 +198,31 @@ void placasderedeEliminar()
 
     enviarTitulo("     MENU DE PLACAS DE REDE", 1);
 
+    printf(COR_Cyan " ■ ID da placa a eliminar " COR_Green "→ "); guardarCursor();
+
+    scanf("%d", &idEliminarPlaca);
+
+    while (idEliminarPlaca < 0 || idEliminarPlaca > placasderede_id) {
+        printf(COR_Red"\nEssa placa não existe, por favor insira um ID de placa válido..\n\n");
+        restaurarCursor();
+        scanf("%d", &idEliminarPlaca);
+    }
+
     printf(COR_Cyan" "TL"────────────────────────────────────────────────────────────"TR"\n");
     printf(COR_Red "\n       Deseja confirmar a eliminação da placa de rede?\n\n                 "COR_Cyan"[1]"COR_Green" Sim "COR_Red"-"COR_Cyan" [0] "COR_LightRed"Não"COR_Cyan"\n\n     → "); guardarCursor();
     printf(COR_Cyan"\n\n "BL"────────────────────────────────────────────────────────────"BR);
     restaurarCursor();
     scanf("%d", &Confirmacao);
+
+    if (Confirmacao == 1)
+    {
+        for (size_t i = idEliminarPlaca; i <= placasderede_id; i++)
+        {
+            rede[i] = rede[i + 1];
+        }
+
+        placasderede_id--;
+    }
 
     printf(COR_Cyan);
 }
