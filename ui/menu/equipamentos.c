@@ -108,9 +108,18 @@ void equipamentosFiltrar()
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Filtrar equipamentos\n\n");
 
     printf(COR_Cyan "[1] "COR_Default"Equipamento por Sistema Operativo\n");
-    printf(COR_Cyan "[2] "COR_Default"Equipamento por Rede\n");
-    printf(COR_Cyan "[3] "COR_Default"Equipamento por Aplicação\n\n");
-    printf(COR_Cyan "[4] "COR_Default"Equipamento por Garantia Expirada\n\n");
+    printf(COR_Cyan "[2] "COR_Default"Equipamento por Placa de Rede\n");
+    printf(COR_Cyan "[3] "COR_Default"Equipamento por Aplicação\n");
+    printf(COR_Cyan "[4] "COR_Default"Equipamento por Departamento\n\n");
+
+    printf(COR_Cyan "[5] "COR_Default"Equipamento por Garantia Expirada\n");
+    printf(COR_Cyan "[6] "COR_Default"Equipamento por Número de MIPS (Por departamento)\n");
+    printf(COR_Cyan "[7] "COR_Default"Equipamento por Memória (Por departamento)\n");
+    printf(COR_Cyan "[8] "COR_Default"Equipamento por Capacidade do disco duro (Por departamento)\n");
+    printf(COR_Cyan "[9] "COR_Default"Equipamento com menos de um determinado Nº de RAM\n");
+    printf(COR_Cyan "[10] "COR_Default"Equipamento por Aplicação com validade expirada\n");
+    printf(COR_Cyan "[11] "COR_Default"Equipamentos na mesma rede\n");
+    printf(COR_Cyan "[12] "COR_Default"Verificar se equipamentos com possibilidade de comunicação interna.\n");
 
     printf(COR_Cyan"\n■"COR_Default" Filtrar → ");
     scanf("%d", &filtro);
@@ -158,12 +167,11 @@ void equipamentosEliminar()
 
     printf("\n  Por favor, insira:\n\n");
 
-    printf(COR_Cyan "   ID do equipamento a eliminar " COR_Green "→ ");
+    printf(COR_Cyan " ■ ID do equipamento a eliminar " COR_Green "→ "); guardarCursor();
     scanf("%d", &idEliminar);
 
     while (idEliminar < 0 || idEliminar > equipamentos_id) {
-        printf(COR_Red"\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
-        printf(COR_Cyan "   ID do equipamento a eliminar " COR_Green "→ ");
+        printf(COR_Red"\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n"); restaurarCursor();
         scanf("%d", &idEliminar);
     }
 
