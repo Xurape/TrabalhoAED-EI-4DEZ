@@ -52,6 +52,7 @@ typedef struct Rede
 
 typedef struct Aplicacoes
 {
+    int id;
     char designacao[50];
     char versao[50];
 
@@ -66,4 +67,4 @@ typedef struct Aplicacoes
 
 Equipamento equipamento[MAX_EQUIPAMENTOS] = {'\0'};
 Rede rede[MAX_PLACASDEREDE] = {'\0'};
-//Aplicacoes aplicacoes[MAX_EQUIPAMENTOS][MAX_APLICACOES] = {'\0'};
+Aplicacoes aplicacoes[MAX_APLICACOES] = {'\0'};
