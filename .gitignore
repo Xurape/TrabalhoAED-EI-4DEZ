@@ -2,3 +2,4 @@ main
 main.exe
 main.o
 todo.c
+compile.py
