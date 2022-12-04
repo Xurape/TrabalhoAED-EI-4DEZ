@@ -17,6 +17,8 @@ void placasderedeInserir()
 
     limparJanela();
 
+    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
+
     if(equipamentos_id == 0) {
         printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
 
@@ -25,8 +27,6 @@ void placasderedeInserir()
 
         menuEquipamentos();
     }
-
-    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
 
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Inserir placa de rede\n");
 
@@ -37,7 +37,7 @@ void placasderedeInserir()
     printf(COR_Cyan " ■ ID do equipamento a associar a placa " COR_Green "→ "); scanf("%d", &rede[id].id);
 
     while (rede[id].id < 0 || rede[id].id > equipamentos_id) {
-        printf(COR_Red"\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
         printf(COR_Cyan " ■ ID do equipamento a associar a placa " COR_Green "→ ");
         scanf("%d", &rede[id].id);
     }
@@ -66,6 +66,8 @@ void placasderedeMostrar()
     int id = placasderede_id + 1;
 
     limparJanela();
+    
+    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
 
     if(equipamentos_id == 0) {
         printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
@@ -84,9 +86,6 @@ void placasderedeMostrar()
 
         menuPlacasRede();
     }
-
-
-    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
 
     gerarTabela(3, 0);
 
@@ -112,6 +111,8 @@ void placasderedeAlterar()
     int id;
 
     limparJanela();
+    
+    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
 
     if(equipamentos_id == 0) {
         printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
@@ -131,7 +132,6 @@ void placasderedeAlterar()
         menuPlacasRede();
     }
 
-    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Alterar placa de rede\n");
     printf(COR_Green"\n  A alterar placa de rede com ID: "COR_Cyan"[ ");
     guardarCursor();
@@ -140,7 +140,7 @@ void placasderedeAlterar()
     scanf("%d", &id);
 
     while (id < 0 || id > placasderede_id) {
-        printf(COR_Red"\nEssa placa de rede não existe, por favor insira um ID válido..\n\n");
+        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\nEssa placa de rede não existe, por favor insira um ID válido..\n\n");
         restaurarCursor();
         scanf("%d", &id);
     }
@@ -148,7 +148,7 @@ void placasderedeAlterar()
     printf(COR_Cyan " ■ ID do equipamento a associar a placa " COR_Green "→ "); guardarCursor(); scanf("%d", &rede[id].id);
 
     while (rede[id].id < 0 || rede[id].id > equipamentos_id) {
-        printf(COR_Red"\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
         restaurarCursor();
         scanf("%d", &rede[id].id);
     }
@@ -178,6 +178,8 @@ void placasderedeEliminar()
 
     limparJanela();
 
+    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
+
     if(equipamentos_id == 0) {
         printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
 
@@ -196,14 +198,12 @@ void placasderedeEliminar()
         menuPlacasRede();
     }
 
-    enviarTitulo("     MENU DE PLACAS DE REDE", 1);
-
     printf(COR_Cyan " ■ ID da placa a eliminar " COR_Green "→ "); guardarCursor();
 
     scanf("%d", &idEliminarPlaca);
 
     while (idEliminarPlaca < 0 || idEliminarPlaca > placasderede_id) {
-        printf(COR_Red"\nEssa placa não existe, por favor insira um ID de placa válido..\n\n");
+        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\nEssa placa não existe, por favor insira um ID de placa válido..\n\n");
         restaurarCursor();
         scanf("%d", &idEliminarPlaca);
     }
