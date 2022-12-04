@@ -254,12 +254,20 @@ void abrirMenu(int menu)
         */
 
         case 41:
+            aplicacoesInserir();
+            menuAplicacoes();
             break;
         case 42:
+            aplicacoesAlterar();
+            menuAplicacoes();
             break;
         case 43:
+            aplicacoesEliminar();
+            menuAplicacoes();
             break;
         case 44:
+            aplicacoesMostrar();
+            menuAplicacoes();
             break;
         
         /**
