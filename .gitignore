@@ -1,3 +1,6 @@
+.vscode/*
+.vscode
+
 main
 main.exe
 main.o
