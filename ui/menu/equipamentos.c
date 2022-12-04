@@ -23,17 +23,17 @@ void equipamentosInserir()
 
     printf(COR_Green"\n  A inserir equipamento com ID: "COR_Cyan"[ %d ]\n\n"COR_Default, id);
 
-    printf(COR_Cyan "■ Caso seja um computador [1] ou servidor [2] " COR_Green "→ "); scanf("%d", &equipamento[id].tipo); //quebrarLinhas(1);
-    printf(COR_Cyan "■ Data de aquisição " COR_Green "→ "); scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano); //quebrarLinhas(1);
-    printf(COR_Cyan "■ Departamento " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].departamento); //quebrarLinhas(1);
-    printf(COR_Cyan "■ Garantia (em meses) " COR_Green "→ "); scanf("%d", &equipamento[id].garantia); //quebrarLinhas(1);
-    printf(COR_Cyan "■ CPU " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].cpus.cpu); //quebrarLinhas(1);
-    printf(COR_Cyan "■ Frequência de CPU (em GHz) " COR_Green "→ "); scanf("%f", &equipamento[id].cpus.ghz); //quebrarLinhas(1);
-    printf(COR_Cyan "■ Tipo de disco (SSD/SAS/HDD) " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].discos.tipo); //quebrarLinhas(1);
-    printf(COR_Cyan "■ Nome do disco (Ex.: Kingston <Modelo>) " COR_Green "→ "); fflush(stdin); gets(&equipamento[id].discos.nome); //quebrarLinhas(1); fflush(stdin); 
-    printf(COR_Cyan "■ Capacidade do disco em GB (Ex.: 500) " COR_Green "→ "); scanf("%d", &equipamento[id].discos.capacidade); //quebrarLinhas(1);
-    printf(COR_Cyan "■ Quantidade de memória RAM em GB (Ex.: 8) " COR_Green "→ "); scanf("%d", &equipamento[id].ram); //quebrarLinhas(1); fflush(stdin);
-    printf(COR_Cyan "■ Sistema operativo (Ex.: Windows 11) " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].sistemaoperativo); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Caso seja um computador [1] ou servidor [2] " COR_Green "→ "); scanf("%d", &equipamento[id].tipo); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Data de aquisição " COR_Green "→ "); scanf("%d/%d/%d", &equipamento[id].aquisicao.dia, &equipamento[id].aquisicao.mes, &equipamento[id].aquisicao.ano); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Departamento " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].departamento); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Garantia (em meses) " COR_Green "→ "); scanf("%d", &equipamento[id].garantia); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ CPU " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].cpus.cpu); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Frequência de CPU (em GHz) " COR_Green "→ "); scanf("%f", &equipamento[id].cpus.ghz); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Tipo de disco (SSD/SAS/HDD) " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].discos.tipo); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Nome do disco (Ex.: Kingston <Modelo>) " COR_Green "→ "); fflush(stdin); gets(&equipamento[id].discos.nome); //quebrarLinhas(1); fflush(stdin); 
+    printf(COR_Cyan " ■ Capacidade do disco em GB (Ex.: 500) " COR_Green "→ "); scanf("%d", &equipamento[id].discos.capacidade); //quebrarLinhas(1);
+    printf(COR_Cyan " ■ Quantidade de memória RAM em GB (Ex.: 8) " COR_Green "→ "); scanf("%d", &equipamento[id].ram); //quebrarLinhas(1); fflush(stdin);
+    printf(COR_Cyan " ■ Sistema operativo (Ex.: Windows 11) " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(&equipamento[id].sistemaoperativo); //quebrarLinhas(1);
 
     equipamentos_id++;
 }
@@ -93,6 +93,8 @@ void equipamentosFiltrar()
 
     limparJanela();
 
+    enviarTitulo("       MENU DE EQUIPAMENTOS", 1);
+
     if (equipamentos_id == 0)
     {
         printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
@@ -102,8 +104,6 @@ void equipamentosFiltrar()
 
         menuEquipamentos();
     }
-
-    enviarTitulo("       MENU DE EQUIPAMENTOS", 1);
 
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Filtrar equipamentos\n\n");
 
@@ -151,6 +151,8 @@ void equipamentosEliminar()
 
     limparJanela();
 
+    enviarTitulo("       MENU DE EQUIPAMENTOS", 1);
+
     if (equipamentos_id == 0)
     {
         printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
@@ -161,8 +163,6 @@ void equipamentosEliminar()
         menuEquipamentos();
     }
 
-    enviarTitulo("       MENU DE EQUIPAMENTOS", 1);
-
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Eliminar equipamento\n");
 
     printf("\n  Por favor, insira:\n\n");
@@ -171,7 +171,7 @@ void equipamentosEliminar()
     scanf("%d", &idEliminar);
 
     while (idEliminar < 0 || idEliminar > equipamentos_id) {
-        printf(COR_Red"\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n"); restaurarCursor();
+        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n"); restaurarCursor();
         scanf("%d", &idEliminar);
     }
 
@@ -210,6 +210,8 @@ void equipamentosAlterar()
 
     limparJanela();
 
+    enviarTitulo("       MENU DE EQUIPAMENTOS", 1);
+
     if (equipamentos_id == 0)
     {
         printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
@@ -219,8 +221,6 @@ void equipamentosAlterar()
 
         menuEquipamentos();
     }
-
-    enviarTitulo("       MENU DE EQUIPAMENTOS", 1);
 
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Alterar equipamento\n");
 
@@ -235,7 +235,7 @@ void equipamentosAlterar()
     scanf("%d", &id);
 
     while (id < 0 || id > equipamentos_id) {
-        printf(COR_Red"\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
         // printf(COR_Green"\n  A alterar equipamento com ID: "COR_Cyan"[  ");
         // guardarCursor();
         // printf("  ]\n\n"COR_Default, id);
