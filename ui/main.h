@@ -27,6 +27,10 @@ void equipamentosMostrar();
 void equipamentosFiltrar();
 
 // Aplicações
+void aplicacoesInserir();
+void aplicacoesMostrar();
+void aplicacoesAlterar();
+void apliacoesEliminar();
 
 // Placas de rede
 void placasderedeInserir();
