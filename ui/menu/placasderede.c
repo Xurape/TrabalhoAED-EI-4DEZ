@@ -37,12 +37,29 @@ void placasderedeInserir()
     printf(COR_Cyan " ■ ID do equipamento a associar a placa " COR_Green "→ "); scanf("%d", &rede[id].id);
 
     while (rede[id].id < 0 || rede[id].id > equipamentos_id) {
-        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+        printf(COR_Red"\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
         printf(COR_Cyan " ■ ID do equipamento a associar a placa " COR_Green "→ ");
         scanf("%d", &rede[id].id);
     }
 
-    printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(rede[id].ip);
+    printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+    fflush(stdin); 
+    scanf("%c", &temp); 
+    scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
+    printf("%d.%d.%d.%d", rede[id].ip_pieces_1, rede[id].ip_pieces_2, rede[id].ip_pieces_3, rede[id].ip_pieces_4);
+    
+    while(rede[id].ip_pieces_1 < 1 || rede[id].ip_pieces_1 > 254 || rede[id].ip_pieces_2 < 0 || rede[id].ip_pieces_2 > 254 || rede[id].ip_pieces_3 < 0 || rede[id].ip_pieces_3 > 254 || rede[id].ip_pieces_4 < 0 || rede[id].ip_pieces_4 > 254)
+    {
+        printf(COR_Red"\n\nIP inválido, por favor insira um endereço IP válido..\n\n");
+        printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+        fflush(stdin); 
+        scanf("%c", &temp); 
+        scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
+        printf("%d.%d.%d.%d", rede[id].ip_pieces_1, rede[id].ip_pieces_2, rede[id].ip_pieces_3, rede[id].ip_pieces_4);
+    }
+    
+    fflush(stdin); 
+    scanf("%c", &temp);
     printf(COR_Cyan " ■ Máscara de Rede " COR_Green "→ "); gets(rede[id].netmask);
     printf(COR_Cyan " ■ Endereço de broadcast " COR_Green "→ "); gets(rede[id].broadcast); quebrarLinhas(1);
 
@@ -153,7 +170,24 @@ void placasderedeAlterar()
         scanf("%d", &rede[id].id);
     }
 
-    printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); fflush(stdin); scanf("%c", &temp); gets(rede[id].ip);
+    printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+    gets(rede[id].ip);
+
+    char * token = strtok(rede[id].ip, ".");
+    while(token != NULL) {
+        printf( " %s\n", token );
+        token = strtok(NULL, ".");
+    }
+    
+    // while(rede[id].ip_pieces_1 < 1 || rede[id].ip_pieces_1 > 254 || rede[id].ip_pieces_2 < 0 || rede[id].ip_pieces_2 > 254 || rede[id].ip_pieces_3 < 0 || rede[id].ip_pieces_3 > 254 || rede[id].ip_pieces_4 < 0 || rede[id].ip_pieces_4 > 254)
+    // {
+    //     printf(COR_Red"\n\nIP inválido, por favor insira um endereço IP válido..\n\n");
+    //     printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+    //     fflush(stdin); 
+    //     scanf("%c", &temp); 
+    //     scanf("%d.%d.%d.%d", rede[id].ip_pieces_1, rede[id].ip_pieces_2, rede[id].ip_pieces_3, rede[id].ip_pieces_4);
+    // }
+    
     printf(COR_Cyan " ■ Máscara de Rede " COR_Green "→ "); gets(rede[id].netmask);
     printf(COR_Cyan " ■ Endereço de broadcast " COR_Green "→ "); gets(rede[id].broadcast); quebrarLinhas(1);
 

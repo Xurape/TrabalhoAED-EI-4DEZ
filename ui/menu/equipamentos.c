@@ -236,9 +236,6 @@ void equipamentosAlterar()
 
     while (id < 0 || id > equipamentos_id) {
         printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
-        // printf(COR_Green"\n  A alterar equipamento com ID: "COR_Cyan"[  ");
-        // guardarCursor();
-        // printf("  ]\n\n"COR_Default, id);
         restaurarCursor();
         scanf("%d", &id);
     }

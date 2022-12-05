@@ -45,7 +45,11 @@ typedef struct Equipamentos
 typedef struct Rede
 {
     int id;
-    char ip[255];
+    int ip_pieces_1;
+    int ip_pieces_2;
+    int ip_pieces_3;
+    int ip_pieces_4;
+    char ip[16];
     char netmask[255];   
     char broadcast[255]; 
 } Rede;

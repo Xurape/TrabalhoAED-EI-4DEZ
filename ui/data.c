@@ -196,7 +196,7 @@ void gerarTabela(int tipo, int filter)
                 for (size_t i = 1; i <= placasderede_id; i++)
                 {
                     printf("\
- │ %-2d │ %-11d │ %-19s │ %-19s │ %-20s "VL"\n", i, rede[i].id, rede[i].ip, rede[i].netmask, rede[i].broadcast);
+ │ %-2d │ %-11d │ %d.%d.%d.%d │ %-19s │ %-20s "VL"\n", i, rede[i].id, rede[i].ip_pieces_1, rede[i].ip_pieces_2, rede[i].ip_pieces_3, rede[i].ip_pieces_4, rede[i].netmask, rede[i].broadcast);
                 }   
                 break;
         }
