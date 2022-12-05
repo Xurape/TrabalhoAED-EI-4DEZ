@@ -26,7 +26,7 @@ void aplicacoesInserir()
     printf(COR_Cyan " ■ ID do equipamento a associar a aplicação " COR_Green "→ "); scanf("%d", &aplicacoes[id].id);
 
     while (aplicacoes[id].id < 0 || aplicacoes[id].id > equipamentos_id) {
-        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+        printf(COR_Red"\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
         printf(COR_Cyan " ■ ID do equipamento a associar a placa " COR_Green "→ ");
         scanf("%d", &rede[id].id);
     }
@@ -55,7 +55,7 @@ void aplicacoesMostrar()
 
     limparJanela();
 
-    enviarTitulo("       MENU DE APLICAÇÕES", 1);
+    enviarTitulo("       MENU DE APLICAÇÕES         ", 1);
 
     if (aplicacoes_id == 0)
     {
@@ -184,7 +184,7 @@ void aplicacoesAlterar()
     printf(COR_Cyan " ■ ID do equipamento a associar a aplicação " COR_Green "→ "); scanf("%d", &aplicacoes[id].id);
 
     while (aplicacoes[id].id < 0 || aplicacoes[id].id > equipamentos_id) {
-        printf(COR_Red"\n\n\n\n\n\n\n\n\n\n\n\n\n\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
+        printf(COR_Red"\nEsse equipamento não existe, por favor insira um equipamento válido..\n\n");
         printf(COR_Cyan " ■ ID do equipamento a associar a placa " COR_Green "→ ");
         scanf("%d", &rede[id].id);
     }

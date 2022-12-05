@@ -1,5 +1,6 @@
 import platform
 import os
+import time
 
 # Compile func
 def compile():
@@ -16,4 +17,8 @@ def runit():
         os.system("./main")
 
 # Compilar & Correr
-compile(), runit()
+compile()
+
+time.sleep(2)
+
+runit()

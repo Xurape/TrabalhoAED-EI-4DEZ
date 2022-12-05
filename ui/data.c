@@ -195,6 +195,15 @@ void gerarTabela(int tipo, int filter)
             case 0:
                 for (size_t i = 1; i <= placasderede_id; i++)
                 {
+                    char endereço[50];
+                    strcpy(endereço, rede[i].ip_pieces_1 + '0');
+                    strcat(endereço, ".");
+                    strcat(endereço, rede[i].ip_pieces_2 + '0');
+                    strcat(endereço, ".");
+                    strcat(endereço, rede[i].ip_pieces_3 + '0');
+                    strcat(endereço, ".");
+                    strcat(endereço, rede[i].ip_pieces_4 + '0');
+                    printf("%s\n", endereço);
                     printf("\
  │ %-2d │ %-11d │ %d.%d.%d.%d │ %-19s │ %-20s "VL"\n", i, rede[i].id, rede[i].ip_pieces_1, rede[i].ip_pieces_2, rede[i].ip_pieces_3, rede[i].ip_pieces_4, rede[i].netmask, rede[i].broadcast);
                 }   
