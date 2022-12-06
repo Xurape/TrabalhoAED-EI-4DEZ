@@ -20,9 +20,9 @@ void gerarTabela(int tipo, int filter)
 
     /**
      * * * * * * * * *
-     * * LISTA TODO * 
+     * * LISTA TODO *
      * * * * * * * * *
-    */
+     */
 
     //* [1] -> Equipamento por Sistema Operativo
     //! [2] -> Equipamento por Placa de Rede
@@ -30,11 +30,11 @@ void gerarTabela(int tipo, int filter)
     //* [4] -> Equipamento por Departamento
 
     //* [5] -> Equipamento por Garantia Expirada
-    //* [6] -> Equipamento por Número de MIPS (Por departamento) 
+    //* [6] -> Equipamento por Número de MIPS (Por departamento)
 
-    //* FALAR COM O STOR    / \
-    //* FALAR COM O STOR     |
-    //* FALAR COM O STOR     | 
+    //? FALAR COM O STOR    / \
+    //? FALAR COM O STOR     |
+    //? FALAR COM O STOR     |
 
     //! [7] -> Equipamento por Memória (Por departamento)
     //! [8] -> Equipamento por Capacidade do disco duro (Por departamento)
@@ -43,19 +43,21 @@ void gerarTabela(int tipo, int filter)
     //! [11] -> Equipamentos na mesma rede
     //! [12] -> Verificar se equipamentos com possibilidade de comunicação interna.
 
+    //? VERIFICAR SE ALGUM DOS IPS JÁ EXISTE NA INSERÇÃO DE PLACA DE REDE
+
     if (tipo == 1)
     {
-        if (filter != 0 && filter != 5)
+        if (filter != 0 && filter != 5 && filter != 10)
         {
             /** Ler departamento em vez de uma string */
-            if(filter == 6 || filter == 7 || filter == 8)
+            if (filter == 6 || filter == 7 || filter == 8)
                 printf(COR_Cyan "■ " COR_Default "Departamento → ");
             else
                 printf(COR_Cyan "■ " COR_Default "Procurar por → ");
 
             fflush(stdin);
             scanf("%c", &temp);
-            if(filter == 9)
+            if (filter == 9)
                 scanf("%d", &filtroC);
             else
                 gets(filtroc);
@@ -64,7 +66,7 @@ void gerarTabela(int tipo, int filter)
 
         fflush(stdin);
 
-        if(filter == 6)
+        if (filter == 6)
             printf(COR_Yellow " ┌────┬─────────────┬──────────────┬──────────┬──────────────────┬──────────────────┬───────────────┬───────────────────┬─────────────────────────────────┬────────┬───────┐\n │ ID │ Adquirido   │ Departamento │ Garantia │        CPU       │ Velocidade (GHz) │    RAM (GB)   │ Sistema Operativo │              Disco              │  Tipo  │ MIPS  │\n " MVL "────┼─────────────┼──────────────┼──────────┼──────────────────┼──────────────────┼───────────────┼───────────────────┼─────────────────────────────────┼────────┼───────" MVR "\n");
         else
             printf(COR_Yellow " ┌────┬─────────────┬──────────────┬──────────┬──────────────────┬──────────────────┬───────────────┬───────────────────┬─────────────────────────────────┬────────┐\n │ ID │ Adquirido   │ Departamento │ Garantia │        CPU       │ Velocidade (GHz) │    RAM (GB)   │ Sistema Operativo │              Disco              │  Tipo  │\n " MVL "────┼─────────────┼──────────────┼──────────┼──────────────────┼──────────────────┼───────────────┼───────────────────┼─────────────────────────────────┼────────" MVR "\n");
@@ -126,10 +128,10 @@ void gerarTabela(int tipo, int filter)
                 }
                 break;
             /**
-             * 
+             *
              * Equipamentos com o departamento indicado
-             * 
-            */
+             *
+             */
             case 4:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
@@ -180,7 +182,7 @@ void gerarTabela(int tipo, int filter)
                     if (strstr(equipamento[i].departamento, filtroc))
                     {
                         /* 1250 MIPS por GHz */
-                        float mips = (float) equipamento[i].cpus.ghz * (float) 1250;
+                        float mips = (float)equipamento[i].cpus.ghz * (float)1250;
 
                         printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │ %-5.0f │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
@@ -192,10 +194,10 @@ void gerarTabela(int tipo, int filter)
                 break;
 
             /**
-             * 
+             *
              * Equipamentos com o departamento indicado
-             * 
-            */
+             *
+             */
             case 9:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
@@ -209,16 +211,55 @@ void gerarTabela(int tipo, int filter)
                     }
                 }
                 break;
+
+            /**
+             *
+             * Equipamentos com validade expirada nas aplicações
+             *  
+             */
+            case 10:
+                for (size_t i = 1; i <= equipamentos_id; i++)
+                {
+                    for (size_t j = 1; j <= aplicacoes_id; j++)
+                    {
+                        if (aplicacoes[j].id == i)
+                        {
+                            int ano_mes_atual, ano_mes_validade;
+                            
+                            time_t now;
+                            time(&now);
+                            struct tm *tempo = localtime(&now);
+
+                            ano_mes_atual = 12 * tempo->tm_year + tempo->tm_mon;
+                            ano_mes_validade = 12 *  aplicacoes[j].validade.ano + aplicacoes[j].validade.mes;
+
+                            if ((ano_mes_atual > ano_mes_validade) || ((ano_mes_atual == ano_mes_validade) && (tempo->tm_mday > aplicacoes[j].validade.dia)))
+                            {
+                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                    i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                                    equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                                    equipamento[i].ram, equipamento[i].sistemaoperativo,
+                                    equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
+                                i++;
+                                j = 1;
+                            }
+                        }
+                    }
+                }
+                break;
         }
-        if(filter == 6)
+        if (filter == 6)
             printf(BL "────┴─────────────┴──────────────┴──────────┴──────────────────┴──────────────────┴───────────────┴───────────────────┴─────────────────────────────────┴────────┴───────" BR "\n");
         else
             printf(BL "────┴─────────────┴──────────────┴──────────┴──────────────────┴──────────────────┴───────────────┴───────────────────┴─────────────────────────────────┴────────" BR "\n");
     }
-    /*
-        TIPO 2
-        - APLICAÇÕES -
-    */
+
+
+    /**
+     * * * * * * * * *
+     * * APLICAÇÕES *
+     * * * * * * * * *
+     */
     else if (tipo == 2)
     {
         fflush(stdin);
@@ -237,10 +278,11 @@ void gerarTabela(int tipo, int filter)
         printf(" └────┴─────────────┴─────────────────────┴─────────────────────┴───────────────────────┘");
     }
 
-    /*
-        TIPO 3
-        - PLACAS -
-    */
+    /**
+     * * * * * * * * * * *
+     * * PLACAS DE REDE *
+     * * * * * * * * * * *
+     */
     else
     {
         fflush(stdin);
@@ -248,22 +290,22 @@ void gerarTabela(int tipo, int filter)
 
         switch (filter)
         {
-            case 0:
-                for (size_t i = 1; i <= placasderede_id; i++)
-                {
-                    char endereço[50];
-                    strcpy(endereço, rede[i].ip_pieces_1 + '0');
-                    strcat(endereço, ".");
-                    strcat(endereço, rede[i].ip_pieces_2 + '0');
-                    strcat(endereço, ".");
-                    strcat(endereço, rede[i].ip_pieces_3 + '0');
-                    strcat(endereço, ".");
-                    strcat(endereço, rede[i].ip_pieces_4 + '0');
-                    printf("%s\n", endereço);
-                    printf(" │ %-2d │ %-11d │ %d.%d.%d.%d │ %-19s │ %-20s " VL "\n",
-                        i, rede[i].id, rede[i].ip_pieces_1, rede[i].ip_pieces_2, rede[i].ip_pieces_3, rede[i].ip_pieces_4, rede[i].netmask, rede[i].broadcast);
-                }
-                break;
+        case 0:
+            for (size_t i = 1; i <= placasderede_id; i++)
+            {
+                char endereço[50];
+                strcpy(endereço, rede[i].ip_pieces_1 + '0');
+                strcat(endereço, ".");
+                strcat(endereço, rede[i].ip_pieces_2 + '0');
+                strcat(endereço, ".");
+                strcat(endereço, rede[i].ip_pieces_3 + '0');
+                strcat(endereço, ".");
+                strcat(endereço, rede[i].ip_pieces_4 + '0');
+                printf("%s\n", endereço);
+                printf(" │ %-2d │ %-11d │ %d.%d.%d.%d │ %-19s │ %-20s " VL "\n",
+                       i, rede[i].id, rede[i].ip_pieces_1, rede[i].ip_pieces_2, rede[i].ip_pieces_3, rede[i].ip_pieces_4, rede[i].netmask, rede[i].broadcast);
+            }
+            break;
         }
         printf(" └────┴─────────────┴─────────────────────┴─────────────────────┴───────────────────────┘");
     }
