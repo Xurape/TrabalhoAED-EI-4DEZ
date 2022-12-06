@@ -107,12 +107,12 @@ void equipamentosFiltrar()
 
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Filtrar equipamentos\n\n");
 
-    printf(COR_Cyan "[1] "COR_Default"Equipamento por Sistema Operativo\n");
+    printf(COR_Cyan "[1] "COR_Default"Equipamento por Sistema Operativo\n"); // Feito
     printf(COR_Cyan "[2] "COR_Default"Equipamento por Placa de Rede\n");
     printf(COR_Cyan "[3] "COR_Default"Equipamento por Aplicação\n");
     printf(COR_Cyan "[4] "COR_Default"Equipamento por Departamento\n\n");
 
-    printf(COR_Cyan "[5] "COR_Default"Equipamento por Garantia Expirada\n");
+    printf(COR_Cyan "[5] "COR_Default"Equipamento por Garantia Expirada\n"); // Feito
     printf(COR_Cyan "[6] "COR_Default"Equipamento por Número de MIPS (Por departamento)\n");
     printf(COR_Cyan "[7] "COR_Default"Equipamento por Memória (Por departamento)\n");
     printf(COR_Cyan "[8] "COR_Default"Equipamento por Capacidade do disco duro (Por departamento)\n");
