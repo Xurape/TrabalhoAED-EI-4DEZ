@@ -28,29 +28,15 @@ void gerarTabela(int tipo, int filter)
     
     //! [2] -> Equipamento por Placa de Rede
     //! [3] -> Equipamento por Aplicação
-
-    //////////////////////////
-    //? FALAR COM O STOR    / \
-    //? FALAR COM O STOR     |
-    //? FALAR COM O STOR     |
-    //////////////////////////
-
     //* [4] -> Equipamento por Departamento
 
     //* [5] -> Equipamento por Garantia Expirada
     //* [6] -> Equipamento por Número de MIPS (Por departamento)
-
-    //////////////////////////
-    //? FALAR COM O STOR    / \
-    //? FALAR COM O STOR     |
-    //? FALAR COM O STOR     |
-    //////////////////////////
-
-    //! [7] -> Equipamento por Memória (Por departamento)
-    //! [8] -> Equipamento por Capacidade do disco duro (Por departamento)
+    //* [7] -> Equipamento por Memória (Exatamente o NRº fornecido)
+    //* [8] -> Equipamento por Capacidade do disco duro (Exatamente o NRº fornecido)
     //* [9] -> Equipamento com menos de um determinado Nº de RAM
     //* [10] -> Equipamento por Aplicação com validade expirada
-    //*![11] -> Equipamentos na mesma rede
+    //* [11] -> Equipamentos na mesma rede
     //! [12] -> Verificar se equipamentos com possibilidade de comunicação interna.
 
     //? VERIFICAR SE ALGUM DOS IPS JÁ EXISTE NA INSERÇÃO DE PLACA DE REDE
@@ -60,14 +46,17 @@ void gerarTabela(int tipo, int filter)
         if (filter != 0 && filter != 5 && filter != 10 && filter != 11)
         {
             /** Ler departamento em vez de uma string */
-            if (filter == 6 || filter == 7 || filter == 8)
-                printf(COR_Cyan "■ " COR_Default "Departamento → ");
+            if (filter == 6)
+                printf(COR_Cyan " ■ " COR_Default "Departamento → ");
             else
-                printf(COR_Cyan "■ " COR_Default "Procurar por → ");
+                if(filter == 7 || filter == 8)
+                    printf(COR_Cyan " ■ " COR_Default "Procurar por (Em GB, apenas o número) → ");
+                else
+                    printf(COR_Cyan " ■ " COR_Default "Procurar por → ");
 
             fflush(stdin);
             scanf("%c", &temp);
-            if (filter == 9)
+            if (filter == 7 || filter == 8 || filter == 9)
                 scanf("%d", &filtroC);
             else
                 gets(filtroc);
@@ -137,6 +126,31 @@ void gerarTabela(int tipo, int filter)
                     }
                 }
                 break;
+
+            /**
+             * TODO - ACABAR ESTA FUNÇÃO!!
+             * TODO - ACABAR ESTA FUNÇÃO!!
+             * Aplicação
+             * TODO - ACABAR ESTA FUNÇÃO!!
+             * TODO - ACABAR ESTA FUNÇÃO!!
+             */
+            case 3:
+                for (size_t i = 1; i <= equipamentos_id; i++)
+                {
+                    for (size_t ii = 0; i <= placasderede_id; i++)
+                    {
+                        // if(strstr(equipamento[i].rede[ii].ip, filtroc) ││ strstr(equipamento[i].rede[ii].netmask, filtroc) ││ strstr(equipamento[i].rede[ii].broadcast, filtroc))
+                        // {
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                            equipamento[i].ram, equipamento[i].sistemaoperativo,
+                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
+                        // }
+                    }
+                }
+                break;
+                
             /**
              *
              * Equipamentos com o departamento indicado
@@ -155,6 +169,7 @@ void gerarTabela(int tipo, int filter)
                     }
                 }
                 break;
+
             /**
              *
              * Equipamentos dos quais já passou o prazo de validade
@@ -180,11 +195,9 @@ void gerarTabela(int tipo, int filter)
                 break;
 
             /**
-             * TODO - ACABAR ESTA FUNÇÃO!!
-             * TODO - ACABAR ESTA FUNÇÃO!!
+             * 
              * Equipamentos por departamento por MIPS
-             * TODO - ACABAR ESTA FUNÇÃO!!
-             * TODO - ACABAR ESTA FUNÇÃO!!
+             * 
              */
             case 6:
                 for (size_t i = 1; i <= equipamentos_id; i++)
@@ -199,6 +212,44 @@ void gerarTabela(int tipo, int filter)
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
                             equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "), mips);
+                    }
+                }
+                break;
+
+            /**
+             *
+             * Equipamentos por NR de memória fornecida
+             *
+             */
+            case 7:
+                for (size_t i = 1; i <= equipamentos_id; i++)
+                {
+                    if (equipamento[i].ram == filtroC)
+                    {
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                            equipamento[i].ram, equipamento[i].sistemaoperativo,
+                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
+                    }
+                }
+                break;
+
+            /**
+             *
+             * Equipamentos por NRº de capacidade do disco rígido fornecido
+             *
+             */
+            case 8:
+                for (size_t i = 1; i <= equipamentos_id; i++)
+                {
+                    if (equipamento[i].discos.capacidade == filtroC)
+                    {
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                            equipamento[i].ram, equipamento[i].sistemaoperativo,
+                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
                     }
                 }
                 break;
@@ -256,12 +307,12 @@ void gerarTabela(int tipo, int filter)
                     }
                 }
                 break;
+            
             /**
              *
              * Equipamentos na mesma rede
              *  
              */
-
             case 11:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
@@ -270,17 +321,20 @@ void gerarTabela(int tipo, int filter)
                         if (rede[j].id == i)
                         {
                             for (size_t k = 1; k <= placasderede_id; k++)
-                            {  
-                                if ((rede[j].ip_pieces_1 == rede[k].ip_pieces_1) && (rede[j].ip_pieces_2 == rede[k].ip_pieces_2) && (rede[j].ip_pieces_3 == rede[k].ip_pieces_3))
+                            {
+                                if ((k != j) && (rede[j].id != rede[k].id))
                                 {
-                                    printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
-                                        i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-                                        equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-                                        equipamento[i].ram, equipamento[i].sistemaoperativo,
-                                        equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
+                                    if ((rede[j].ip_pieces_1 == rede[k].ip_pieces_1) && (rede[j].ip_pieces_2 == rede[k].ip_pieces_2) && (rede[j].ip_pieces_3 == rede[k].ip_pieces_3))
+                                    {
+                                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                                            equipamento[i].ram, equipamento[i].sistemaoperativo,
+                                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
                                       
-                                    k = 900;
-                                    j = 900;
+                                        k = 900;
+                                        j = 900;
+                                    }   
                                 }
                             }
                         }
@@ -289,8 +343,6 @@ void gerarTabela(int tipo, int filter)
                 }
                 break;
 
-
-            // break;
         }
         if (filter == 6)
             printf(BL "────┴─────────────┴──────────────┴──────────┴──────────────────┴──────────────────┴───────────────┴───────────────────┴─────────────────────────────────┴────────┴───────" BR "\n");
