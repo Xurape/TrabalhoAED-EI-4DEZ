@@ -25,29 +25,39 @@ void gerarTabela(int tipo, int filter)
      */
 
     //* [1] -> Equipamento por Sistema Operativo
+    
     //! [2] -> Equipamento por Placa de Rede
     //! [3] -> Equipamento por Aplicação
+
+    //////////////////////////
+    //? FALAR COM O STOR    / \
+    //? FALAR COM O STOR     |
+    //? FALAR COM O STOR     |
+    //////////////////////////
+
     //* [4] -> Equipamento por Departamento
 
     //* [5] -> Equipamento por Garantia Expirada
     //* [6] -> Equipamento por Número de MIPS (Por departamento)
 
+    //////////////////////////
     //? FALAR COM O STOR    / \
     //? FALAR COM O STOR     |
     //? FALAR COM O STOR     |
+    //////////////////////////
 
     //! [7] -> Equipamento por Memória (Por departamento)
     //! [8] -> Equipamento por Capacidade do disco duro (Por departamento)
     //* [9] -> Equipamento com menos de um determinado Nº de RAM
-    //! [10] -> Equipamento por Aplicação com validade expirada
-    //! [11] -> Equipamentos na mesma rede
+    //* [10] -> Equipamento por Aplicação com validade expirada
+    //*![11] -> Equipamentos na mesma rede
     //! [12] -> Verificar se equipamentos com possibilidade de comunicação interna.
 
     //? VERIFICAR SE ALGUM DOS IPS JÁ EXISTE NA INSERÇÃO DE PLACA DE REDE
 
     if (tipo == 1)
     {
-        if (filter != 0 && filter != 5 && filter != 10)
+        if (filter != 0 && filter != 5 && filter != 10 && filter != 11)
         {
             /** Ler departamento em vez de uma string */
             if (filter == 6 || filter == 7 || filter == 8)
@@ -156,7 +166,7 @@ void gerarTabela(int tipo, int filter)
                     time_t now;
                     time(&now);
                     struct tm *tempo = localtime(&now);
-                    temp1 = 12 * tempo->tm_year + tempo->tm_mon;
+                    temp1 = 12 * (tempo->tm_year + 1900) + tempo->tm_mon + 1;
                     temp2 = 12 * equipamento[i].aquisicao.ano + equipamento[i].aquisicao.mes;
                     if ((temp1 - temp2) > equipamento[i].garantia)
                     {
@@ -230,7 +240,7 @@ void gerarTabela(int tipo, int filter)
                             time(&now);
                             struct tm *tempo = localtime(&now);
 
-                            ano_mes_atual = 12 * tempo->tm_year + tempo->tm_mon;
+                            ano_mes_atual = 12 * (tempo->tm_year + 1900) + tempo->tm_mon + 1;
                             ano_mes_validade = 12 *  aplicacoes[j].validade.ano + aplicacoes[j].validade.mes;
 
                             if ((ano_mes_atual > ano_mes_validade) || ((ano_mes_atual == ano_mes_validade) && (tempo->tm_mday > aplicacoes[j].validade.dia)))
@@ -240,13 +250,47 @@ void gerarTabela(int tipo, int filter)
                                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                                     equipamento[i].ram, equipamento[i].sistemaoperativo,
                                     equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
-                                i++;
-                                j = 1;
+                                j = 900;
                             }
                         }
                     }
                 }
                 break;
+            /**
+             *
+             * Equipamentos na mesma rede
+             *  
+             */
+
+            case 11:
+                for (size_t i = 1; i <= equipamentos_id; i++)
+                {
+                    for (size_t j = 1; j <= placasderede_id; j++)
+                    {
+                        if (rede[j].id == i)
+                        {
+                            for (size_t k = 1; k <= placasderede_id; k++)
+                            {  
+                                if ((rede[j].ip_pieces_1 == rede[k].ip_pieces_1) && (rede[j].ip_pieces_2 == rede[k].ip_pieces_2) && (rede[j].ip_pieces_3 == rede[k].ip_pieces_3))
+                                {
+                                    printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                        i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                                        equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                                        equipamento[i].ram, equipamento[i].sistemaoperativo,
+                                        equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
+                                      
+                                    k = 900;
+                                    j = 900;
+                                }
+                            }
+                        }
+                            
+                    }
+                }
+                break;
+
+
+            // break;
         }
         if (filter == 6)
             printf(BL "────┴─────────────┴──────────────┴──────────┴──────────────────┴──────────────────┴───────────────┴───────────────────┴─────────────────────────────────┴────────┴───────" BR "\n");
@@ -293,17 +337,8 @@ void gerarTabela(int tipo, int filter)
         case 0:
             for (size_t i = 1; i <= placasderede_id; i++)
             {
-                char endereço[50];
-                strcpy(endereço, rede[i].ip_pieces_1 + '0');
-                strcat(endereço, ".");
-                strcat(endereço, rede[i].ip_pieces_2 + '0');
-                strcat(endereço, ".");
-                strcat(endereço, rede[i].ip_pieces_3 + '0');
-                strcat(endereço, ".");
-                strcat(endereço, rede[i].ip_pieces_4 + '0');
-                printf("%s\n", endereço);
-                printf(" │ %-2d │ %-11d │ %d.%d.%d.%d │ %-19s │ %-20s " VL "\n",
-                       i, rede[i].id, rede[i].ip_pieces_1, rede[i].ip_pieces_2, rede[i].ip_pieces_3, rede[i].ip_pieces_4, rede[i].netmask, rede[i].broadcast);
+                printf(" │ %-2d │ %-11d │ %d.%d.%d.%d %-10s │ %-19s │ %-20s " VL "\n",
+                       i, rede[i].id, rede[i].ip_pieces_1, rede[i].ip_pieces_2, rede[i].ip_pieces_3, rede[i].ip_pieces_4, "", rede[i].netmask, rede[i].broadcast);
             }
             break;
         }
