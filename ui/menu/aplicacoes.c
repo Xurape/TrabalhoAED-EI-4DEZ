@@ -92,7 +92,7 @@ void aplicacoesEliminar()
 
     limparJanela();
 
-    enviarTitulo("       MENU DE APLICAÇÕES", 1);
+    enviarTitulo("       MENU DE APLICAÇÕES         ", 1);
 
     if (aplicacoes_id == 0)
     {
@@ -151,7 +151,7 @@ void aplicacoesAlterar()
 
     limparJanela();
 
-    enviarTitulo("       MENU DE APLICAÇÕES", 1);
+    enviarTitulo("       MENU DE APLICAÇÕES         ", 1);
 
     if (aplicacoes_id == 0)
     {
