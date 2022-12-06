@@ -30,7 +30,12 @@ void gerarTabela(int tipo, int filter)
     //* [4] -> Equipamento por Departamento
 
     //* [5] -> Equipamento por Garantia Expirada
-    //* [6] -> Equipamento por Número de MIPS (Por departamento)
+    //* [6] -> Equipamento por Número de MIPS (Por departamento) 
+
+    //* FALAR COM O STOR    / \
+    //* FALAR COM O STOR     |
+    //* FALAR COM O STOR     | 
+
     //! [7] -> Equipamento por Memória (Por departamento)
     //! [8] -> Equipamento por Capacidade do disco duro (Por departamento)
     //* [9] -> Equipamento com menos de um determinado Nº de RAM
