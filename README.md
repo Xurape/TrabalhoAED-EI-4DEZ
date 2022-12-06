@@ -1,47 +1,49 @@
+<p align="center">
+    <img src="IPVC.png">
+</p>
 
----
-Enunciado
+# Informações
+Projeto em **C** para gestão de equipamentos numa rede informática com diversas funcionalidades e opções de filtração para uma melhor gestão.
 
----
-![imagem](./enunciado.png)
-
----
-# Estrutura
+# Funções
 ```c
- typedef struct Equipamento
+// Time
+int sleep(int);
+int usleep(long);
+
+// UI
+void mainUI();
+
+// Menus
+void menuEquipamentos();
+void menuAplicacoes();
+void menuPlacasRede();
+
+// Funções
+void configuracaoInicial();
+void limparJanela();
+void quebrarLinhas(int);
+void enviarTitulo(char*, bool );
+void abrirMenu(int);
+void finalizarMenu();
+void gerarTabela();
+
+// Equipamentos
+void equipamentosInserir();
+void equipamentosAlterar();
+void equipamentosEliminar();
+void equipamentosMostrar();
+void equipamentosFiltrar();
+
+// Aplicações
+void aplicacoesInserir();
+void aplicacoesMostrar();
+void aplicacoesAlterar();
+void apliacoesEliminar();
+
+// Placas de rede
+void placasderedeInserir();
+void placasderedeMostrar();
+void placasderedeAlterar();
+void placasderedeEliminar();
 ```
-```diff
-+ Data de aquisição
-+ Departamento
-+ Garantia (duração em meses)
-
-+ CPU
-    - cpu
-    - ghz
-
-+ Disco duro
-    - nome
-    - tipo
-    - capacidade
-
-+ Memória RAM
-+ Sistema Operativo
-
-+ Rede
-    - Enereço IP
-    - Máscara de rede
-    - Endereço de broadcast
-
-+ Aplicações Instaladas
-    → Designação
-    → Versão
-    → Validade da licença
-```
----
-## TODO
----
-- [ ] Fazer o sistema para inserir, alterar, eliminar equipamentos;
-
-- [ ] Fazer o sistema para inserir, alterar, eliminar aplicações;
-
-- [ ] Fazer o sistema para inserir, alterar, eliminar placas de rede;
