@@ -55,6 +55,18 @@ void placasderedeInserir()
         scanf("%c", &temp); 
         scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
     }
+
+    for (size_t i = 1; i <= placasderede_id; i++)
+    {
+        if((rede[id].ip_pieces_1 == rede[i].ip_pieces_1) && (rede[id].ip_pieces_2 == rede[i].ip_pieces_2) && (rede[id].ip_pieces_3 == rede[i].ip_pieces_3) && (rede[id].ip_pieces_4 == rede[i].ip_pieces_4))
+        {
+            printf(COR_Red"\nEsse endereço IP já está a ser utilizado, por favor insira um endereço IP válido..\n\n");
+            printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+            fflush(stdin); 
+            scanf("%c", &temp); 
+            scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
+        } 
+    }
     
     fflush(stdin); 
     scanf("%c", &temp);
@@ -180,6 +192,18 @@ void placasderedeAlterar()
         fflush(stdin); 
         scanf("%c", &temp); 
         scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
+    }
+
+    for (size_t i = 1; i <= placasderede_id; i++)
+    {
+        if((rede[id].ip_pieces_1 == rede[i].ip_pieces_1) && (rede[id].ip_pieces_2 == rede[i].ip_pieces_2) && (rede[id].ip_pieces_3 == rede[i].ip_pieces_3) && (rede[id].ip_pieces_4 == rede[i].ip_pieces_4))
+        {
+            printf(COR_Red"\nEsse endereço IP já está a ser utilizado, por favor insira um endereço IP válido..\n\n");
+            printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+            fflush(stdin); 
+            scanf("%c", &temp); 
+            scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
+        } 
     }
     
     fflush(stdin); 
