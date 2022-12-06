@@ -119,8 +119,8 @@ void equipamentosFiltrar()
 
     printf(COR_Cyan " [5] "COR_Default"Equipamento por Garantia Expirada\n"); // Feito
     printf(COR_Cyan " [6] "COR_Default"Equipamento por Número de MIPS (Por departamento)\n");
-    printf(COR_Cyan " [7] "COR_Default"Equipamento por Memória (Por departamento)\n");
-    printf(COR_Cyan " [8] "COR_Default"Equipamento por Capacidade do disco duro (Por departamento)\n");
+    printf(COR_Cyan " [7] "COR_Default"Equipamento por Memória\n");
+    printf(COR_Cyan " [8] "COR_Default"Equipamento por Capacidade do disco duro\n");
     printf(COR_Cyan " [9] "COR_Default"Equipamento com menos de um determinado Nº de RAM\n");
     printf(COR_Cyan " [10] "COR_Default"Equipamento por Aplicação com validade expirada\n");
     printf(COR_Cyan " [11] "COR_Default"Equipamentos na mesma rede\n");
