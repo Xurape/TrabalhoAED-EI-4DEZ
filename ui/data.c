@@ -75,7 +75,7 @@ void gerarTabela(int tipo, int filter)
             case 0:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
-                    printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                    printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                         i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                         equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                         equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -94,7 +94,7 @@ void gerarTabela(int tipo, int filter)
                 {
                     if (strstr(equipamento[i].sistemaoperativo, filtroc))
                     {
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -111,7 +111,7 @@ void gerarTabela(int tipo, int filter)
             case 2:
                 int i = rede[filtroC].id;
 
-                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                 i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                 equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                 equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -132,7 +132,7 @@ void gerarTabela(int tipo, int filter)
                         {
                             if (strstr(aplicacoes[j].designacao, filtroc))
                             {
-                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                                     equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -155,7 +155,7 @@ void gerarTabela(int tipo, int filter)
                 {
                     if (strstr(equipamento[i].departamento, filtroc))
                     {
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -179,7 +179,7 @@ void gerarTabela(int tipo, int filter)
                     temp2 = 12 * equipamento[i].aquisicao.ano + equipamento[i].aquisicao.mes;
                     if ((temp1 - temp2) > equipamento[i].garantia)
                     {
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -201,7 +201,7 @@ void gerarTabela(int tipo, int filter)
                         /* 1250 MIPS por GHz */
                         float mips = (float)equipamento[i].cpus.ghz * (float)1250;
 
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │ %-5.0f │\n",
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │ %-5.0f │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -220,7 +220,7 @@ void gerarTabela(int tipo, int filter)
                 {
                     if (equipamento[i].ram == filtroC)
                     {
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -239,7 +239,7 @@ void gerarTabela(int tipo, int filter)
                 {
                     if (equipamento[i].discos.capacidade == filtroC)
                     {
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -258,7 +258,7 @@ void gerarTabela(int tipo, int filter)
                 {
                     if (equipamento[i].ram < filtroC)
                     {
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -290,7 +290,7 @@ void gerarTabela(int tipo, int filter)
 
                             if ((ano_mes_atual > ano_mes_validade) || ((ano_mes_atual == ano_mes_validade) && (tempo->tm_mday > aplicacoes[j].validade.dia)))
                             {
-                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                                     equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -320,7 +320,7 @@ void gerarTabela(int tipo, int filter)
                                 {
                                     if ((rede[j].ip_pieces_1 == rede[k].ip_pieces_1) && (rede[j].ip_pieces_2 == rede[k].ip_pieces_2) && (rede[j].ip_pieces_3 == rede[k].ip_pieces_3))
                                     {
-                                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -355,7 +355,7 @@ void gerarTabela(int tipo, int filter)
                                 {
                                     if (strstr(rede[j].broadcast, rede[k].broadcast))
                                     {
-                                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                                             i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                                             equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                                             equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -386,7 +386,7 @@ void gerarTabela(int tipo, int filter)
                         {
                             if ((rede[k].ip_pieces_1 == filtroC_pieces_1) && (rede[k].ip_pieces_2 == filtroC_pieces_2) && (rede[k].ip_pieces_3 == filtroC_pieces_3))
                             {
-                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-13s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %-22s %-4.d │ %-6s │\n",
                                     i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
                                     equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
                                     equipamento[i].ram, equipamento[i].sistemaoperativo,
@@ -399,7 +399,7 @@ void gerarTabela(int tipo, int filter)
             break;
 
         }
-        
+
         if (filter == 6)
             printf(BL "────┴─────────────┴──────────────┴──────────┴──────────────────┴──────────────────┴───────────────┴───────────────────┴─────────────────────────────────┴────────┴───────" BR "\n");
         else
@@ -445,7 +445,7 @@ void gerarTabela(int tipo, int filter)
         case 0:
             for (size_t i = 1; i <= placasderede_id; i++)
             {
-                printf(" │ %-2d │ %-11d │ %d.%d.%d.%d %-10s │ %-19s │ %-20s " VL "\n",
+                printf(" │ %-2d │ %-11d │ %d.%d.%d.%d %-7s │ %-19s │ %-20s " VL "\n",
                        i, rede[i].id, rede[i].ip_pieces_1, rede[i].ip_pieces_2, rede[i].ip_pieces_3, rede[i].ip_pieces_4, "", rede[i].netmask, rede[i].broadcast);
             }
             break;
