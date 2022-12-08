@@ -42,7 +42,7 @@ void placasderedeInserir()
         scanf("%d", &rede[id].id);
     }
 
-    printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+    printf(COR_Cyan " ■ Endereço IP (Ex.: 192.168.1.2) " COR_Green "→ "); 
     fflush(stdin); 
     scanf("%c", &temp); 
     scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
@@ -50,7 +50,7 @@ void placasderedeInserir()
     while(rede[id].ip_pieces_1 < 1 || rede[id].ip_pieces_1 > 254 || rede[id].ip_pieces_2 < 0 || rede[id].ip_pieces_2 > 254 || rede[id].ip_pieces_3 < 0 || rede[id].ip_pieces_3 > 254 || rede[id].ip_pieces_4 < 0 || rede[id].ip_pieces_4 > 254)
     {
         printf(COR_Red"\nIP inválido, por favor insira um endereço IP válido..\n\n");
-        printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+        printf(COR_Cyan " ■ Endereço IP (Ex.: 192.168.1.2) " COR_Green "→ "); 
         fflush(stdin); 
         scanf("%c", &temp); 
         scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
@@ -61,7 +61,7 @@ void placasderedeInserir()
         if((rede[id].ip_pieces_1 == rede[i].ip_pieces_1) && (rede[id].ip_pieces_2 == rede[i].ip_pieces_2) && (rede[id].ip_pieces_3 == rede[i].ip_pieces_3) && (rede[id].ip_pieces_4 == rede[i].ip_pieces_4))
         {
             printf(COR_Red"\nEsse endereço IP já está a ser utilizado, por favor insira um endereço IP válido..\n\n");
-            printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+            printf(COR_Cyan " ■ Endereço IP (Ex.: 192.168.1.2) " COR_Green "→ "); 
             fflush(stdin); 
             scanf("%c", &temp); 
             scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
@@ -70,8 +70,8 @@ void placasderedeInserir()
     
     fflush(stdin); 
     scanf("%c", &temp);
-    printf(COR_Cyan " ■ Máscara de Rede " COR_Green "→ "); gets(rede[id].netmask);
-    printf(COR_Cyan " ■ Endereço de broadcast " COR_Green "→ "); gets(rede[id].broadcast); quebrarLinhas(1);
+    printf(COR_Cyan " ■ Máscara de Rede (Ex.: 255.255.255.0) " COR_Green "→ "); gets(rede[id].netmask);
+    printf(COR_Cyan " ■ Endereço de broadcast (Ex.: 192.168.1.255) " COR_Green "→ "); gets(rede[id].broadcast); quebrarLinhas(1);
 
     placasderede_id++;
 }
@@ -180,7 +180,7 @@ void placasderedeAlterar()
         scanf("%d", &rede[id].id);
     }
 
-    printf(COR_Cyan " ■ Endereço IP " COR_Green "→ ");
+    printf(COR_Cyan " ■ Endereço IP  (Ex.: 192.168.1.2) " COR_Green "→ ");
     fflush(stdin); 
     scanf("%c", &temp); 
     scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
@@ -188,7 +188,7 @@ void placasderedeAlterar()
     while(rede[id].ip_pieces_1 < 1 || rede[id].ip_pieces_1 > 254 || rede[id].ip_pieces_2 < 0 || rede[id].ip_pieces_2 > 254 || rede[id].ip_pieces_3 < 0 || rede[id].ip_pieces_3 > 254 || rede[id].ip_pieces_4 < 0 || rede[id].ip_pieces_4 > 254)
     {
         printf(COR_Red"\nIP inválido, por favor insira um endereço IP válido..\n\n");
-        printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+        printf(COR_Cyan " ■ Endereço IP (Ex.: 192.168.1.2) " COR_Green "→ "); 
         fflush(stdin); 
         scanf("%c", &temp); 
         scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
@@ -199,7 +199,7 @@ void placasderedeAlterar()
         if((rede[id].ip_pieces_1 == rede[i].ip_pieces_1) && (rede[id].ip_pieces_2 == rede[i].ip_pieces_2) && (rede[id].ip_pieces_3 == rede[i].ip_pieces_3) && (rede[id].ip_pieces_4 == rede[i].ip_pieces_4))
         {
             printf(COR_Red"\nEsse endereço IP já está a ser utilizado, por favor insira um endereço IP válido..\n\n");
-            printf(COR_Cyan " ■ Endereço IP " COR_Green "→ "); 
+            printf(COR_Cyan " ■ Endereço IP (Ex.: 192.168.1.2) " COR_Green "→ "); 
             fflush(stdin); 
             scanf("%c", &temp); 
             scanf("%d.%d.%d.%d", &rede[id].ip_pieces_1, &rede[id].ip_pieces_2, &rede[id].ip_pieces_3, &rede[id].ip_pieces_4);
@@ -208,8 +208,8 @@ void placasderedeAlterar()
     
     fflush(stdin); 
     scanf("%c", &temp);
-    printf(COR_Cyan " ■ Máscara de Rede " COR_Green "→ "); gets(rede[id].netmask);
-    printf(COR_Cyan " ■ Endereço de broadcast " COR_Green "→ "); gets(rede[id].broadcast); quebrarLinhas(1);
+    printf(COR_Cyan " ■ Máscara de Rede (Ex.: 255.255.255.0) " COR_Green "→ "); gets(rede[id].netmask);
+    printf(COR_Cyan " ■ Endereço de broadcast (Ex.: 192.168.1.255) " COR_Green "→ "); gets(rede[id].broadcast); quebrarLinhas(1);
 
     quebrarLinhas(1);
 }
