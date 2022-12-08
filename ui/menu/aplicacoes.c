@@ -19,6 +19,15 @@ void aplicacoesInserir()
 
     enviarTitulo("      INSERIR UMA APLICAÇÃO      ", 1);
 
+    if(equipamentos_id == 0) {
+        printf(COR_Cyan "\n\n Por favor, insira um equipamento primeiro.\n\n Insira qualquer número para voltar atrás.. ");
+
+        int opt;
+        scanf("%d", &opt);
+
+        menuEquipamentos();
+    }
+
     printf(COR_Green "  [SELECIONADO]" COR_Cyan " Inserir Aplicação\n");
 
     printf(COR_Green"\n  A inserir aplicação com ID: "COR_Cyan"[ %d ]\n\n"COR_Default, id);
