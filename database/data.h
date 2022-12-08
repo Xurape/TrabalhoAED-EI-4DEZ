@@ -49,7 +49,6 @@ typedef struct Rede
     int ip_pieces_2;
     int ip_pieces_3;
     int ip_pieces_4;
-    char ip[16];
     char netmask[255];   
     char broadcast[255]; 
 } Rede;
