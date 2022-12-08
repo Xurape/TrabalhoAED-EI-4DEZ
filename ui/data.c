@@ -18,28 +18,6 @@ void gerarTabela(int tipo, int filter)
     char filtroc[100];
     int filtroC, filtroC_pieces_1, filtroC_pieces_2, filtroC_pieces_3;
 
-    /**
-     * * * * * * * * *
-     * * LISTA TODO *
-     * * * * * * * * *
-     */
-
-    //* [1] -> Equipamento por Sistema Operativo
-    
-    //* [2] -> Equipamento por Placa de Rede
-    //* [3] -> Equipamento por Aplicação
-    //* [4] -> Equipamento por Departamento
-
-    //* [5] -> Equipamento por Garantia Expirada
-    //* [6] -> Equipamento por Número de MIPS (Por departamento)
-    //* [7] -> Equipamento por Memória (Exatamente o NRº fornecido)
-    //* [8] -> Equipamento por Capacidade do disco duro (Exatamente o NRº fornecido)
-    //* [9] -> Equipamento com menos de um determinado Nº de RAM
-    //* [10] -> Equipamento por Aplicação com validade expirada
-    //* [11] -> Equipamentos na mesma rede
-    //* [12] -> Verificar se equipamentos com possibilidade de comunicação interna.
-    //* [13] -> Equipamentos numa determinada rede
-
     if (tipo == 1)
     {
         if (filter != 0 && filter != 5 && filter != 10 && filter != 11 && filter != 12)
@@ -89,6 +67,11 @@ void gerarTabela(int tipo, int filter)
 
         switch (filter)
         {
+            /**
+             * 
+             * Mostrar tabela principal
+             * 
+            */
             case 0:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
@@ -389,6 +372,11 @@ void gerarTabela(int tipo, int filter)
                 }
             break;
 
+            /**
+             * 
+             * Equipamentos numa determinada rede
+             * 
+            */
             case 13:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
@@ -411,6 +399,7 @@ void gerarTabela(int tipo, int filter)
             break;
 
         }
+        
         if (filter == 6)
             printf(BL "────┴─────────────┴──────────────┴──────────┴──────────────────┴──────────────────┴───────────────┴───────────────────┴─────────────────────────────────┴────────┴───────" BR "\n");
         else

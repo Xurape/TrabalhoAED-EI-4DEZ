@@ -3,7 +3,7 @@
 #define MAX_PLACASDEREDE 50000
 
 int equipamentos_id = 0;
-int aplicacoes_id = 0;
+int aplicacoes_id   = 0;
 int placasderede_id = 0;
 
 /**

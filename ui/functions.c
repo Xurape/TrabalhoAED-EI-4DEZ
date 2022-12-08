@@ -206,7 +206,6 @@ void abrirMenu(int menu)
          * Iniciais
          * 
         */
-       
         case 0:
             exit(1);
             break;
@@ -225,7 +224,6 @@ void abrirMenu(int menu)
          * Equipamentos
          * 
         */
-
         case 31:
             equipamentosInserir();
             menuEquipamentos();
@@ -252,7 +250,6 @@ void abrirMenu(int menu)
          * Aplicações
          * 
         */
-
         case 41:
             aplicacoesInserir();
             menuAplicacoes();
@@ -275,7 +272,6 @@ void abrirMenu(int menu)
          * Placas de rede
          * 
         */
-
         case 51:
             placasderedeInserir();
             menuPlacasRede();
@@ -298,7 +294,6 @@ void abrirMenu(int menu)
          * Outros
          * 
         */
-
         default:
             exit(1);
             break;

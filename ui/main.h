@@ -14,7 +14,7 @@ void menuPlacasRede();
 void configuracaoInicial();
 void limparJanela();
 void quebrarLinhas(int);
-void enviarTitulo(char*, bool );
+void enviarTitulo(char*, bool);
 void abrirMenu(int);
 void finalizarMenu();
 void gerarTabela();

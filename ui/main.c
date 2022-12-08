@@ -42,8 +42,6 @@ void mainUI()
         printf("            "VL"\n");
         printf(COR_Green VL"\t\t\t\t    "VL "\n" BL LINE BR"\n\n");
 
-        printf(COR_Default"\n  Build: "COR_Cyan"1.56a     "COR_Default"Branch: "COR_Cyan"origin/dev"COR_Default);
-
         restaurarCursor();
 
         scanf("%d", &opcao);

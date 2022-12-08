@@ -66,7 +66,6 @@ void menuAplicacoes()
 
         enviarTitulo("       MENU DE APLICAÇÕES        ", 1);
 
-        // Opções
         printf(COR_Cyan "   [1]" COR_Default " Inserir aplicações\n");
         printf(COR_Cyan "   [2]" COR_Default " Alterar aplicações\n");
         printf(COR_Cyan "   [3]" COR_Default " Eliminar aplicações\n");
@@ -112,7 +111,6 @@ void menuPlacasRede()
 
         enviarTitulo("     MENU DE PLACAS DE REDE", 1);
 
-        // Opções
         printf(COR_Cyan "   [1]" COR_Default " Inserir placa de rede\n");
         printf(COR_Cyan "   [2]" COR_Default " Alterar placa de rede\n");
         printf(COR_Cyan "   [3]" COR_Default " Eliminar placa de rede\n");
