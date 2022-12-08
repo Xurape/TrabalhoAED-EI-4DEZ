@@ -64,7 +64,7 @@ void aplicacoesMostrar()
 
     limparJanela();
 
-    enviarTitulo("       MENU DE APLICAÇÕES         ", 1);
+    enviarTitulo("       MENU DE APLICAÇÕES        ", 1);
 
     if (aplicacoes_id == 0)
     {
