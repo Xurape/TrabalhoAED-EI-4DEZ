@@ -125,6 +125,7 @@ void equipamentosFiltrar()
     printf(COR_Cyan " [10] "COR_Default"Equipamento por Aplicação com validade expirada\n");
     printf(COR_Cyan " [11] "COR_Default"Equipamentos na mesma rede\n");
     printf(COR_Cyan " [12] "COR_Default"Verificar se equipamentos com possibilidade de comunicação interna.\n");
+    printf(COR_Cyan " [13] "COR_Default"Equipamentos numa determinada rede\n");
 
     printf(COR_Cyan"\n ■"COR_Default" Filtrar → ");
     scanf("%d", &filtro);
