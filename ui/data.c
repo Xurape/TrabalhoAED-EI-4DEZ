@@ -26,8 +26,8 @@ void gerarTabela(int tipo, int filter)
 
     //* [1] -> Equipamento por Sistema Operativo
     
-    //? [2] -> Equipamento por Placa de Rede
-    //! [3] -> Equipamento por Aplicação
+    //* [2] -> Equipamento por Placa de Rede
+    //* [3] -> Equipamento por Aplicação
     //* [4] -> Equipamento por Departamento
 
     //* [5] -> Equipamento por Garantia Expirada
@@ -37,7 +37,7 @@ void gerarTabela(int tipo, int filter)
     //* [9] -> Equipamento com menos de um determinado Nº de RAM
     //* [10] -> Equipamento por Aplicação com validade expirada
     //* [11] -> Equipamentos na mesma rede
-    //? [12] -> Verificar se equipamentos com possibilidade de comunicação interna.
+    //* [12] -> Verificar se equipamentos com possibilidade de comunicação interna.
     //* [13] -> Equipamentos numa determinada rede
 
     if (tipo == 1)
@@ -49,17 +49,18 @@ void gerarTabela(int tipo, int filter)
              * Ler departamento em vez de uma string 
              * 
             */
-            if (filter == 6)
-                printf(COR_Cyan " ■ " COR_Default "Departamento → ");
-            else if (filter == 2)
+            if (filter == 2)
                 printf(COR_Cyan " ■ " COR_Default "ID da placa de rede (Ex.: 1) → ");
+            else if (filter == 3)
+                printf(COR_Cyan " ■ " COR_Default "Designação da aplicação → ");
+            else if (filter == 6)
+                printf(COR_Cyan " ■ " COR_Default "Departamento → ");
+            else if (filter == 7 || filter == 8)
+                printf(COR_Cyan " ■ " COR_Default "Procurar por (Em GB, apenas o número) → ");
             else if (filter == 13)
                 printf(COR_Cyan " ■ " COR_Default "Primeiros 3 digitos no IP da Rede (Ex.: 192.168.1) → ");
             else
-                if(filter == 7 || filter == 8)
-                    printf(COR_Cyan " ■ " COR_Default "Procurar por (Em GB, apenas o número) → ");
-                else
-                    printf(COR_Cyan " ■ " COR_Default "Procurar por → ");
+                printf(COR_Cyan " ■ " COR_Default "Procurar por → ");
 
             fflush(stdin);
             scanf("%c", &temp);
@@ -135,25 +136,28 @@ void gerarTabela(int tipo, int filter)
             break;
 
             /**
-             * TODO - ACABAR ESTA FUNÇÃO!!
-             * TODO - ACABAR ESTA FUNÇÃO!!
+             *
              * Aplicação
-             * TODO - ACABAR ESTA FUNÇÃO!!
-             * TODO - ACABAR ESTA FUNÇÃO!!
+             *
              */
             case 3:
                 for (size_t i = 1; i <= equipamentos_id; i++)
                 {
-                    for (size_t ii = 0; i <= placasderede_id; i++)
+                    for (size_t j = 1; j <= aplicacoes_id; j++)
                     {
-                        // if(strstr(equipamento[i].rede[ii].ip, filtroc) ││ strstr(equipamento[i].rede[ii].netmask, filtroc) ││ strstr(equipamento[i].rede[ii].broadcast, filtroc))
-                        // {
-                        printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
-                            i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-                            equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-                            equipamento[i].ram, equipamento[i].sistemaoperativo,
-                            equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
-                        // }
+                        if (aplicacoes[j].id == i)
+                        {
+                            if (strstr(aplicacoes[j].designacao, filtroc))
+                            {
+                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                                    i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                                    equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                                    equipamento[i].ram, equipamento[i].sistemaoperativo,
+                                    equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
+
+                                j = 900;
+                            }
+                        }
                     }
                 }
                 break;
