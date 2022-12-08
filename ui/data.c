@@ -119,25 +119,20 @@ void gerarTabela(int tipo, int filter)
                 }
                 break;
 
+            /**
+             *
+             * Rede
+             *
+             */
             case 2:
-                for (size_t i = 1; i <= equipamentos_id; i++)
-                {
-                    for (size_t k = 1; i <= placasderede_id; i++)
-                    {
-                        if (rede[k].id == i)
-                        {
-                            if (k == filtroC)
-                            {
-                                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
-                                    i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
-                                    equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
-                                    equipamento[i].ram, equipamento[i].sistemaoperativo,
-                                    equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
-                            }
-                        }
-                    }
-                }
-                break;
+                int i = rede[filtroC].id;
+
+                printf(" │ %-2d │ %-.2d/%-.2d/%-.4d  │ %-12s │ %-.2d meses │ %-16s │ %-12.2f GHz │ %-10.d GB │ %-17s │ %-3s %s %-25d │ %-6s │\n",
+                i, equipamento[i].aquisicao.dia, equipamento[i].aquisicao.mes, equipamento[i].aquisicao.ano, equipamento[i].departamento, equipamento[i].garantia,
+                equipamento[i].cpus.cpu, equipamento[i].cpus.ghz,
+                equipamento[i].ram, equipamento[i].sistemaoperativo,
+                equipamento[i].discos.tipo, equipamento[i].discos.nome, equipamento[i].discos.capacidade, ((equipamento[i].tipo == 2) ? "Server" : "  PC  "));
+            break;
 
             /**
              * TODO - ACABAR ESTA FUNÇÃO!!
