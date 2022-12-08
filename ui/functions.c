@@ -176,7 +176,7 @@ void enviarTitulo(char* titulo, bool right)
     time(&now);                             
     struct tm *tempo = localtime(&now);
 
-    printf(COR_Default"\n  Bem-vindo!      Hora atual: "COR_Cyan"%d:%d\n"COR_Default, tempo->tm_hour, tempo->tm_min);
+    printf(COR_Default"\n  Bem-vindo!      Hora atual: "COR_Cyan"%d:%-2.d\n"COR_Default, tempo->tm_hour, tempo->tm_min);
 
     printf(COR_Green "\n"TL LINE TR"\n"VL"\t\t\t\t    "VL"\n");
     if(right) 
