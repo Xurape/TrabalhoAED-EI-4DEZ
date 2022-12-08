@@ -2,7 +2,7 @@
  *
  * @name equipamentosInserir
  * @brief Esta função irá gerar o menu para inserir um equipamento
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -47,7 +47,7 @@ void equipamentosInserir()
  *
  * @name equipamentosMostrar
  * @brief Esta função irá gerar o menu com a lista dos equipamentos
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -84,7 +84,7 @@ void equipamentosMostrar()
  *
  * @name equipamentosFiltrar
  * @brief Esta função irá gerar o menu para filtrar equipamentos
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -143,7 +143,7 @@ void equipamentosFiltrar()
  *
  * @name equipamentosEliminar
  * @brief Esta função irá gerar o menu para eliminar equipamentos
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -202,7 +202,7 @@ void equipamentosEliminar()
  *
  * @name equipamentosAlterar
  * @brief Esta função irá gerar o menu para eliminar um equipamento
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *

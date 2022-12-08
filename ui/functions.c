@@ -5,7 +5,7 @@
  * 
  * @name configuracaoInicial
  * @brief Esta função irá correr a configuração inicial do programa
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -18,7 +18,7 @@ void configuracaoInicial() { setlocale(LC_ALL, "Portuguese"); }
  * 
  * @name limparJanela
  * @brief Esta função irá limpar a janela ao utilizador dependendo do sistema operativo a ser usado
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -31,7 +31,7 @@ void limparJanela() { printf("\e[1;1H\e[2J"); }
  * 
  * @name homeCursor
  * @brief Esta função irá colocar o cursor na posição home
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -44,7 +44,7 @@ void homeCursor() { printf("\e[H"); }
  * 
  * @name linhaInicialCursor
  * @brief Esta função irá colocar o cursor na posição inicial
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -57,7 +57,7 @@ void linhaInicialCursor() { printf("\e[0G"); }
  * 
  * @name moverCursor
  * @brief Esta função irá mover o cursor para a linha X e a coluna Y
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param int Linha
  * @param int Coluna
@@ -71,7 +71,7 @@ void moverCursor(int linha, int coluna) { printf("\e[%d;%dH", linha, coluna); }
  * 
  * @name upCursor
  * @brief Esta função irá mover o cursor X linhas para cima
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param int Linhas
  * 
@@ -84,7 +84,7 @@ void upCursor(int linhas) { printf("\e[%dA", linhas); }
  * 
  * @name downCursor
  * @brief Esta função irá mover o cursor X linhas para baixo
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param int Linhas
  * 
@@ -97,7 +97,7 @@ void downCursor(int linhas) { printf("\e[%dB", linhas); }
  * 
  * @name rightCursor
  * @brief Esta função irá mover o cursor X colunas para a direita
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param int Colunas
  * 
@@ -110,7 +110,7 @@ void rightCursor(int colunas) { printf("\e[%dC", colunas); }
  * 
  * @name leftCursor
  * @brief Esta função irá mover o cursor X colunas para a esquerda
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param int Colunas
  * 
@@ -123,7 +123,7 @@ void leftCursor(int colunas) { printf("\e[%dD", colunas); }
  * 
  * @name guardarCursor
  * @brief Esta função irá guardar a posição atual do cursor
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -136,7 +136,7 @@ void guardarCursor() { printf("\e[s"); }
  * 
  * @name restaurarCursor
  * @brief Esta função irá fazer com que o cursor volte para a posição definida no guardarCursor()
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -150,7 +150,7 @@ void restaurarCursor() { printf("\e[u"); }
  * 
  * @name quebrarLinhas
  * @brief Esta função irá mudar/quebrar as linhas indicadas
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param int Linhas
  * 
@@ -163,7 +163,7 @@ void quebrarLinhas(int linhas) { for (size_t i = 1; i <= linhas; i++) { printf("
  * 
  * @name enviarTitulo
  * @brief Esta função irá enviar print do título parameterizado
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param char Título a enviar
  * 
@@ -190,7 +190,7 @@ void enviarTitulo(char* titulo, bool right)
  * 
  * @name abrirMenu
  * @brief Esta função irá abrir um menu selecionado
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param int Número do menu a abrir
  * 
@@ -309,7 +309,7 @@ void abrirMenu(int menu)
  * 
  * @name finalizarMenu
  * @brief Esta função irá finalizar o programa
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 

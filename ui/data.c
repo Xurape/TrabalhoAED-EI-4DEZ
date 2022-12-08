@@ -2,7 +2,7 @@
  *
  * @name gerarTabela
  * @brief Esta função irá gerar uma tabela com dados
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param int Tipo de tabela a renderizar
  * @param bool Filtar elementos?

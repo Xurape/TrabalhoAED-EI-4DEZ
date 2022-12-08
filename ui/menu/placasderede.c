@@ -2,7 +2,7 @@
  *
  * @name placasderedeInserir
  * @brief Esta função irá gerar o menu para inserir uma placa de rede
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -80,7 +80,7 @@ void placasderedeInserir()
  *
  * @name placasderedeMostrar
  * @brief Esta função irá gerar o menu com a lista das placas de rede
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -125,7 +125,7 @@ void placasderedeMostrar()
  *
  * @name placasderedeAlterar
  * @brief Esta função irá gerar o menu para alterar uma placa de rede
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -218,7 +218,7 @@ void placasderedeAlterar()
  *
  * @name placasderedeEliminar
  * @brief Esta função irá gerar o menu para eliminar uma placa de rede
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *

@@ -2,7 +2,7 @@
  *
  * @name aplicacoesInserir
  * @brief Esta função irá gerar o menu para inserir uma aplicação
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -50,7 +50,7 @@ void aplicacoesInserir()
  *
  * @name aplicacoesMostrar
  * @brief Esta função irá gerar o menu com a lista dos aplicacoes
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -87,7 +87,7 @@ void aplicacoesMostrar()
  *
  * @name aplicacoesEliminar
  * @brief Esta função irá gerar o menu para eliminar aplicacoes
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *
@@ -146,7 +146,7 @@ void aplicacoesEliminar()
  *
  * @name aplicacoesAlterar
  * @brief Esta função irá gerar o menu para eliminar um equipamento
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  *
  * @param null Sem parametros
  *

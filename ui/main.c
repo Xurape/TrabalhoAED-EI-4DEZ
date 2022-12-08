@@ -9,7 +9,7 @@
  * 
  * @name mainUI
  * @brief Esta função irá gerar o menu principal do programa
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 

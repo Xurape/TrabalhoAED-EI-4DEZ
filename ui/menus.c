@@ -2,7 +2,7 @@
  * 
  * @name menuEquipamentos
  * @brief Esta função irá gerar um menu com as opções dos equipamentos
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -50,7 +50,7 @@ void menuEquipamentos()
  * 
  * @name menuAplicações
  * @brief Esta função irá gerar um menu com as opções das aplicações
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
@@ -96,7 +96,7 @@ void menuAplicacoes()
  * 
  * @name menuPlacasRede
  * @brief Esta função irá gerar um menu com as opções das placas de rede
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 

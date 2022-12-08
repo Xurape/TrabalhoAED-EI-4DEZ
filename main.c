@@ -19,7 +19,7 @@
  * 
  * @name main
  * @brief Esta função será a primeira e única função a ser executada de origem após a iniciação do programa pelo utilizador.
- * @author João Ferreira & Gabriel Gavino
+ * @author João Ferreira & Gabriel Gavina
  * 
  * @param null Sem parametros
  * 
