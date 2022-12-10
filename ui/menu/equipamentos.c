@@ -187,12 +187,54 @@ void equipamentosEliminar()
     restaurarCursor();
     scanf("%d", &Confirmacao);
 
-    if (Confirmacao == 1)
+   if (Confirmacao == 1)
     {
         for (size_t i = idEliminar; i <= equipamentos_id; i++)
         {
             equipamento[i] = equipamento[i + 1];
         }
+
+        for (size_t i = 1; i <= placasderede_id; i++)
+        {
+            if (rede[i].id > idEliminar)
+            {
+
+                rede[i].id--;
+
+            }else if (rede[i].id == idEliminar)
+            {
+
+                for (size_t j = i; j <= equipamentos_id; j++)
+                {
+                    rede[j] = rede[j + 1];
+                }
+
+                i--;
+                placasderede_id--;
+            }
+        }
+
+
+        for (size_t i = 1; i <= aplicacoes_id; i++)
+        {
+            if (aplicacoes[i].id > idEliminar)
+            {
+
+                aplicacoes[i].id--;
+
+            }else if (aplicacoes[i].id == idEliminar)
+            {
+
+                for (size_t j = i; j <= equipamentos_id; j++)
+                {
+                    aplicacoes[j] = aplicacoes[j + 1];
+                }
+
+                i--;
+                aplicacoes_id--;
+            }
+        }
+
 
         equipamentos_id--;
     }
